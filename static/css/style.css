@@ -1,0 +1,11 @@
+:root {
+    --project-min-height: calc(100vh - 146px);
+}
+
+body {
+    min-width: 320px;
+}
+
+main {
+    min-height: var(--project-min-height);
+}
