@@ -12,7 +12,7 @@
 - Bootstrap 5
 
 ## Структура
-.
+```text
 |-- components/              # документация и декомпозиция UI-компонентов
 |-- config/                  # настройки Django-проекта
 |-- main/                    # основное приложение сайта
@@ -27,6 +27,7 @@
 |-- .gitignore
 |-- manage.py
 `-- requirements.txt
+```
 
 ## Быстрый старт
 
