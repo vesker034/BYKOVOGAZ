@@ -1,7 +1,49 @@
-<footer class="border-top bg-light">
-    <div class="container py-4">
-        <p class="mb-0 small text-body-secondary">
-            Служебный шаблон для старта разработки. Наполняется командой по мере верстки.
-        </p>
+<footer class="site-footer">
+    <div class="site-container py-5">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <p class="site-footer__brand mb-3">БыковоГаз</p>
+                <p class="mb-0 text-white-50">
+                    Надёжное газоснабжение и сопровождение для жителей и предприятий региона.
+                </p>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <h2 class="site-footer__section-title">Разделы</h2>
+                <ul class="site-footer__list">
+                    <li><a href="{% url 'main:home' %}">Главная</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Карьера</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <h2 class="site-footer__section-title">Контакты</h2>
+                <div class="site-footer__contacts">
+                    <p class="mb-2">
+                        <a href="tel:+78001234567">8 (800) 123-45-67</a>
+                    </p>
+                    <p class="mb-2">
+                        <a href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
+                    </p>
+                    <p class="mb-0 text-white-50">
+                        Пн–Пт: 9:00–18:00<br />
+                        Адрес: уточняется (замените в макете Figma)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-footer__bottom small">
+            <div class="row align-items-center gy-2">
+                <div class="col-md-6">
+                    © {% now "Y" %} ООО «БыковоГаз». Все права защищены.
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Политика конфиденциальности</a>
+                    <a href="#">Реквизиты</a>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
