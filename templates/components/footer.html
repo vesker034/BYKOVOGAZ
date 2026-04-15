@@ -1,49 +1,52 @@
 <footer class="site-footer">
-    <div class="site-container py-5">
-        <div class="row g-5">
-            <div class="col-lg-4">
-                <p class="site-footer__brand mb-3">БыковоГаз</p>
-                <p class="mb-0 text-white-50">
-                    Надёжное газоснабжение и сопровождение для жителей и предприятий региона.
+    <div class="site-container site-footer__inner">
+        <div class="row row-cols-1 row-cols-lg-3 site-footer__grid g-4 g-lg-5 align-items-start justify-content-center">
+            <div class="col">
+                <p class="site-footer__brand-title">БЫКОВОГАЗ</p>
+                <p class="site-footer__lead">
+                    Вертикально интегрированная компания по разработке недр и добыче углеводородного сырья
                 </p>
+                <p class="site-footer__copy">© {% now "Y" %} ООО «БЫКОВОГАЗ»</p>
             </div>
-            <div class="col-sm-6 col-lg-4">
-                <h2 class="site-footer__section-title">Разделы</h2>
+            <div class="col">
+                <h2 class="site-footer__section-title">Быстрые ссылки</h2>
                 <ul class="site-footer__list">
-                    <li><a href="{% url 'main:home' %}">Главная</a></li>
                     <li><a href="#">О компании</a></li>
+                    <li><a href="#">Наши работы</a></li>
                     <li><a href="#">Новости</a></li>
-                    <li><a href="#">Контакты</a></li>
                     <li><a href="#">Карьера</a></li>
+                    <li><a href="#">Контакты</a></li>
                 </ul>
             </div>
-            <div class="col-sm-6 col-lg-4">
+            <div class="col">
                 <h2 class="site-footer__section-title">Контакты</h2>
-                <div class="site-footer__contacts">
-                    <p class="mb-2">
-                        <a href="tel:+78001234567">8 (800) 123-45-67</a>
-                    </p>
-                    <p class="mb-2">
-                        <a href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
-                    </p>
-                    <p class="mb-0 text-white-50">
-                        Пн–Пт: 9:00–18:00<br />
-                        Адрес: уточняется (замените в макете Figma)
-                    </p>
-                </div>
+                <ul class="site-footer__contact-list">
+                    <li class="site-footer__contact-item">
+                        <span class="site-footer__contact-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                        </span>
+                        <span class="site-footer__contact-text">
+                            400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж
+                        </span>
+                    </li>
+                    <li class="site-footer__contact-item">
+                        <span class="site-footer__contact-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.6A2 2 0 014.1 1h3a2 2 0 012 1.7c.1 1 .3 2 .6 2.9a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l2.2-2.1a2 2 0 012.1-.5c1 .3 2 .5 2.9.6a2 2 0 011.7 2z"/></svg>
+                        </span>
+                        <a class="site-footer__contact-text" href="tel:+78442998899">8 (8442) 99-88-99</a>
+                    </li>
+                    <li class="site-footer__contact-item">
+                        <span class="site-footer__contact-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                        </span>
+                        <a class="site-footer__contact-text" href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
+                    </li>
+                </ul>
             </div>
         </div>
 
-        <div class="site-footer__bottom small">
-            <div class="row align-items-center gy-2">
-                <div class="col-md-6">
-                    © {% now "Y" %} ООО «БыковоГаз». Все права защищены.
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="me-3">Политика конфиденциальности</a>
-                    <a href="#">Реквизиты</a>
-                </div>
-            </div>
+        <div class="site-footer__chamber">
+            Член Союза «Волгоградская торгово-промышленная палата» с апреля 2019 года
         </div>
     </div>
 </footer>

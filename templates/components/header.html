@@ -1,31 +1,17 @@
+<!-- Логотип: положите файл в папку static/img/ (например logo.svg). В начале этого шаблона добавьте load static, перед блоком с названием компании вставьте span.site-header__logo-mark и внутри img.site-header__logo-img с src=static-путь к img/ИМЯ_ВАШЕГО_ФАЙЛА (шаблонный тег static для файла из static/img/). -->
 <header class="site-header">
-    <div class="site-header__top d-none d-md-block">
-        <div class="site-container site-header__top-inner">
-            <ul class="site-header__contacts">
-                <li>
-                    <a href="tel:+78001234567">8 (800) 123-45-67</a>
-                    <span class="text-white-50 ms-1">— круглосуточно</span>
-                </li>
-                <li>
-                    <a href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
-                </li>
-            </ul>
-            <p class="mb-0 text-white-50 small">
-                Поставка и обслуживание газоснабжения
-            </p>
-        </div>
-    </div>
-
     <div class="site-header__main">
-        <nav class="navbar navbar-expand-lg navbar-light" aria-label="Основное меню">
-            <div class="site-container d-flex flex-wrap align-items-center justify-content-between gap-3">
-                <a class="navbar-brand d-flex align-items-center gap-2 mb-0" href="{% url 'main:home' %}">
-                    <span class="navbar-brand__accent" aria-hidden="true">●</span>
-                    <span>Быково<span class="text-body-secondary">Газ</span></span>
+        <nav class="navbar navbar-expand-lg navbar-light site-header__nav" aria-label="Основное меню">
+            <div class="site-container site-header__bar">
+                <a class="site-header__brand" href="{% url 'main:home' %}">
+                    <span class="site-header__brand-text">
+                        <span class="site-header__logo-title">БЫКОВОГАЗ</span>
+                        <span class="site-header__logo-tagline">Добыча углеводородного сырья</span>
+                    </span>
                 </a>
 
                 <button
-                    class="navbar-toggler"
+                    class="navbar-toggler site-header__toggler"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#siteNavbar"
@@ -36,31 +22,64 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse justify-content-lg-end" id="siteNavbar">
-                    <ul class="navbar-nav align-items-lg-center me-lg-3">
+                <div class="collapse navbar-collapse site-header__collapse ms-lg-auto" id="siteNavbar">
+                    <ul class="navbar-nav site-header__menu">
                         <li class="nav-item">
                             <a
-                                class="nav-link{% if request.resolver_match and request.resolver_match.url_name == 'home' %} active{% endif %}"
+                                class="nav-link site-header__link{% if request.resolver_match and request.resolver_match.url_name == 'home' %} site-header__link--active{% endif %}"
                                 href="{% url 'main:home' %}"
                                 {% if request.resolver_match and request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}
                             >
                                 Главная
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">О компании</a>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle site-header__link"
+                                href="#"
+                                id="navAbout"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside"
+                                aria-expanded="false"
+                            >
+                                О нас
+                            </a>
+                            <ul class="dropdown-menu site-header__dropdown" aria-labelledby="navAbout">
+                                <li><a class="dropdown-item" href="#">О компании</a></li>
+                                <li><a class="dropdown-item" href="#">О месторождении</a></li>
+                                <li><a class="dropdown-item" href="#">Состав команды</a></li>
+                                <li><a class="dropdown-item" href="#">Лицензия</a></li>
+                                <li><a class="dropdown-item" href="#">Виртуальный тур</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Новости</a>
+                            <a class="nav-link site-header__link" href="#">Наши работы</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle site-header__link"
+                                href="#"
+                                id="navPress"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside"
+                                aria-expanded="false"
+                            >
+                                Пресс-центр
+                            </a>
+                            <ul class="dropdown-menu site-header__dropdown" aria-labelledby="navPress">
+                                <li><a class="dropdown-item" href="#">Новости</a></li>
+                                <li><a class="dropdown-item" href="#">Галерея</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Контакты</a>
+                            <a class="nav-link site-header__link" href="#">Карьера</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Карьера</a>
+                            <a class="nav-link site-header__link" href="#">Контакты</a>
                         </li>
                     </ul>
-                    <a class="btn btn-cta btn-sm px-4" href="#">Заказать услугу</a>
                 </div>
             </div>
         </nav>

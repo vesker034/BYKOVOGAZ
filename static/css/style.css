@@ -1,9 +1,3 @@
-/* Глобальные стили и компоненты layout — БыковоГаз */
-
-/* -------------------------------------------------------------------------- */
-/* Базовая типографика и страница */
-/* -------------------------------------------------------------------------- */
-
 html {
     scroll-behavior: smooth;
 }
@@ -19,7 +13,7 @@ body {
 }
 
 main {
-    min-height: calc(100vh - var(--header-height) - 280px);
+    min-height: calc(100vh - 12rem);
 }
 
 a {
@@ -33,14 +27,20 @@ a:hover {
     color: var(--color-primary-hover);
 }
 
+.site-header a,
+.site-footer a {
+    text-decoration: none;
+}
+
+.site-header a:hover,
+.site-footer a:hover {
+    text-decoration: none;
+}
+
 :focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
-
-/* -------------------------------------------------------------------------- */
-/* Утилиты контейнера (дополняют Bootstrap .container) */
-/* -------------------------------------------------------------------------- */
 
 .site-container {
     width: 100%;
@@ -51,156 +51,251 @@ a:hover {
     padding-right: var(--container-px);
 }
 
-/* -------------------------------------------------------------------------- */
-/* Шапка сайта */
-/* -------------------------------------------------------------------------- */
+/* --- Header (макет Figma) --- */
 
 .site-header {
     position: sticky;
     top: 0;
     z-index: 1030;
     background-color: var(--bg-header);
-    box-shadow: var(--shadow-header);
+    border-top: 1px solid var(--color-header-top);
+    border-bottom: 1px solid var(--color-border);
 }
 
-.site-header__top {
-    background-color: var(--bg-footer);
-    color: rgba(255, 255, 255, 0.92);
-    font-size: var(--fs-small);
-    padding: var(--space-2) 0;
+.site-header__main {
+    padding: 0;
 }
 
-.site-header__top a {
-    color: inherit;
-    text-decoration: none;
+.site-header__nav {
+    padding: 0;
 }
 
-.site-header__top a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
-.site-header__top-inner {
+.site-header__bar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-3);
+    gap: var(--space-6);
+    min-height: var(--header-min-height);
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
 }
 
-.site-header__contacts {
+.site-header__brand {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
     gap: var(--space-4);
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    max-width: min(100%, 22rem);
 }
 
-.site-header__main {
-    padding: var(--space-3) 0;
+.site-header__brand:hover .site-header__logo-title {
+    color: var(--color-primary-hover);
 }
 
-.site-header .navbar {
-    padding-top: 0;
-    padding-bottom: 0;
+.site-header__logo-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--logo-mark-size);
+    height: var(--logo-mark-size);
+    background-color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    padding: 0.35rem;
 }
 
-.site-header .navbar-brand {
+.site-header__logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.site-header__brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.site-header__logo-title {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.25rem;
-    letter-spacing: -0.02em;
-    color: var(--color-text);
-    text-decoration: none;
+    font-size: 1.125rem;
+    letter-spacing: 0.06em;
+    line-height: 1.15;
+    color: var(--color-logo-text);
+    transition: color var(--transition-fast);
 }
 
-.site-header .navbar-brand:hover {
-    color: var(--color-primary);
+.site-header__logo-tagline {
+    font-size: var(--fs-tagline);
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--color-tagline);
 }
 
-.site-header .navbar-brand__accent {
-    color: var(--color-primary);
+.site-header__collapse {
+    flex-grow: 1;
 }
 
-.site-header .nav-link {
-    font-size: var(--fs-nav);
-    font-weight: 500;
-    color: var(--color-text);
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-}
-
-.site-header .nav-link:hover,
-.site-header .nav-link:focus {
-    color: var(--color-primary);
-    background-color: var(--color-primary-muted);
-}
-
-.site-header .nav-link.active {
-    color: var(--color-primary);
-    background-color: var(--color-primary-muted);
-}
-
-.site-header .navbar-toggler {
-    border-color: var(--color-border);
-}
-
-.site-header .btn-cta {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: var(--color-accent);
-    --bs-btn-border-color: var(--color-accent);
-    --bs-btn-hover-bg: var(--color-accent-hover);
-    --bs-btn-hover-border-color: var(--color-accent-hover);
-    font-weight: 600;
-    padding-left: var(--space-5);
-    padding-right: var(--space-5);
-    white-space: nowrap;
+.site-header__menu {
+    align-items: center;
+    gap: 0.125rem;
 }
 
 @media (min-width: 992px) {
-    .site-header .navbar-nav {
-        gap: var(--space-1);
+    .site-header__collapse {
+        flex-grow: 0;
+        flex-basis: auto;
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .site-header__menu {
+        justify-content: flex-end;
+        gap: 0.35rem;
     }
 }
 
-/* -------------------------------------------------------------------------- */
-/* Подвал сайта */
-/* -------------------------------------------------------------------------- */
+.site-header__link {
+    font-size: var(--fs-nav);
+    font-weight: 500;
+    padding: 0.5rem 0.65rem;
+    border-radius: 0;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
+}
+
+.site-header__link:hover,
+.site-header__link:focus {
+    color: var(--color-primary);
+    background-color: transparent;
+}
+
+.site-header__link--active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.site-header .nav-link.site-header__link {
+    color: var(--color-text);
+}
+
+.site-header .nav-link.site-header__link--active,
+.site-header .nav-link.site-header__link.site-header__link--active {
+    color: var(--color-primary);
+}
+
+.site-header .nav-link.site-header__link:hover,
+.site-header .nav-link.site-header__link:focus {
+    color: var(--color-primary);
+    background-color: transparent;
+}
+
+.site-header__toggler {
+    border-color: var(--color-border);
+    padding: 0.4rem 0.6rem;
+}
+
+.site-header__dropdown {
+    margin-top: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-dropdown);
+    padding: var(--space-2) 0;
+    min-width: 14rem;
+}
+
+.site-header .dropdown-item {
+    color: var(--color-text);
+    font-size: var(--fs-nav);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.site-header .dropdown-item:hover,
+.site-header .dropdown-item:focus {
+    background-color: var(--color-primary-muted);
+    color: var(--color-primary);
+}
+
+.site-header .dropdown-toggle::after {
+    margin-left: 0.35em;
+    vertical-align: 0.14em;
+}
+
+@media (min-width: 992px) {
+    .site-header .nav-item.dropdown {
+        position: relative;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .site-header__dropdown {
+        margin-top: 0;
+        border: 0;
+        box-shadow: none;
+        padding-left: var(--space-4);
+        padding-bottom: var(--space-2);
+    }
+}
+
+/* --- Footer (макет Figma) --- */
 
 .site-footer {
     margin-top: auto;
     background-color: var(--bg-footer);
-    color: rgba(255, 255, 255, 0.88);
+    color: #fff;
     font-size: var(--fs-small);
 }
 
-.site-footer a {
-    color: rgba(255, 255, 255, 0.92);
-    text-decoration: none;
+.site-footer__inner {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-10);
 }
 
-.site-footer a:hover {
-    color: #fff;
-    text-decoration: underline;
+.site-footer__grid {
+    --bs-gutter-x: 2.5rem;
+    --bs-gutter-y: 2.5rem;
 }
 
-.site-footer__brand {
+.site-footer__grid > .col {
+    min-width: 0;
+    text-align: center;
+}
+
+.site-footer__brand-title {
+    font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.125rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.04em;
+    margin: 0 0 var(--space-4);
     color: #fff;
-    margin-bottom: var(--space-3);
+}
+
+.site-footer__lead {
+    margin: 0 0 var(--space-6);
+    font-size: var(--fs-small);
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.site-footer__copy {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.65);
 }
 
 .site-footer__section-title {
-    font-size: var(--fs-small);
+    font-size: 1rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: rgba(255, 255, 255, 0.55);
-    margin-bottom: var(--space-4);
+    color: #fff;
+    margin: 0 0 var(--space-5);
 }
 
 .site-footer__list {
@@ -210,16 +305,78 @@ a:hover {
 }
 
 .site-footer__list li + li {
-    margin-top: var(--space-2);
+    margin-top: 0.65rem;
 }
 
-.site-footer__contacts p {
-    margin-bottom: var(--space-2);
+.site-footer__list a {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 400;
+    font-size: var(--fs-small);
 }
 
-.site-footer__bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    padding-top: var(--space-4);
-    margin-top: var(--space-8);
-    color: rgba(255, 255, 255, 0.55);
+.site-footer__list a:hover {
+    color: #fff;
+}
+
+.site-footer__contact-list {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 22rem;
+}
+
+.site-footer__contact-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-bottom: var(--space-4);
+    width: 100%;
+}
+
+.site-footer__contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.site-footer__contact-icon {
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.site-footer__contact-icon svg {
+    display: block;
+}
+
+.site-footer__contact-text {
+    font-size: var(--fs-small);
+    font-weight: 400;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+a.site-footer__contact-text {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+a.site-footer__contact-text:hover {
+    color: #fff;
+}
+
+.site-footer__chamber {
+    margin-top: var(--space-12);
+    padding-top: var(--space-6);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.75);
 }
