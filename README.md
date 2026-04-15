@@ -67,10 +67,4 @@ python manage.py runserver
 - `feature/masha/hero-section`
 - `feature/ivan/footer`
 
-## Что уже подготовлено
 
-- приложение `main` подключено к проекту;
-- настроены общие папки `templates`, `components`, `static`;
-- добавлены базовый шаблон, шаблоны компонентов и стартовая страница;
-- подключен Bootstrap 5 через CDN;
-- создана простая проверка страницы и GitHub Actions для `check` и `test`.
