@@ -10,5 +10,6 @@ media/
 staticfiles/
 .idea/
 .vscode/
+.cursor/
 Thumbs.db
 Desktop.ini

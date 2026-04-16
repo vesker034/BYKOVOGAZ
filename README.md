@@ -45,19 +45,19 @@ python manage.py runserver
 
 - `main` - стабильная ветка
 - `develop` - общая ветка интеграции
-- `feature/<задача>` - личные ветки участников команды
+- `feature/<суть-задачи>` — ветка под задачу (без имён людей в названии)
 
 Рекомендуемый процесс:
 
 1. Каждый разработчик создает ветку от `develop`.
-2. Ветку называет по шаблону `feature/<задача>`.
+2. Ветку называет по сути работы, например `feature/header-layout` или `fix/footer-spacing`.
 3. После завершения задачи открывает Pull Request в `develop`.
 4. После проверки изменения попадают в `main`.
 
-Примеры имен веток:
+Примеры имён веток:
 
-- `feature/header`
+- `feature/header-layout`
 - `feature/hero-section`
-- `feature/footer`
+- `feature/footer-contacts`
 
 

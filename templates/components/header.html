@@ -1,8 +1,93 @@
-<header class="border-bottom bg-white">
-    <div class="container py-3 d-flex align-items-center justify-content-between">
-        <a class="navbar-brand fw-semibold mb-0" href="{% url 'main:home' %}">
-            БыковоГаз
-        </a>
-        <span class="small text-body-secondary">Django / Bootstrap 5 / Team Setup</span>
+<!-- Логотип: положите файл в папку static/img/ (например logo.svg). В начале этого шаблона добавьте load static, перед блоком с названием компании вставьте span.site-header__logo-mark и внутри img.site-header__logo-img с src=static-путь к img/ИМЯ_ВАШЕГО_ФАЙЛА (шаблонный тег static для файла из static/img/). -->
+<header class="site-header">
+    <div class="site-header__main">
+        <nav class="navbar navbar-expand-lg navbar-light site-header__nav" aria-label="Основное меню">
+            <div class="site-container site-header__bar">
+                {% url 'main:home' as home_url %}
+                {% url 'main:about' as about_url %}
+                {% url 'main:works' as works_url %}
+                {% url 'main:press' as press_url %}
+                {% url 'main:career' as career_url %}
+                {% url 'main:contacts' as contacts_url %}
+                <a class="site-header__brand" href="{% url 'main:home' %}">
+                    <span class="site-header__brand-text">
+                        <span class="site-header__logo-title">БЫКОВОГАЗ</span>
+                        <span class="site-header__logo-tagline">Добыча углеводородного сырья</span>
+                    </span>
+                </a>
+
+                <button
+                    class="navbar-toggler site-header__toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#siteNavbar"
+                    aria-controls="siteNavbar"
+                    aria-expanded="false"
+                    aria-label="Открыть меню"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse site-header__collapse ms-lg-auto" id="siteNavbar">
+                    <ul class="navbar-nav site-header__menu">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link site-header__link{% if request.path == home_url %} site-header__link--active{% endif %}"
+                                href="{{ home_url }}"
+                                {% if request.path == home_url %}aria-current="page"{% endif %}
+                            >
+                                Главная
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle site-header__link{% if request.path|slice:':6' == '/about' %} site-header__link--active{% endif %}"
+                                href="{{ about_url }}"
+                                id="navAbout"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside"
+                                aria-expanded="false"
+                            >
+                                О нас
+                            </a>
+                            <ul class="dropdown-menu site-header__dropdown" aria-labelledby="navAbout">
+                                <li><a class="dropdown-item" href="{% url 'main:about_company' %}">О компании</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:about_field' %}">О месторождении</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:about_team' %}">Состав команды</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:about_license' %}">Лицензия</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:about_tour' %}">Виртуальный тур</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link site-header__link{% if request.path == works_url %} site-header__link--active{% endif %}" href="{{ works_url }}">Наши работы</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle site-header__link{% if request.path|slice:':6' == '/press' %} site-header__link--active{% endif %}"
+                                href="{{ press_url }}"
+                                id="navPress"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside"
+                                aria-expanded="false"
+                            >
+                                Пресс-центр
+                            </a>
+                            <ul class="dropdown-menu site-header__dropdown" aria-labelledby="navPress">
+                                <li><a class="dropdown-item" href="{% url 'main:press_news' %}">Новости</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:press_gallery' %}">Галерея</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link site-header__link{% if request.path == career_url %} site-header__link--active{% endif %}" href="{{ career_url }}">Карьера</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link site-header__link{% if request.path == contacts_url %} site-header__link--active{% endif %}" href="{{ contacts_url }}">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
 </header>
