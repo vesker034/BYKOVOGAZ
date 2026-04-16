@@ -26,9 +26,9 @@
                     <ul class="navbar-nav site-header__menu">
                         <li class="nav-item">
                             <a
-                                class="nav-link site-header__link{% if request.resolver_match and request.resolver_match.url_name == 'home' %} site-header__link--active{% endif %}"
+                                class="nav-link site-header__link{% if request.path == '/' %} site-header__link--active{% endif %}"
                                 href="{% url 'main:home' %}"
-                                {% if request.resolver_match and request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}
+                                {% if request.path == '/' %}aria-current="page"{% endif %}
                             >
                                 Главная
                             </a>
