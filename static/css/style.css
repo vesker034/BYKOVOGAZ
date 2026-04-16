@@ -87,14 +87,28 @@ a:hover {
     align-items: flex-end;
     padding: clamp(2.5rem, 5vw, 4rem) 0;
     background-color: #123a8a;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #fff;
     overflow: hidden;
 }
 
-.page-hero--about {
-    background:
-        linear-gradient(90deg, rgba(10, 24, 54, 0.55) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10, 24, 54, 0.55) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
         linear-gradient(0deg, rgba(26, 61, 177, 0.65), rgba(26, 61, 177, 0.65));
+}
+
+.page-hero--about {
+    background-image: url("../img/hero-about.jpg");
+}
+
+.page-hero--about::before {
+    background: linear-gradient(90deg, rgba(10, 24, 54, 0.55) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
+        linear-gradient(0deg, rgba(26, 61, 177, 0.62), rgba(26, 61, 177, 0.62));
 }
 
 .page-hero__inner {
