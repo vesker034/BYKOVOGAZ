@@ -51,6 +51,226 @@ a:hover {
     padding-right: var(--container-px);
 }
 
+/* --- Base sections / pages --- */
+
+.page {
+    background-color: var(--bg-page);
+}
+
+.section {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.section--muted {
+    background-color: #f3f6fb;
+}
+
+.section__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.25rem, 1.2vw + 1rem, 1.625rem);
+    line-height: 1.2;
+    margin: 0 0 var(--space-6);
+}
+
+.section__text {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text-muted);
+    max-width: 60rem;
+}
+
+.page-hero {
+    position: relative;
+    min-height: clamp(14rem, 18vw, 18rem);
+    display: flex;
+    align-items: flex-end;
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+    background-color: #123a8a;
+    color: #fff;
+    overflow: hidden;
+}
+
+.page-hero--about {
+    background:
+        linear-gradient(90deg, rgba(10, 24, 54, 0.55) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
+        linear-gradient(0deg, rgba(26, 61, 177, 0.65), rgba(26, 61, 177, 0.65));
+}
+
+.page-hero__inner {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 2vw + 1rem, 2.5rem);
+    line-height: 1.1;
+}
+
+.page-hero__lead {
+    margin: var(--space-3) 0 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (min-width: 992px) {
+    .content-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        align-items: start;
+    }
+}
+
+.panel {
+    background-color: #f3f6fb;
+    border-radius: 12px;
+    padding: var(--space-8);
+}
+
+.panel__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.panel__text {
+    margin: var(--space-3) 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.stat-cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+@media (min-width: 576px) {
+    .stat-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.stat-card {
+    background-color: #fff;
+    border: 1px solid rgba(15, 25, 40, 0.08);
+    border-radius: 10px;
+    padding: var(--space-5);
+    box-shadow: 0 10px 18px rgba(18, 22, 31, 0.05);
+}
+
+.stat-card__value {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
+.stat-card__label {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.promo-card {
+    background: linear-gradient(90deg, rgba(26, 77, 184, 0.98), rgba(26, 61, 177, 0.98));
+    color: #fff;
+    border-radius: 12px;
+    padding: var(--space-6);
+}
+
+.promo-card__inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: start;
+}
+
+.promo-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.promo-card__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.promo-card__text {
+    margin-top: 0.35rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+}
+
+.card-ui {
+    background-color: #fff;
+    border: 1px solid rgba(15, 25, 40, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 22px rgba(18, 22, 31, 0.06);
+    overflow: hidden;
+}
+
+.card-ui__body {
+    padding: var(--space-6);
+}
+
+.card-ui__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(26, 77, 184, 0.12);
+    color: var(--color-primary);
+}
+
+.card-ui__title--tight {
+    margin-top: var(--space-4);
+}
+
+.card-ui__title {
+    margin: var(--space-4) 0 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.25;
+    color: var(--color-text);
+}
+
+.card-ui__text {
+    margin: var(--space-3) 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.card-ui__link {
+    margin-top: var(--space-4);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+}
+
 /* --- Header (макет Figma) --- */
 
 .site-header {
