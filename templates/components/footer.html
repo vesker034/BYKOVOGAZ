@@ -11,11 +11,11 @@
             <div class="col">
                 <h2 class="site-footer__section-title">Быстрые ссылки</h2>
                 <ul class="site-footer__list">
-                    <li><a href="#">О компании</a></li>
-                    <li><a href="#">Наши работы</a></li>
-                    <li><a href="#">Новости</a></li>
-                    <li><a href="#">Карьера</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="{% url 'main:about_company' %}">О компании</a></li>
+                    <li><a href="{% url 'main:works' %}">Наши работы</a></li>
+                    <li><a href="{% url 'main:press_news' %}">Новости</a></li>
+                    <li><a href="{% url 'main:career' %}">Карьера</a></li>
+                    <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
                 </ul>
             </div>
             <div class="col">

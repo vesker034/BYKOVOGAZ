@@ -614,3 +614,782 @@ a.site-footer__contact-text:hover {
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.75);
 }
+
+/* --- Home page --- */
+
+.home-page {
+    background-color: var(--bg-page);
+}
+
+.home-section {
+    padding: clamp(4rem, 7vw, 5rem) 0;
+}
+
+.home-section--muted {
+    background-color: #f8fafc;
+}
+
+.home-section--accent {
+    background: linear-gradient(135deg, #1c398e 0%, #155dfc 100%);
+    color: #fff;
+}
+
+.home-section--accent .home-section__title,
+.home-section--accent .home-news-heading {
+    color: #fff;
+}
+
+.home-section--accent .home-section__subtitle {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.home-section__heading {
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.home-section__heading--center {
+    text-align: center;
+    max-width: 54rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-section__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: clamp(2rem, 1.5vw + 1.4rem, 2.25rem);
+    line-height: 1.15;
+    color: #101828;
+}
+
+.home-section__subtitle,
+.home-section__text {
+    margin: var(--space-5) 0 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475467;
+}
+
+.home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: var(--space-5);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3.25rem;
+    padding: 0.875rem 2rem;
+    border-radius: 0.625rem;
+    border: 1px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.home-btn:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.home-btn--light {
+    background-color: #fff;
+    color: var(--color-primary);
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.14);
+}
+
+.home-btn--light:hover {
+    color: var(--color-primary-hover);
+}
+
+.home-btn--outline {
+    border-color: rgba(255, 255, 255, 0.92);
+    color: #fff;
+}
+
+.home-btn--outline:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.home-btn--primary {
+    background: linear-gradient(135deg, #1c398e 0%, #155dfc 100%);
+    color: #fff;
+    box-shadow: 0 16px 40px rgba(21, 93, 252, 0.22);
+}
+
+.home-btn--primary:hover {
+    color: #fff;
+}
+
+.home-btn--full {
+    width: 100%;
+}
+
+.home-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(28, 57, 142, 0.82), rgba(20, 71, 230, 0.78)),
+        url("https://upload.wikimedia.org/wikipedia/commons/4/48/Chevron_El_Segundo_refinery%2C_2007.jpg"),
+        linear-gradient(180deg, #5971ad 0%, #2b4ba2 100%);
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-hero::before,
+.home-hero::after {
+    content: "";
+    position: absolute;
+    bottom: -4rem;
+    background: rgba(255, 255, 255, 0.08);
+    filter: blur(0.2rem);
+}
+
+.home-hero::before {
+    left: 58%;
+    width: clamp(12rem, 14vw, 16rem);
+    height: clamp(16rem, 24vw, 24rem);
+    border-radius: 0.75rem 0.75rem 0 0;
+    opacity: 0.45;
+}
+
+.home-hero::after {
+    left: 72%;
+    width: clamp(7rem, 8vw, 9rem);
+    height: clamp(22rem, 34vw, 28rem);
+    border-radius: 0.75rem 0.75rem 0 0;
+    opacity: 0.45;
+}
+
+.home-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    min-height: clamp(32rem, 40vw, 37.5rem);
+}
+
+.home-hero__content {
+    max-width: 45rem;
+    padding: clamp(4rem, 6vw, 5rem) 0;
+}
+
+.home-hero__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 4vw, 3.75rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+
+.home-hero__lead {
+    margin: 1.5rem 0 0;
+    max-width: 43rem;
+    font-size: clamp(1rem, 0.3vw + 0.95rem, 1.375rem);
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.home-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.25rem;
+}
+
+.home-stats {
+    padding: 2.75rem 0;
+    background-color: #fff;
+}
+
+.home-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.home-stat {
+    text-align: center;
+}
+
+.home-stat__value {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 1vw + 1.5rem, 2.25rem);
+    line-height: 1.1;
+    color: #155dfc;
+}
+
+.home-stat__label {
+    margin: 0.6rem 0 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4a5565;
+}
+
+.home-about,
+.home-field,
+.home-contacts {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 36.5rem);
+    gap: clamp(2rem, 4vw, 3.75rem);
+    align-items: center;
+}
+
+.home-about__content,
+.home-field__content {
+    max-width: 36rem;
+}
+
+.home-media-card {
+    position: relative;
+    min-height: 25rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.14);
+    background-size: cover;
+    background-position: center;
+}
+
+.home-media-card__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-media-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.08), rgba(15, 23, 42, 0.42));
+}
+
+.home-media-card--plant {
+    background:
+        linear-gradient(135deg, rgba(132, 116, 95, 0.12), rgba(66, 46, 36, 0.28)),
+        linear-gradient(135deg, rgba(132, 116, 95, 0.35), rgba(66, 46, 36, 0.7)),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.18), transparent 26%),
+        linear-gradient(180deg, #9d8b75 0%, #5f4738 100%);
+}
+
+.home-media-card--field {
+    background:
+        linear-gradient(135deg, rgba(70, 88, 54, 0.08), rgba(32, 50, 40, 0.28)),
+        url("https://upload.wikimedia.org/wikipedia/commons/b/b2/Alberta_oil_field.JPG"),
+        linear-gradient(135deg, rgba(70, 88, 54, 0.2), rgba(32, 50, 40, 0.65)),
+        linear-gradient(180deg, #85906e 0%, #495540 100%);
+}
+
+.home-media-card__label {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(6px);
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.home-directions {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.home-feature-card {
+    padding: 1.5rem 1rem 0;
+    text-align: center;
+}
+
+.home-feature-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(21, 93, 252, 0.08);
+    color: #155dfc;
+}
+
+.home-feature-card__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #101828;
+}
+
+.home-feature-card__text {
+    margin: 0.9rem 0 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #475467;
+}
+
+.home-cta {
+    text-align: center;
+}
+
+.home-cta .home-btn--light {
+    box-shadow: 0 18px 40px rgba(10, 24, 54, 0.24);
+}
+
+.home-cta__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.home-projects {
+    display: grid;
+    gap: 2rem;
+}
+
+.home-project {
+    display: grid;
+    grid-template-columns: 24.75rem minmax(0, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.home-project--reverse {
+    grid-template-columns: minmax(0, 1fr) 24.75rem;
+}
+
+.home-project--reverse .home-project__meta {
+    order: 2;
+}
+
+.home-project--reverse .home-project__body {
+    order: 1;
+}
+
+.home-project__meta,
+.home-project__body,
+.home-news-card,
+.home-company-card,
+.home-form-card {
+    background-color: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+}
+
+.home-project__meta {
+    padding: 1.75rem 1.5rem;
+}
+
+.home-project__body {
+    padding: 2rem;
+}
+
+.home-project__period {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    color: #475467;
+}
+
+.home-project__period::before {
+    content: "";
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background-color: rgba(21, 93, 252, 0.16);
+    box-shadow: inset 0 0 0 4px rgba(21, 93, 252, 0.26);
+}
+
+.home-project__title {
+    margin: 1rem 0 0;
+    font-size: 1.85rem;
+    font-weight: 400;
+    line-height: 1.15;
+    color: #101828;
+}
+
+.home-project__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #166534;
+}
+
+.home-project__status::before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: #22c55e;
+}
+
+.home-project__summary {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #344054;
+}
+
+.home-project__subtitle {
+    margin: 1.75rem 0 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #101828;
+}
+
+.home-project__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.home-project__list li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475467;
+}
+
+.home-project__list li + li {
+    margin-top: 0.75rem;
+}
+
+.home-project__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background-color: #155dfc;
+}
+
+.home-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+.home-section--news-title {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 10.875rem;
+}
+
+.home-section--news-title .site-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-section--news {
+    padding-top: 0;
+}
+
+.home-news-heading {
+    max-width: 36rem;
+    margin: 0 auto;
+    text-align: center;
+    font-size: clamp(3rem, 3vw + 1rem, 5.25rem);
+    line-height: 1;
+    color: #101828;
+}
+
+.home-news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+}
+
+.home-news-card {
+    overflow: hidden;
+}
+
+.home-news-card__media {
+    position: relative;
+    min-height: 14rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-news-card__media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.38));
+}
+
+.home-news-card__media--production {
+    background-image:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.32)),
+        url("https://upload.wikimedia.org/wikipedia/commons/e/e3/Pine_Bend_Oil_Refinery_-_Flint_Hills_Resources_-_Rosemount%2C_Minnesota_%2839659244972%29.jpg");
+}
+
+.home-news-card__media--corporate {
+    background-image:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.32)),
+        url("https://upload.wikimedia.org/wikipedia/commons/4/48/Chevron_El_Segundo_refinery%2C_2007.jpg");
+}
+
+.home-news-card__media--industry {
+    background-image:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.32)),
+        url("https://upload.wikimedia.org/wikipedia/commons/4/48/Chevron_El_Segundo_refinery%2C_2007.jpg");
+}
+
+.home-news-card__media--plant {
+    background-image:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.32)),
+        url("https://upload.wikimedia.org/wikipedia/commons/e/e3/Pine_Bend_Oil_Refinery_-_Flint_Hills_Resources_-_Rosemount%2C_Minnesota_%2839659244972%29.jpg");
+}
+
+.home-news-card__media--survey {
+    background-image:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.32)),
+        url("https://upload.wikimedia.org/wikipedia/commons/c/cc/Coalinga_Oil_Field_-_October_2022_-_Sarah_Stierch_02.jpg");
+}
+
+.home-news-card__media--archive {
+    background-image:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.32)),
+        url("https://upload.wikimedia.org/wikipedia/commons/b/b2/Alberta_oil_field.JPG");
+}
+
+.home-news-card__tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #344054;
+    font-size: 0.875rem;
+}
+
+.home-news-card__body {
+    padding: 1.5rem;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+.home-news-card__date {
+    font-size: 0.95rem;
+    color: #667085;
+}
+
+.home-news-card__title {
+    margin: 1rem 0 0;
+    font-size: 1.55rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #101828;
+}
+
+.home-news-card__text {
+    margin: 1rem 0 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475467;
+}
+
+.home-section--contacts {
+    background-color: #f8fafc;
+}
+
+.home-contacts {
+    align-items: start;
+}
+
+.home-contact-list {
+    display: grid;
+    gap: 1.4rem;
+    margin-top: 2rem;
+}
+
+.home-contact-item {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.home-contact-item__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.875rem;
+    background-color: rgba(21, 93, 252, 0.08);
+    color: #155dfc;
+}
+
+.home-contact-item__title,
+.home-company-card__title,
+.home-form-card__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #101828;
+}
+
+.home-contact-item__text,
+.home-company-card__text,
+.home-form__note {
+    margin: 0.45rem 0 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475467;
+}
+
+.home-company-card {
+    margin-top: 2rem;
+    padding: 1.5rem;
+}
+
+.home-company-card__list {
+    margin: 1rem 0 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.home-company-card__list li + li {
+    margin-top: 0.5rem;
+}
+
+.home-form-card {
+    padding: 2rem;
+}
+
+.home-form {
+    display: grid;
+    gap: 1.4rem;
+    margin-top: 1.5rem;
+}
+
+.home-form__field {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.home-form__label {
+    font-size: 0.95rem;
+    color: #101828;
+}
+
+.home-form__control {
+    width: 100%;
+    min-height: 3.2rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid #d0d5dd;
+    border-radius: 0.75rem;
+    background-color: #fff;
+    color: #101828;
+    font-size: 1rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.home-form__control::placeholder {
+    color: #98a2b3;
+}
+
+.home-form__control:focus {
+    border-color: #155dfc;
+    box-shadow: 0 0 0 4px rgba(21, 93, 252, 0.1);
+    outline: none;
+}
+
+.home-form__control--textarea {
+    min-height: 9rem;
+    resize: vertical;
+}
+
+@media (max-width: 1199.98px) {
+    .home-directions,
+    .home-news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-project,
+    .home-project--reverse,
+    .home-about,
+    .home-field,
+    .home-contacts {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-project--reverse .home-project__meta,
+    .home-project--reverse .home-project__body {
+        order: initial;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .home-stats__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-feature-card {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .home-section {
+        padding: 3.5rem 0;
+    }
+
+    .home-hero__inner {
+        min-height: 29rem;
+    }
+
+    .home-stats__grid,
+    .home-directions,
+    .home-news-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-project__meta,
+    .home-project__body,
+    .home-form-card {
+        padding: 1.5rem;
+    }
+
+    .home-news-heading {
+        font-size: clamp(2.4rem, 8vw, 3.5rem);
+    }
+}
