@@ -1,0 +1,17 @@
+<article class="works-timeline__detail">
+    <p class="works-timeline__description">{{ item.description }}</p>
+    <h4 class="works-timeline__ach-heading">Основные достижения:</h4>
+    <ul class="works-timeline__ach-list">
+        {% for line in item.achievements %}
+        <li>
+            <span class="works-timeline__ach-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="#155DFC"/>
+                    <path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <span class="works-timeline__ach-text">{{ line }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</article>

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }} | БыковоГаз{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="works-figma">
+    {% include "components/figma_page_hero.html" with hero_heading_id="works-page-hero-title" %}
+
+    <section class="works-intro" aria-labelledby="works-realized-title">
+        <div class="site-container">
+            <h2 id="works-realized-title" class="works-intro__title">{{ realized_title }}</h2>
+            <p class="works-intro__lead">{{ realized_lead }}</p>
+        </div>
+    </section>
+
+    <section class="works-timeline" aria-label="Реализованные проекты по периодам">
+        <div class="site-container works-timeline__inner">
+            {% for item in timeline %}
+            <div class="works-timeline__row {% if item.blue_left %}works-timeline__row--blue-left{% else %}works-timeline__row--blue-right{% endif %}">
+                {% if item.blue_left %}
+                    {% include "components/works_timeline_blue_card.html" %}
+                    {% include "components/works_timeline_detail_card.html" %}
+                {% else %}
+                    {% include "components/works_timeline_detail_card.html" %}
+                    {% include "components/works_timeline_blue_card.html" %}
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="works-kpi" aria-labelledby="works-kpi-title">
+        <div class="site-container">
+            <h2 id="works-kpi-title" class="works-kpi__title">{{ kpi_section_title }}</h2>
+            <div class="works-kpi__grid">
+                {% for k in kpis %}
+                <div class="works-kpi__card">
+                    <p class="works-kpi__value">{{ k.value }}</p>
+                    <p class="works-kpi__label">
+                        {% if k.label_html %}{{ k.label_html|safe }}{% else %}{{ k.label }}{% endif %}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="works-page-cta" aria-labelledby="works-cta-title">
+        <div class="site-container">
+            <div class="works-page-cta__inner">
+                <h2 id="works-cta-title" class="works-page-cta__title">{{ cta_title }}</h2>
+                <p class="works-page-cta__lead">{{ cta_subtitle }}</p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<article class="works-timeline__blue" style="--works-blue-h: {{ item.blue_height_px }}px;">
+    <div class="works-timeline__blue-meta">
+        <svg class="works-timeline__cal" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 2v3M16 2v3M3.5 9h17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M6 4.5h12A2.5 2.5 0 0118.5 7v12.5A2.5 2.5 0 0116 22H8a2.5 2.5 0 01-2.5-2.5V7A2.5 2.5 0 016 4.5z" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="works-timeline__period">{{ item.period }}</span>
+    </div>
+    <h3 class="works-timeline__project-title">{{ item.project_title }}</h3>
+    <div class="works-timeline__status">
+        <svg class="works-timeline__done" width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" fill="currentColor"/>
+            <path d="M8 12l2.5 2.5L16 9" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>{{ item.status }}</span>
+    </div>
+</article>
