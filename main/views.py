@@ -42,7 +42,7 @@ def about_license(request):
 
 
 def about_tour(request):
-    return render(request, "pages/empty.html", {"page_title": "Виртуальный тур"})
+    return render(request, "pages/about_tour.html")
 
 
 def press_news(request):

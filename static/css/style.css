@@ -138,6 +138,15 @@ a:hover {
         linear-gradient(0deg, rgba(26, 61, 177, 0.56), rgba(26, 61, 177, 0.56));
 }
 
+.page-hero--tour {
+    background-image: url("../img/home-hero.jpg");
+}
+
+.page-hero--tour::before {
+    background: linear-gradient(90deg, rgba(10, 24, 54, 0.52) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
+        linear-gradient(0deg, rgba(26, 61, 177, 0.6), rgba(26, 61, 177, 0.6));
+}
+
 .page-hero__inner {
     position: relative;
     z-index: 1;
@@ -644,6 +653,182 @@ a:hover {
     font-size: 0.82rem;
     line-height: 1.55;
     text-align: center;
+}
+
+.tour-page__panel {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: var(--space-10) var(--space-8);
+    border-radius: 14px;
+    background: linear-gradient(180deg, #f7fbff 0%, #edf4ff 100%);
+    box-shadow: 0 12px 30px rgba(18, 22, 31, 0.06);
+    text-align: center;
+}
+
+.tour-page__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #1c398e 0%, #155dfc 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.tour-page__title {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--color-text);
+}
+
+.tour-page__lead {
+    max-width: 34rem;
+    margin: var(--space-3) auto 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+}
+
+.tour-page__viewer {
+    margin-top: var(--space-8);
+    min-height: 17rem;
+    border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid rgba(15, 25, 40, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8c97a8;
+}
+
+.tour-page__viewer-icon {
+    line-height: 1;
+}
+
+.tour-page__viewer-text {
+    margin-top: var(--space-4);
+    font-size: 0.95rem;
+}
+
+.tour-page__zones {
+    margin-top: var(--space-12);
+}
+
+.tour-page__grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
+@media (min-width: 992px) {
+    .tour-page__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.tour-card {
+    border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid rgba(15, 25, 40, 0.08);
+    box-shadow: 0 10px 22px rgba(18, 22, 31, 0.06);
+    overflow: hidden;
+}
+
+.tour-card__media {
+    min-height: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(180deg, #f9fbff 0%, #eef4ff 100%);
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.tour-card__media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 24, 54, 0.18), rgba(10, 24, 54, 0.35));
+}
+
+.tour-card__media > svg {
+    position: relative;
+    z-index: 1;
+}
+
+.tour-card__media--server {
+    background-image: url("../img/tour-server-room.svg");
+}
+
+.tour-card__media--workspace {
+    background-image: url("../img/tour-office-workspace.svg");
+}
+
+.tour-card__media--meeting {
+    background-image: url("../img/tour-meeting-room.svg");
+}
+
+.tour-card__body {
+    padding: var(--space-6);
+}
+
+.tour-card__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.tour-card__text {
+    margin: var(--space-3) 0 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.tour-card__list {
+    margin: var(--space-4) 0 0;
+    padding-left: 1.1rem;
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+}
+
+.tour-card__list li + li {
+    margin-top: 0.45rem;
+}
+
+.tour-location {
+    max-width: 48rem;
+    margin: var(--space-10) auto 0;
+    padding: var(--space-6) var(--space-8);
+    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(26, 77, 184, 0.98), rgba(26, 61, 177, 0.98));
+    color: #fff;
+}
+
+.tour-location__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.tour-location__text {
+    margin: var(--space-3) 0 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* --- Header (макет Figma) --- */
