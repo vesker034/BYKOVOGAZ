@@ -1,0 +1,9 @@
+{# Общий hero для страниц Figma: фон задаётся у предка --figma-page-hero-bg (works-figma / news-page). #}
+<section class="figma-page-hero" aria-labelledby="{{ hero_heading_id }}">
+    <div class="figma-page-hero__media" aria-hidden="true"></div>
+    <div class="figma-page-hero__scrim" aria-hidden="true"></div>
+    <div class="site-container figma-page-hero__inner">
+        <h1 id="{{ hero_heading_id }}" class="figma-page-hero__title">{{ hero_title }}</h1>
+        <p class="figma-page-hero__subtitle">{{ hero_subtitle }}</p>
+    </div>
+</section>

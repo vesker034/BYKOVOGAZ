@@ -13,3 +13,4 @@ staticfiles/
 .cursor/
 Thumbs.db
 Desktop.ini
+_docx_extract/
