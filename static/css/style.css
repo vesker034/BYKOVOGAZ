@@ -103,7 +103,7 @@ a:hover {
 }
 
 .page-hero--about {
-    background-image: url("../img/hero-about.jpg");
+    background-image: url("../img/home-hero.jpg");
 }
 
 .page-hero--about::before {
