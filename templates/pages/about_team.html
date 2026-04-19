@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Состав команды | БыковоГаз{% endblock %}
+
+{% block content %}
+<div class="page">
+    {% include "components/page_hero.html" with title="Состав команды" lead="Южно-Кисловское газоконденсатное месторождение" hero_class="page-hero--team" %}
+
+    <section class="section">
+        <div class="site-container">
+            <!-- Позже карточки команды будут заполняться данными из БД. -->
+            <div class="team-page__grid">
+                <article class="team-card">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Иванов Иван Иванович">
+                    <div class="team-card__body">
+                        <h2 class="team-card__name">Иванов Иван Иванович</h2>
+                        <p class="team-card__role">Генеральный директор</p>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Иванов Иван Иванович">
+                    <div class="team-card__body">
+                        <h2 class="team-card__name">Иванов Иван Иванович</h2>
+                        <p class="team-card__role">Заместитель генерального директора</p>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Петров Дмитрий Александрович">
+                    <div class="team-card__body">
+                        <h2 class="team-card__name">Петров Дмитрий Александрович</h2>
+                        <p class="team-card__role">Главный инженер</p>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Иванова Мария Сергеевна">
+                    <div class="team-card__body">
+                        <h2 class="team-card__name">Иванова Мария Сергеевна</h2>
+                        <p class="team-card__role">Главный геолог</p>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Кузнецов Сергей Иванович">
+                    <div class="team-card__body">
+                        <h2 class="team-card__name">Кузнецов Сергей Иванович</h2>
+                        <p class="team-card__role">Начальник отдела безопасности</p>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Федорова Ольга Петровна">
+                    <div class="team-card__body">
+                        <h2 class="team-card__name">Федорова Ольга Петровна</h2>
+                        <p class="team-card__role">Инженер по промышленной безопасности</p>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Волков Алексей Николаевич">
+                    <div class="team-card__body">
+                        <h2 class="team-card__name">Волков Алексей Николаевич</h2>
+                        <p class="team-card__role">Начальник отдела материально-технического снабжения</p>
+                    </div>
+                </article>
+
+                <article class="team-card">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Николаева Анна Дмитриевна">
+                    <div class="team-card__body">
+                        <h2 class="team-card__name">Николаева Анна Дмитриевна</h2>
+                        <p class="team-card__role">Главный IT специалист</p>
+                    </div>
+                </article>
+            </div>
+
+            <section class="team-values">
+                <div class="team-values__inner">
+                    <h2 class="team-values__title">Наши ценности</h2>
+                    <div class="team-values__grid">
+                        <article class="team-value">
+                            <div class="team-value__icon" aria-hidden="true">🎯</div>
+                            <h3 class="team-value__title">Профессионализм</h3>
+                            <p class="team-value__text">
+                                Высококвалифицированные специалисты с многолетним опытом.
+                            </p>
+                        </article>
+
+                        <article class="team-value">
+                            <div class="team-value__icon" aria-hidden="true">🤝</div>
+                            <h3 class="team-value__title">Ответственность</h3>
+                            <p class="team-value__text">
+                                Гарантируем выполнение всех обязательств перед клиентами.
+                            </p>
+                        </article>
+
+                        <article class="team-value">
+                            <div class="team-value__icon" aria-hidden="true">💡</div>
+                            <h3 class="team-value__title">Инновации</h3>
+                            <p class="team-value__text">
+                                Внедряем современные технологии для улучшения качества услуг.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+{% endblock %}
