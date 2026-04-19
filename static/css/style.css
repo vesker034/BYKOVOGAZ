@@ -120,6 +120,15 @@ a:hover {
         linear-gradient(0deg, rgba(26, 61, 177, 0.58), rgba(26, 61, 177, 0.58));
 }
 
+.page-hero--team {
+    background-image: url("../img/home-hero.jpg");
+}
+
+.page-hero--team::before {
+    background: linear-gradient(90deg, rgba(10, 24, 54, 0.5) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
+        linear-gradient(0deg, rgba(26, 61, 177, 0.6), rgba(26, 61, 177, 0.6));
+}
+
 .page-hero__inner {
     position: relative;
     z-index: 1;
@@ -374,6 +383,115 @@ a:hover {
 
 .field-page__list li + li {
     margin-top: 0.55rem;
+}
+
+.team-page__grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+    .team-page__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 992px) {
+    .team-page__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.team-card {
+    background-color: #fff;
+    border: 1px solid rgba(15, 25, 40, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 22px rgba(18, 22, 31, 0.06);
+}
+
+.team-card__photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: #f3f6fb;
+}
+
+.team-card__body {
+    padding: 1rem 1rem 1.25rem;
+    text-align: center;
+}
+
+.team-card__name {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--color-text);
+}
+
+.team-card__role {
+    margin: 0.65rem 0 0;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-primary);
+}
+
+.team-values {
+    margin-top: var(--space-12);
+}
+
+.team-values__inner {
+    padding: var(--space-10) var(--space-8);
+    border-radius: 14px;
+    background: linear-gradient(90deg, rgba(26, 77, 184, 0.98), rgba(26, 61, 177, 0.98));
+    color: #fff;
+}
+
+.team-values__title {
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.team-values__grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: var(--space-8);
+}
+
+@media (min-width: 768px) {
+    .team-values__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.team-value {
+    text-align: center;
+}
+
+.team-value__icon {
+    font-size: 1.35rem;
+}
+
+.team-value__title {
+    margin: 0.85rem 0 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.team-value__text {
+    margin: 0.55rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
 }
 
 /* --- Header (макет Figma) --- */

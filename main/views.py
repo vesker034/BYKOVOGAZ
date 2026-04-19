@@ -34,7 +34,7 @@ def about_field(request):
 
 
 def about_team(request):
-    return render(request, "pages/empty.html", {"page_title": "Состав команды"})
+    return render(request, "pages/about_team.html")
 
 
 def about_license(request):
