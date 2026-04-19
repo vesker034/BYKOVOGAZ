@@ -30,7 +30,7 @@ def about_company(request):
 
 
 def about_field(request):
-    return render(request, "pages/empty.html", {"page_title": "О месторождении"})
+    return render(request, "pages/about_field.html")
 
 
 def about_team(request):

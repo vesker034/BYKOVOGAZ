@@ -111,6 +111,15 @@ a:hover {
         linear-gradient(0deg, rgba(26, 61, 177, 0.62), rgba(26, 61, 177, 0.62));
 }
 
+.page-hero--field {
+    background-image: url("../img/home-hero.jpg");
+}
+
+.page-hero--field::before {
+    background: linear-gradient(90deg, rgba(10, 24, 54, 0.48) 0%, rgba(10, 24, 54, 0.16) 60%, rgba(10, 24, 54, 0.16) 100%),
+        linear-gradient(0deg, rgba(26, 61, 177, 0.58), rgba(26, 61, 177, 0.58));
+}
+
 .page-hero__inner {
     position: relative;
     z-index: 1;
@@ -283,6 +292,88 @@ a:hover {
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--color-primary);
+}
+
+.field-page__intro {
+    max-width: 58rem;
+}
+
+.field-page__media-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: center;
+    margin-top: var(--space-10);
+}
+
+@media (min-width: 992px) {
+    .field-page__media-grid {
+        grid-template-columns: minmax(18rem, 30rem) minmax(0, 1fr);
+    }
+}
+
+.field-page__image-card {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.1);
+}
+
+.field-page__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 16rem;
+    object-fit: cover;
+}
+
+.field-page__title,
+.field-page__info-title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.25;
+    color: var(--color-text);
+}
+
+.field-page__text {
+    margin-top: var(--space-4);
+}
+
+.field-page__panel {
+    margin-top: var(--space-10);
+}
+
+.field-page__footnote {
+    margin-top: var(--space-5);
+    font-size: 0.85rem;
+}
+
+.field-page__section {
+    margin-top: var(--space-10);
+    max-width: 58rem;
+}
+
+.field-page__info-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .field-page__info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.field-page__list {
+    margin: var(--space-4) 0 0;
+    padding-left: 1.2rem;
+    color: var(--color-text-muted);
+}
+
+.field-page__list li + li {
+    margin-top: 0.55rem;
 }
 
 /* --- Header (макет Figma) --- */
