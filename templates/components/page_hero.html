@@ -1,0 +1,9 @@
+<section class="page-hero{% if hero_class %} {{ hero_class }}{% endif %}">
+    <div class="site-container page-hero__inner">
+        <h1 class="page-hero__title">{{ title }}</h1>
+        {% if lead %}
+            <p class="page-hero__lead">{{ lead }}</p>
+        {% endif %}
+    </div>
+</section>
+

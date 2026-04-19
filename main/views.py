@@ -26,7 +26,7 @@ def contacts(request):
 
 
 def about_company(request):
-    return render(request, "pages/empty.html", {"page_title": "О компании"})
+    return render(request, "pages/about_company.html")
 
 
 def about_field(request):
