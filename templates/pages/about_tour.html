@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Виртуальный тур | БыковоГаз{% endblock %}
+
+{% block content %}
+<div class="page">
+    {% include "components/page_hero.html" with title="Виртуальный тур" lead="Посетите наш офис виртуально" hero_class="page-hero--tour" %}
+
+    <section class="section">
+        <div class="site-container">
+            <div class="tour-page__panel">
+                <div class="tour-page__badge">360°</div>
+                <h2 class="tour-page__title">Виртуальная экскурсия по офису</h2>
+                <p class="tour-page__lead">
+                    Место для встроенного виртуального тура. Здесь будет размещен интерактивный
+                    360°-обзор офиса с возможностью просмотра зон.
+                </p>
+
+                <!--
+                    Когда будешь подключать настоящий тур:
+                    1. Положи файлы тура в static/tours/office-tour/
+                    2. Если это один HTML-файл, назови его index.html
+                    3. Замени блок ниже на iframe со src="{% static 'tours/office-tour/index.html' %}"
+                -->
+                <div class="tour-page__viewer" aria-label="Зона виртуального тура">
+                    <div class="tour-page__viewer-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><rect x="5" y="3" width="10" height="14" rx="2"/><path d="M9 7h2M9 11h4M9 15h4"/><path d="M15 8h4v10a2 2 0 0 1-2 2h-6v-3"/></svg>
+                    </div>
+                    <div class="tour-page__viewer-text">
+                        Помести тур в <code>static/tours/office-tour/index.html</code>,
+                        затем замени этот блок на iframe.
+                    </div>
+                </div>
+            </div>
+
+            <div class="tour-page__zones">
+                <h2 class="section__title text-center">Основные зоны офиса</h2>
+                <div class="tour-page__grid">
+                    <article class="tour-card">
+                        <div class="tour-card__media tour-card__media--server" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 17V8M11 17V11M15 17v-5M3 15h18"/></svg>
+                        </div>
+                        <div class="tour-card__body">
+                            <h3 class="tour-card__title">Серверная</h3>
+                            <p class="tour-card__text">
+                                Техническое сердце компании: здесь размещено оборудование для поддержки
+                                корпоративной инфраструктуры и хранения данных.
+                            </p>
+                            <ul class="tour-card__list">
+                                <li>Поддержка IT-систем</li>
+                                <li>Система наблюдения</li>
+                                <li>Защита данных</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="tour-card">
+                        <div class="tour-card__media tour-card__media--workspace" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8"/><path d="M12 18v2"/><path d="M7 9h10"/></svg>
+                        </div>
+                        <div class="tour-card__body">
+                            <h3 class="tour-card__title">Офисное пространство</h3>
+                            <p class="tour-card__text">
+                                Современное рабочее пространство с комфортными условиями для продуктивной
+                                работы и взаимодействия между отделами.
+                            </p>
+                            <ul class="tour-card__list">
+                                <li>Эргономичные рабочие места</li>
+                                <li>Естественное освещение</li>
+                                <li>Современная техника</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="tour-card">
+                        <div class="tour-card__media tour-card__media--meeting" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M8 7V5h8v2"/><path d="M12 11v6"/><path d="M9 17h6"/></svg>
+                        </div>
+                        <div class="tour-card__body">
+                            <h3 class="tour-card__title">Комната совещаний</h3>
+                            <p class="tour-card__text">
+                                Пространство для проведения совещаний, презентаций и переговоров,
+                                оснащенное необходимым мультимедийным оборудованием.
+                            </p>
+                            <ul class="tour-card__list">
+                                <li>Мультимедийное оборудование</li>
+                                <li>Видеоконференцсвязь</li>
+                                <li>Комфортная мебель</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="tour-location">
+                <h2 class="tour-location__title">Наше расположение</h2>
+                <p class="tour-location__text">
+                    400050, Волгоград, ул. Маршала Рокоссовского 62
+                    <br>
+                    БЦ Волгоград Сити, 18 этаж
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
