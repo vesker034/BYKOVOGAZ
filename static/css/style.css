@@ -129,6 +129,15 @@ a:hover {
         linear-gradient(0deg, rgba(26, 61, 177, 0.6), rgba(26, 61, 177, 0.6));
 }
 
+.page-hero--license {
+    background-image: url("../img/home-hero.jpg");
+}
+
+.page-hero--license::before {
+    background: linear-gradient(90deg, rgba(10, 24, 54, 0.5) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
+        linear-gradient(0deg, rgba(26, 61, 177, 0.56), rgba(26, 61, 177, 0.56));
+}
+
 .page-hero__inner {
     position: relative;
     z-index: 1;
@@ -492,6 +501,149 @@ a:hover {
     font-size: 0.9rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.88);
+}
+
+.license-page__card,
+.license-page__document,
+.license-page__stats {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.license-page__card {
+    padding: var(--space-8);
+    border-radius: 14px;
+    background-color: #eef4ff;
+}
+
+.license-page__header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+}
+
+.license-page__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    background-color: rgba(26, 77, 184, 0.12);
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.license-page__title,
+.license-page__document-title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.25;
+    color: var(--color-text);
+}
+
+.license-page__meta,
+.license-page__detail-text,
+.license-page__footnote,
+.license-page__stat-note,
+.license-page__stat-label {
+    color: var(--color-text-muted);
+}
+
+.license-page__meta {
+    margin: 0.3rem 0 0;
+    font-size: 0.9rem;
+}
+
+.license-page__details {
+    margin-top: var(--space-6);
+    display: grid;
+    gap: var(--space-4);
+}
+
+.license-page__detail-title {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.license-page__detail-text {
+    margin: 0.35rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.license-page__document {
+    margin-top: var(--space-8);
+    text-align: center;
+}
+
+.license-sheet {
+    margin-top: var(--space-6);
+    padding: var(--space-4);
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 10px 24px rgba(18, 22, 31, 0.06);
+}
+
+.license-sheet__photo {
+    display: block;
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 auto;
+    height: auto;
+    border-radius: 6px;
+}
+
+.license-page__stats {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .license-page__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.license-page__stat {
+    padding: var(--space-5);
+    border: 1px solid rgba(15, 25, 40, 0.08);
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 8px 18px rgba(18, 22, 31, 0.04);
+}
+
+.license-page__stat-label {
+    font-size: 0.88rem;
+}
+
+.license-page__stat-value {
+    margin-top: 0.45rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: var(--color-primary);
+}
+
+.license-page__stat-note {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+}
+
+.license-page__footnote {
+    max-width: 48rem;
+    margin: var(--space-5) auto 0;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    text-align: center;
 }
 
 /* --- Header (макет Figma) --- */
