@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }} | БыковоГаз{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="news-page">
+    {% include "components/figma_page_hero.html" with hero_heading_id="news-hero-title" %}
+
+    <div class="news-page-main">
+        <div class="site-container">
+            <ul class="news-page-grid">
+                {% for item in news_page %}
+                <li class="news-page-grid__cell">
+                    <article class="news-card" id="news-{{ news_page.number }}-{{ forloop.counter }}">
+                        <div class="news-card__media">
+                            <img
+                                class="news-card__img"
+                                src="{% static item.image %}"
+                                alt=""
+                                width="600"
+                                height="375"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                            <span class="news-card__badge">{{ item.category }}</span>
+                        </div>
+                        <div class="news-card__body">
+                            <div class="news-card__meta">
+                                <svg class="news-card__cal" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M8 2v3M16 2v3M3.5 9h17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M6 4.5h12A2.5 2.5 0 0118.5 7v12.5A2.5 2.5 0 0116 22H8a2.5 2.5 0 01-2.5-2.5V7A2.5 2.5 0 016 4.5z" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <time class="news-card__date" datetime="{{ item.iso_date }}">{{ item.date_display }}</time>
+                            </div>
+                            <h3 class="news-card__title">{{ item.title }}</h3>
+                            <p class="news-card__excerpt">{{ item.excerpt }}</p>
+                            <a href="{{ item.detail_url }}" class="news-card__more">
+                                Читать далее
+                                <span class="news-card__more-arrow" aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+                </li>
+                {% endfor %}
+            </ul>
+
+            {% if news_page.paginator.num_pages > 1 %}
+            <nav class="news-pagination" aria-label="Навигация по страницам новостей">
+                <ul class="news-pagination__list">
+                    {% for num in news_page.paginator.page_range %}
+                    <li>
+                        {% if num == news_page.number %}
+                        <span class="news-pagination__btn news-pagination__btn--current" aria-current="page">{{ num }}</span>
+                        {% else %}
+                        <a class="news-pagination__btn" href="?page={{ num }}">{{ num }}</a>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </div>
+
+    <section class="news-page-cta" aria-labelledby="news-cta-title">
+        <div class="site-container news-page-cta__wrap">
+            <h2 id="news-cta-title" class="news-page-cta__title">{{ news_cta_title }}</h2>
+            <p class="news-page-cta__lead">{{ news_cta_subtitle }}</p>
+            <a href="{% url 'main:press_gallery' %}" class="news-page-cta__btn">
+                {{ news_cta_button }}
+                <span class="news-page-cta__btn-arrow" aria-hidden="true">→</span>
+            </a>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -59,7 +59,11 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link site-header__link{% if request.path == works_url %} site-header__link--active{% endif %}" href="{{ works_url }}">Наши работы</a>
+                            <a
+                                class="nav-link site-header__link{% if request.path == works_url %} site-header__link--active{% endif %}"
+                                href="{{ works_url }}"
+                                {% if request.path == works_url %}aria-current="page"{% endif %}
+                            >Наши работы</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a

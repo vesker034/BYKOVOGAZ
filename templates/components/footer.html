@@ -1,6 +1,11 @@
 <footer class="site-footer">
     <div class="site-container site-footer__inner">
-        <div class="row row-cols-1 row-cols-lg-3 site-footer__grid g-4 g-lg-5 align-items-start justify-content-center">
+        {% url 'main:about_company' as about_company_url %}
+        {% url 'main:works' as works_url %}
+        {% url 'main:press_news' as press_news_url %}
+        {% url 'main:career' as career_url %}
+        {% url 'main:contacts' as contacts_url %}
+        <div class="row row-cols-1 row-cols-lg-3 site-footer__grid g-4 g-lg-5">
             <div class="col">
                 <p class="site-footer__brand-title">БЫКОВОГАЗ</p>
                 <p class="site-footer__lead">
@@ -11,11 +16,11 @@
             <div class="col">
                 <h2 class="site-footer__section-title">Быстрые ссылки</h2>
                 <ul class="site-footer__list">
-                    <li><a href="{% url 'main:about_company' %}">О компании</a></li>
-                    <li><a href="{% url 'main:works' %}">Наши работы</a></li>
-                    <li><a href="{% url 'main:press_news' %}">Новости</a></li>
-                    <li><a href="{% url 'main:career' %}">Карьера</a></li>
-                    <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
+                    <li><a href="{{ about_company_url }}">О компании</a></li>
+                    <li><a href="{{ works_url }}">Наши работы</a></li>
+                    <li><a href="{{ press_news_url }}">Новости</a></li>
+                    <li><a href="{{ career_url }}">Карьера</a></li>
+                    <li><a href="{{ contacts_url }}">Контакты</a></li>
                 </ul>
             </div>
             <div class="col">
