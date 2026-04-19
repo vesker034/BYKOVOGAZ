@@ -38,7 +38,7 @@ def about_team(request):
 
 
 def about_license(request):
-    return render(request, "pages/empty.html", {"page_title": "Лицензия"})
+    return render(request, "pages/about_license.html")
 
 
 def about_tour(request):

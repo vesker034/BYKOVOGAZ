@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Лицензия | БыковоГаз{% endblock %}
+
+{% block content %}
+<div class="page">
+    {% include "components/page_hero.html" with title="Лицензия" lead="На разведку и добычу углеводородного сырья" hero_class="page-hero--license" %}
+
+    <section class="section">
+        <div class="site-container">
+            <div class="license-page__card">
+                <div class="license-page__header">
+                    <div class="license-page__icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6M9 9h2"/></svg>
+                    </div>
+                    <div>
+                        <h2 class="license-page__title">Лицензия ВОЛ №01223 НЭ</h2>
+                        <p class="license-page__meta">От 22.04.2006</p>
+                    </div>
+                </div>
+
+                <div class="license-page__details">
+                    <div class="license-page__detail">
+                        <h3 class="license-page__detail-title">Лицензиат:</h3>
+                        <p class="license-page__detail-text">ООО «БЫКОВОГАЗ».</p>
+                    </div>
+                    <div class="license-page__detail">
+                        <h3 class="license-page__detail-title">Вид права:</h3>
+                        <p class="license-page__detail-text">Разведка и добыча углеводородного сырья.</p>
+                    </div>
+                    <div class="license-page__detail">
+                        <h3 class="license-page__detail-title">Участок недр:</h3>
+                        <p class="license-page__detail-text">
+                            Южно-Кисловский участок недр, включающий Южно-Кисловское газоконденсатное месторождение.
+                        </p>
+                    </div>
+                    <div class="license-page__detail">
+                        <h3 class="license-page__detail-title">Местоположение:</h3>
+                        <p class="license-page__detail-text">
+                            Быковский район Волгоградской области, 30 км к юго-востоку от р. п. Быково, левый берег Волги.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="license-page__document">
+                <h2 class="license-page__document-title">Фотография лицензии</h2>
+                <div class="license-sheet">
+                    <img
+                        class="license-sheet__photo"
+                        src="{% static 'img/license-scan.png' %}"
+                        alt="Скан лицензии на пользование недрами"
+                    >
+                </div>
+            </div>
+
+            <div class="license-page__stats">
+                <div class="license-page__stat">
+                    <div class="license-page__stat-label">Запасы газа</div>
+                    <div class="license-page__stat-value">3,857 млрд м<sup>3</sup></div>
+                    <div class="license-page__stat-note">Категория С1</div>
+                </div>
+                <div class="license-page__stat">
+                    <div class="license-page__stat-label">Запасы конденсата</div>
+                    <div class="license-page__stat-value">667 тыс. т</div>
+                    <div class="license-page__stat-note">Категория С1</div>
+                </div>
+            </div>
+
+            <p class="license-page__footnote">
+                Запасы утверждены на основании протокола ГКЗ России (протокол №18/799-пр от 01.12.2006 г.).
+            </p>
+        </div>
+    </section>
+</div>
+{% endblock %}
