@@ -33,4 +33,5 @@ urlpatterns = [
     path("about/tour/", about_tour, name="about_tour"),
     path("press/news/", press_news, name="press_news"),
     path("press/gallery/", press_gallery, name="press_gallery"),
+    path("press/news-gallery/", press_gallery, name="press_news_gallery"),
 ]

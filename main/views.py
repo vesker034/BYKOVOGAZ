@@ -384,5 +384,66 @@ def press_news(request):
         },
     )
 
+_GALLERY_CATEGORY_OPTIONS = [
+    {"id": "all", "label": "Все"},
+    {"id": "production", "label": "Производство"},
+    {"id": "infrastructure", "label": "Инфраструктура"},
+    {"id": "drilling", "label": "Бурение"},
+    {"id": "team", "label": "Команда"},
+    {"id": "office", "label": "Офис"},
+]
+
+# Статические фото (повтор цикла для демонстрации «ещё» и пагинации).
+_GALLERY_ITEMS_RAW = [
+    ("img/news/news-01.png", "Промышленный комплекс", "production"),
+    ("img/news/news-02.png", "Трубопроводное оборудование", "infrastructure"),
+    ("img/news/news-03.png", "Узел подготовки", "production"),
+    ("img/news/news-04.png", "Буровая установка", "drilling"),
+    ("img/news/news-05.png", "Специалист на объекте", "team"),
+    ("img/news/news-06.png", "Офисное здание", "office"),
+    ("img/home-about.jpg", "Месторождение", "drilling"),
+    ("img/home-hero.jpg", "Производственная площадка", "production"),
+    ("img/news/news-02.png", "Инженерные коммуникации", "infrastructure"),
+    ("img/news/news-04.png", "Работы на кусте", "drilling"),
+    ("img/news/news-05.png", "Команда проекта", "team"),
+    ("img/news/news-06.png", "Переговорная", "office"),
+    ("img/news/news-01.png", "Цех подготовки", "production"),
+    ("img/news/news-03.png", "Контрольно-измерительные приборы", "infrastructure"),
+    ("img/news/news-04.png", "Разведка участка", "drilling"),
+    ("img/home-hero.jpg", "Инфраструктура объекта", "infrastructure"),
+]
+
+_GALLERY_ITEMS = [
+    {"src": src, "alt": alt, "category": cat}
+    for src, alt, cat in _GALLERY_ITEMS_RAW
+]
+
+
 def press_gallery(request):
-    return render(request, "pages/empty.html", {"page_title": "Галерея"})
+    """Страница «Галерея» пресс-центра: сетка фото, категории, подгрузка страниц."""
+    category = (request.GET.get("category") or "all").strip()
+    valid_ids = {c["id"] for c in _GALLERY_CATEGORY_OPTIONS}
+    if category not in valid_ids:
+        category = "all"
+
+    filtered = (
+        _GALLERY_ITEMS
+        if category == "all"
+        else [row for row in _GALLERY_ITEMS if row["category"] == category]
+    )
+
+    paginator = Paginator(filtered, 8)
+    gallery_page = paginator.get_page(request.GET.get("page") or 1)
+
+    return render(
+        request,
+        "pages/gallery.html",
+        {
+            "page_title": "Галерея",
+            "hero_title": "Галерея",
+            "hero_subtitle": "Фотографии нашей работы и достижений",
+            "gallery_page": gallery_page,
+            "gallery_categories": _GALLERY_CATEGORY_OPTIONS,
+            "gallery_category_active": category,
+        },
+    )
