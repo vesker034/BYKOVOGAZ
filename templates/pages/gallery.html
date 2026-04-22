@@ -11,11 +11,18 @@
 <div class="news-gallery-page">
     {% include "components/figma_page_hero.html" with hero_heading_id="gallery-hero-title" %}
 
-    <div class="news-gallery-main">
+    <div
+        class="news-gallery-main"
+        data-gallery-root
+        data-gallery-step="{{ gallery_initial_visible }}"
+    >
         <div class="site-container">
             <ul class="news-gallery-grid" id="gallery-grid">
-                {% for item in gallery_page %}
-                <li class="news-gallery-grid__cell">
+                {% for item in gallery_items %}
+                <li
+                    class="news-gallery-grid__cell{% if forloop.counter > gallery_initial_visible %} news-gallery-grid__cell--hidden{% endif %}"
+                    data-gallery-item
+                >
                     <figure class="news-gallery-card">
                         <img
                             class="news-gallery-card__img"
@@ -31,14 +38,15 @@
                 {% endfor %}
             </ul>
 
-            {% if gallery_page.has_next %}
+            {% if gallery_items|length > gallery_initial_visible %}
             <div class="news-gallery-more">
-                <a
+                <button
                     class="news-gallery-more__btn"
-                    href="?{% if gallery_category_active != 'all' %}category={{ gallery_category_active }}&amp;{% endif %}page={{ gallery_page.next_page_number }}"
+                    type="button"
+                    data-gallery-more
                 >
                     Загрузить ещё
-                </a>
+                </button>
             </div>
             {% endif %}
         </div>
