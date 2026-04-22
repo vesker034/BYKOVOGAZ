@@ -150,7 +150,7 @@ def career(request):
 
 
 def contacts(request):
-    return render(request, "pages/empty.html", {"page_title": "Контакты"})
+    return render(request, "pages/contacts.html")
 
 
 def about_company(request):
