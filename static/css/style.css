@@ -1879,6 +1879,14 @@ a.site-footer__contact-text:hover {
     outline: none;
 }
 
+.home-form__control--invalid,
+.home-form__control--invalid:focus,
+.home-form__control:user-invalid,
+.home-form__control:user-invalid:focus {
+    border-color: #d92d20;
+    box-shadow: 0 0 0 4px rgba(217, 45, 32, 0.12);
+}
+
 .home-form__control--textarea {
     min-height: 9rem;
     resize: vertical;

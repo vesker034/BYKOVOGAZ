@@ -1,3 +1,209 @@
 "use strict";
 
 document.documentElement.classList.add("js-ready");
+
+(function () {
+    const form = document.querySelector("[data-home-contact-form]");
+
+    if (!form) {
+        return;
+    }
+
+    const nameField = form.querySelector('[data-field="name"]');
+    const emailField = form.querySelector('[data-field="email"]');
+    const phoneField = form.querySelector('[data-field="phone"]');
+    const subjectField = form.querySelector('[data-field="subject"]');
+    const messageField = form.querySelector('[data-field="message"]');
+
+    function shouldShowError(field, force) {
+        const isRequiredEmpty = field.hasAttribute("required") && !field.value.trim();
+
+        if (force) {
+            return !field.checkValidity();
+        }
+
+        if (field.dataset.touched === "true") {
+            return !field.checkValidity();
+        }
+
+        if (!isRequiredEmpty && field.value.trim() !== "") {
+            return !field.checkValidity();
+        }
+
+        return false;
+    }
+
+    function toggleErrorState(field, force) {
+        if (!field) {
+            return;
+        }
+
+        field.classList.toggle("home-form__control--invalid", shouldShowError(field, force));
+    }
+
+    function setNameValidity() {
+        const value = nameField.value.trim();
+
+        if (!value) {
+            nameField.setCustomValidity("Введите имя.");
+        } else if (value.length < 2) {
+            nameField.setCustomValidity("Имя должно содержать минимум 2 символа.");
+        } else if (!/^[A-Za-zА-Яа-яЁё\s-]+$/.test(value)) {
+            nameField.setCustomValidity("Имя может содержать только буквы, пробелы и дефис.");
+        } else {
+            nameField.setCustomValidity("");
+        }
+    }
+
+    function setEmailValidity() {
+        const value = emailField.value.trim();
+
+        if (!value) {
+            emailField.setCustomValidity("Введите email.");
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
+            emailField.setCustomValidity("Укажите корректный email, например your@email.com.");
+        } else {
+            emailField.setCustomValidity("");
+        }
+    }
+
+    function setPhoneValidity() {
+        const value = phoneField.value.trim();
+
+        if (!value) {
+            phoneField.setCustomValidity("");
+        } else if (!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(value)) {
+            phoneField.setCustomValidity("Введите телефон в формате +7 (900) 123-45-67.");
+        } else {
+            phoneField.setCustomValidity("");
+        }
+    }
+
+    function formatPhoneValue(value) {
+        const digitsOnly = value.replace(/\D/g, "");
+
+        if (!digitsOnly) {
+            return "";
+        }
+
+        let nationalDigits = digitsOnly;
+
+        if (digitsOnly[0] === "7" || digitsOnly[0] === "8") {
+            nationalDigits = digitsOnly.slice(1);
+        }
+
+        nationalDigits = nationalDigits.slice(0, 10);
+
+        let formatted = "+7";
+
+        if (digitsOnly.length > 0) {
+            formatted += " (";
+        }
+
+        if (nationalDigits.length > 0) {
+            formatted += nationalDigits.slice(0, 3);
+        }
+
+        if (nationalDigits.length >= 3) {
+            formatted += ") ";
+        }
+
+        if (nationalDigits.length > 3) {
+            formatted += nationalDigits.slice(3, 6);
+        }
+
+        if (nationalDigits.length >= 6) {
+            formatted += "-";
+        }
+
+        if (nationalDigits.length > 6) {
+            formatted += nationalDigits.slice(6, 8);
+        }
+
+        if (nationalDigits.length >= 8) {
+            formatted += "-";
+        }
+
+        if (nationalDigits.length > 8) {
+            formatted += nationalDigits.slice(8, 10);
+        }
+
+        return formatted;
+    }
+
+    function setSubjectValidity() {
+        const value = subjectField.value.trim();
+
+        if (!value) {
+            subjectField.setCustomValidity("Укажите тему обращения.");
+        } else if (value.length < 3) {
+            subjectField.setCustomValidity("Тема должна содержать минимум 3 символа.");
+        } else {
+            subjectField.setCustomValidity("");
+        }
+    }
+
+    function setMessageValidity() {
+        const value = messageField.value.trim();
+
+        if (!value) {
+            messageField.setCustomValidity("Введите сообщение.");
+        } else if (value.length < 10) {
+            messageField.setCustomValidity("Сообщение должно содержать минимум 10 символов.");
+        } else {
+            messageField.setCustomValidity("");
+        }
+    }
+
+    function bindValidation(field, validate) {
+        field.addEventListener("input", function () {
+            validate();
+            toggleErrorState(field, false);
+        });
+
+        field.addEventListener("blur", function () {
+            field.dataset.touched = "true";
+            validate();
+            toggleErrorState(field, true);
+        });
+    }
+
+    bindValidation(nameField, setNameValidity);
+    bindValidation(emailField, setEmailValidity);
+    phoneField.addEventListener("input", function () {
+        phoneField.value = formatPhoneValue(phoneField.value);
+        setPhoneValidity();
+        toggleErrorState(phoneField, false);
+    });
+
+    phoneField.addEventListener("blur", function () {
+        phoneField.dataset.touched = "true";
+        phoneField.value = formatPhoneValue(phoneField.value);
+        setPhoneValidity();
+        toggleErrorState(phoneField, true);
+    });
+
+    bindValidation(subjectField, setSubjectValidity);
+    bindValidation(messageField, setMessageValidity);
+
+    form.addEventListener("submit", function (event) {
+        setNameValidity();
+        setEmailValidity();
+        setPhoneValidity();
+        setSubjectValidity();
+        setMessageValidity();
+
+        [nameField, emailField, phoneField, subjectField, messageField].forEach(function (field) {
+            field.dataset.touched = "true";
+            toggleErrorState(field, true);
+        });
+
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            form.reportValidity();
+            return;
+        }
+
+        event.preventDefault();
+    });
+})();
