@@ -147,6 +147,14 @@ a:hover {
         linear-gradient(0deg, rgba(26, 61, 177, 0.6), rgba(26, 61, 177, 0.6));
 }
 
+.page-hero--contacts {
+    background-image: linear-gradient(135deg, #1a3db1 0%, #2557d6 50%, #1a4db8 100%);
+}
+
+.page-hero--contacts::before {
+    background: rgba(10, 25, 80, 0.35);
+}
+
 .page-hero__inner {
     position: relative;
     z-index: 1;

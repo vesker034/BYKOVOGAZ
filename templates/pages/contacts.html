@@ -1,635 +1,129 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты | БыковоГаз</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #1a4db8;
-            --color-primary-hover: #153d94;
-            --color-primary-muted: rgba(26, 77, 184, 0.1);
-            --color-logo-text: #1a4db8;
-            --color-tagline: #6b7c93;
-            --color-text: #1a2332;
-            --color-text-muted: #5c6778;
-            --color-border: #e2e6ec;
-            --color-header-top: rgba(0, 0, 0, 0.06);
-            --bg-page: #ffffff;
-            --bg-header: #ffffff;
-            --bg-footer: #1a3db1;
-            --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --font-heading: "Inter", var(--font-sans);
-            --fs-body: 1rem;
-            --fs-small: 0.875rem;
-            --fs-nav: 0.9375rem;
-            --fs-tagline: 0.75rem;
-            --lh-body: 1.55;
-            --lh-heading: 1.2;
-            --space-1: 0.25rem;
-            --space-2: 0.5rem;
-            --space-3: 0.75rem;
-            --space-4: 1rem;
-            --space-5: 1.25rem;
-            --space-6: 1.5rem;
-            --space-8: 2rem;
-            --space-10: 2.5rem;
-            --space-12: 3rem;
-            --space-16: 4rem;
-            --radius-sm: 4px;
-            --radius-md: 6px;
-            --shadow-dropdown: 0 12px 40px rgba(15, 20, 25, 0.12);
-            --container-max: 1320px;
-            --container-px: clamp(1rem, 4vw, 1.5rem);
-            --transition-fast: 0.15s ease;
-            --header-min-height: 5.5rem;
-            --logo-mark-size: 3rem;
-        }
+{% extends "base.html" %}
+{% load static %}
 
-        html { scroll-behavior: smooth; }
+{% block title %}Контакты | БыковоГаз{% endblock %}
 
-        body {
-            min-width: 320px;
-            font-family: var(--font-sans);
-            font-size: var(--fs-body);
-            line-height: var(--lh-body);
-            color: var(--color-text);
-            background-color: var(--bg-page);
-            -webkit-font-smoothing: antialiased;
-        }
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
+{% endblock %}
 
-        main { min-height: calc(100vh - 12rem); }
+{% block content %}
+<div class="contacts-page">
+    {% include "components/page_hero.html" with title="Контакты" lead="Свяжитесь с нами удобным способом" hero_class="page-hero--contacts" %}
 
-        a {
-            color: var(--color-primary);
-            text-decoration-thickness: 1px;
-            text-underline-offset: 0.2em;
-            transition: color var(--transition-fast);
-        }
-        a:hover { color: var(--color-primary-hover); }
-        .site-header a, .site-footer a { text-decoration: none; }
-        .site-header a:hover, .site-footer a:hover { text-decoration: none; }
+    <section class="contacts-page__section">
+        <div class="site-container">
+            <div class="contacts-page__layout">
+                <section class="contacts-panel" aria-labelledby="contacts-info-title">
+                    <p class="contacts-panel__eyebrow">Контактная информация</p>
+                    <h2 id="contacts-info-title" class="contacts-panel__title">Мы всегда на связи</h2>
+                    <p class="contacts-panel__lead">
+                        Для общих вопросов, сотрудничества и деловой переписки используйте удобный для вас канал связи.
+                    </p>
 
-        :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
-
-        .site-container {
-            width: 100%;
-            max-width: var(--container-max);
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: var(--container-px);
-            padding-right: var(--container-px);
-        }
-
-        /* Header */
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1030;
-            background-color: var(--bg-header);
-            border-top: 1px solid var(--color-header-top);
-            border-bottom: 1px solid var(--color-border);
-        }
-        .site-header__main { padding: 0; }
-        .site-header__nav { padding: 0; }
-        .site-header__bar {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--space-6);
-            min-height: var(--header-min-height);
-            padding-top: var(--space-3);
-            padding-bottom: var(--space-3);
-        }
-        .site-header__brand {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: var(--space-4);
-            text-decoration: none;
-            color: inherit;
-            max-width: min(100%, 22rem);
-        }
-        .site-header__brand:hover .site-header__logo-title { color: var(--color-primary-hover); }
-        .site-header__logo-mark {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            width: var(--logo-mark-size);
-            height: var(--logo-mark-size);
-            background-color: var(--color-primary);
-            border-radius: var(--radius-sm);
-            padding: 0.35rem;
-        }
-        .site-header__logo-img { width: 100%; height: 100%; object-fit: contain; }
-        .site-header__brand-text { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
-        .site-header__logo-title {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.125rem;
-            letter-spacing: 0.06em;
-            line-height: 1.15;
-            color: var(--color-logo-text);
-            transition: color var(--transition-fast);
-        }
-        .site-header__logo-tagline {
-            font-size: var(--fs-tagline);
-            font-weight: 400;
-            line-height: 1.35;
-            color: var(--color-tagline);
-        }
-        .site-header__collapse { flex-grow: 1; }
-        .site-header__menu { align-items: center; gap: 0.125rem; }
-
-        @media (min-width: 992px) {
-            .site-header__collapse { flex-grow: 0; flex-basis: auto; margin-left: auto; display: flex; justify-content: flex-end; }
-            .site-header__menu { justify-content: flex-end; gap: 0.35rem; }
-        }
-
-        .site-header__link {
-            font-size: var(--fs-nav);
-            font-weight: 500;
-            padding: 0.5rem 0.65rem;
-            border-radius: 0;
-            color: var(--color-text);
-            transition: color var(--transition-fast);
-        }
-        .site-header__link:hover, .site-header__link:focus { color: var(--color-primary); background-color: transparent; }
-        .site-header__link--active { color: var(--color-primary); font-weight: 600; }
-        .site-header .nav-link.site-header__link { color: var(--color-text); }
-        .site-header .nav-link.site-header__link--active { color: var(--color-primary); }
-        .site-header .nav-link.site-header__link:hover, .site-header .nav-link.site-header__link:focus { color: var(--color-primary); background-color: transparent; }
-        .site-header__toggler { border-color: var(--color-border); padding: 0.4rem 0.6rem; }
-        .site-header__dropdown {
-            margin-top: 0.5rem;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-dropdown);
-            padding: var(--space-2) 0;
-            min-width: 14rem;
-        }
-        .site-header .dropdown-item { color: var(--color-text); font-size: var(--fs-nav); font-weight: 500; padding: 0.5rem 1rem; }
-        .site-header .dropdown-item:hover, .site-header .dropdown-item:focus { background-color: var(--color-primary-muted); color: var(--color-primary); }
-        .site-header .dropdown-toggle::after { margin-left: 0.35em; vertical-align: 0.14em; }
-
-        @media (max-width: 991.98px) {
-            .site-header__dropdown { margin-top: 0; border: 0; box-shadow: none; padding-left: var(--space-4); padding-bottom: var(--space-2); }
-        }
-
-        /* Footer */
-        .site-footer { margin-top: auto; background-color: var(--bg-footer); color: #fff; font-size: var(--fs-small); }
-        .site-footer__inner { padding-top: var(--space-16); padding-bottom: var(--space-10); }
-        .site-footer__grid { --bs-gutter-x: 2.5rem; --bs-gutter-y: 2.5rem; }
-        .site-footer__grid > .col { min-width: 0; text-align: center; }
-        .site-footer__brand-title { font-family: var(--font-heading); font-weight: 700; font-size: 1.125rem; letter-spacing: 0.04em; margin: 0 0 var(--space-4); color: #fff; }
-        .site-footer__lead { margin: 0 0 var(--space-6); font-size: var(--fs-small); font-weight: 400; line-height: 1.6; color: rgba(255,255,255,0.92); }
-        .site-footer__copy { margin: 0; font-size: 0.8125rem; color: rgba(255,255,255,0.65); }
-        .site-footer__section-title { font-size: 1rem; font-weight: 700; color: #fff; margin: 0 0 var(--space-5); }
-        .site-footer__list { margin: 0; padding: 0; list-style: none; }
-        .site-footer__list li + li { margin-top: 0.65rem; }
-        .site-footer__list a { color: rgba(255,255,255,0.92); font-weight: 400; font-size: var(--fs-small); }
-        .site-footer__list a:hover { color: #fff; }
-        .site-footer__contact-list { margin: 0 auto; padding: 0; list-style: none; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 22rem; }
-        .site-footer__contact-item { display: flex; flex-direction: row; align-items: flex-start; justify-content: center; gap: 0.65rem; margin-bottom: var(--space-4); width: 100%; }
-        .site-footer__contact-item:last-child { margin-bottom: 0; }
-        .site-footer__contact-icon { flex-shrink: 0; margin-top: 0.1rem; color: rgba(255,255,255,0.95); }
-        .site-footer__contact-icon svg { display: block; }
-        .site-footer__contact-text { font-size: var(--fs-small); font-weight: 400; line-height: 1.55; color: rgba(255,255,255,0.95); text-align: center; flex: 1 1 auto; min-width: 0; }
-        a.site-footer__contact-text { color: rgba(255,255,255,0.95); }
-        a.site-footer__contact-text:hover { color: #fff; }
-        .site-footer__chamber { margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid rgba(255,255,255,0.2); text-align: center; font-size: 0.8125rem; line-height: 1.5; color: rgba(255,255,255,0.75); }
-
-        /* ========================
-           PAGE-SPECIFIC: CONTACTS
-           ======================== */
-
-        /* Hero */
-        .page-hero {
-            background: linear-gradient(135deg, #1a3db1 0%, #2557d6 50%, #1a4db8 100%);
-            position: relative;
-            padding: 4rem 0 3.5rem;
-            overflow: hidden;
-        }
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(10, 25, 80, 0.35);
-        }
-        .page-hero__content { position: relative; z-index: 1; }
-        .page-hero__title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: #fff;
-            margin: 0 0 0.5rem;
-        }
-        .page-hero__subtitle { font-size: 1rem; color: rgba(255,255,255,0.85); margin: 0; }
-
-        /* Contacts section */
-        .contacts-section { padding: 4rem 0; }
-
-        .contacts-info-title {
-            font-family: var(--font-heading);
-            font-size: 1.375rem;
-            font-weight: 700;
-            color: var(--color-text);
-            margin: 0 0 1.75rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .contact-item:last-child { margin-bottom: 0; }
-
-        .contact-item__icon {
-            flex-shrink: 0;
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 50%;
-            background-color: var(--color-primary-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-primary);
-            margin-top: 0.1rem;
-        }
-        .contact-item__icon svg { display: block; }
-        .contact-item__body {}
-        .contact-item__label { font-size: var(--fs-small); font-weight: 700; color: var(--color-text); margin: 0 0 0.2rem; }
-        .contact-item__text { font-size: var(--fs-small); color: var(--color-text-muted); margin: 0; line-height: 1.5; }
-
-        /* Rekvizity box */
-        .rekvizity-box {
-            background: #f4f7ff;
-            border: 1px solid #dde4f5;
-            border-radius: var(--radius-md);
-            padding: 1.25rem 1.5rem;
-            margin-top: 2rem;
-        }
-        .rekvizity-box__title {
-            font-size: 0.9375rem;
-            font-weight: 700;
-            color: var(--color-text);
-            margin: 0 0 0.75rem;
-        }
-        .rekvizity-box p {
-            font-size: var(--fs-small);
-            color: var(--color-text-muted);
-            margin: 0 0 0.35rem;
-            line-height: 1.55;
-        }
-        .rekvizity-box p:last-child { margin: 0; }
-        .rekvizity-box strong { color: var(--color-text); font-weight: 600; }
-
-        /* Contact form card */
-        .contact-form-card {
-            background: #fff;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-md);
-            padding: 2rem 2rem 1.75rem;
-            box-shadow: 0 4px 24px rgba(26, 77, 184, 0.06);
-        }
-        .contact-form-card__title {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--color-text);
-            margin: 0 0 1.5rem;
-        }
-
-        .form-label-custom {
-            font-size: var(--fs-small);
-            font-weight: 500;
-            color: var(--color-text);
-            margin-bottom: 0.35rem;
-            display: block;
-        }
-        .form-label-custom .req { color: var(--color-primary); }
-
-        .form-control-custom {
-            width: 100%;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-sm);
-            padding: 0.55rem 0.85rem;
-            font-family: var(--font-sans);
-            font-size: var(--fs-small);
-            color: var(--color-text);
-            background: #fff;
-            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-            outline: none;
-            appearance: none;
-        }
-        .form-control-custom::placeholder { color: #b0bac8; }
-        .form-control-custom:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(26, 77, 184, 0.12); }
-
-        textarea.form-control-custom { resize: vertical; min-height: 7rem; }
-
-        .form-group { margin-bottom: 1rem; }
-
-        .btn-submit {
-            width: 100%;
-            background-color: var(--color-primary);
-            color: #fff;
-            border: none;
-            border-radius: var(--radius-sm);
-            padding: 0.8rem 1.5rem;
-            font-family: var(--font-sans);
-            font-size: var(--fs-small);
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color var(--transition-fast);
-            margin-top: 0.5rem;
-        }
-        .btn-submit:hover { background-color: var(--color-primary-hover); }
-
-        .form-note {
-            text-align: center;
-            font-size: 0.8125rem;
-            color: var(--color-text-muted);
-            margin: 0.75rem 0 0;
-        }
-
-        /* Map section */
-        .map-section { padding: 0 0 4rem; }
-        .map-section__title {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-text);
-            text-align: center;
-            margin: 0 0 2rem;
-        }
-        .map-placeholder {
-            background: #f0f2f5;
-            border-radius: var(--radius-md);
-            height: 320px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            color: var(--color-text-muted);
-        }
-        .map-placeholder svg { color: #9aa8be; }
-        .map-placeholder__text { font-size: 0.9375rem; color: var(--color-text-muted); margin: 0; }
-        .map-placeholder__sub { font-size: var(--fs-small); color: #9aa8be; margin: 0; }
-    </style>
-</head>
-<body class="d-flex flex-column min-vh-100">
-
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="site-header__main">
-            <nav class="navbar navbar-expand-lg navbar-light site-header__nav" aria-label="Основное меню">
-                <div class="site-container site-header__bar">
-                    <a class="site-header__brand" href="#">
-                        <span class="site-header__logo-mark">
-                            <svg class="site-header__logo-img" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M24 6C16 6 10 14 10 22C10 32 20 40 24 42C28 40 38 32 38 22C38 14 32 6 24 6Z" fill="white" fill-opacity="0.9"/>
-                                <circle cx="24" cy="22" r="6" fill="#1a4db8"/>
-                            </svg>
-                        </span>
-                        <span class="site-header__brand-text">
-                            <span class="site-header__logo-title">БЫКОВОГАЗ</span>
-                            <span class="site-header__logo-tagline">Добыча углеводородного сырья</span>
-                        </span>
-                    </a>
-
-                    <button class="navbar-toggler site-header__toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Открыть меню">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse site-header__collapse ms-lg-auto" id="siteNavbar">
-                        <ul class="navbar-nav site-header__menu">
-                            <li class="nav-item">
-                                <a class="nav-link site-header__link" href="#">Главная</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle site-header__link" href="#" id="navAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">О нас</a>
-                                <ul class="dropdown-menu site-header__dropdown" aria-labelledby="navAbout">
-                                    <li><a class="dropdown-item" href="#">О компании</a></li>
-                                    <li><a class="dropdown-item" href="#">О месторождении</a></li>
-                                    <li><a class="dropdown-item" href="#">Состав команды</a></li>
-                                    <li><a class="dropdown-item" href="#">Лицензия</a></li>
-                                    <li><a class="dropdown-item" href="#">Виртуальный тур</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link site-header__link" href="#">Наши работы</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle site-header__link" href="#" id="navPress" role="button" data-bs-toggle="dropdown" aria-expanded="false">Пресс-центр</a>
-                                <ul class="dropdown-menu site-header__dropdown" aria-labelledby="navPress">
-                                    <li><a class="dropdown-item" href="#">Новости</a></li>
-                                    <li><a class="dropdown-item" href="#">Галерея</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link site-header__link" href="#">Карьера</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link site-header__link site-header__link--active" href="#" aria-current="page">Контакты</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main class="flex-grow-1">
-
-        <!-- HERO -->
-        <section class="page-hero">
-            <div class="site-container page-hero__content">
-                <h1 class="page-hero__title">Контакты</h1>
-                <p class="page-hero__subtitle">Свяжитесь с нами удобным способом</p>
-            </div>
-        </section>
-
-        <!-- CONTACTS SECTION -->
-        <section class="contacts-section">
-            <div class="site-container">
-                <div class="row g-5">
-                    <!-- Left: Contact info + rekvizity -->
-                    <div class="col-12 col-lg-5">
-                        <h2 class="contacts-info-title">Контактная информация</h2>
-
-                        <div class="contact-item">
-                            <div class="contact-item__icon">
+                    <div class="contacts-panel__list">
+                        <article class="contact-card">
+                            <div class="contact-card__icon" aria-hidden="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                                     <path d="M12 21s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z"/>
                                     <circle cx="12" cy="11" r="2.5"/>
                                 </svg>
                             </div>
-                            <div class="contact-item__body">
-                                <p class="contact-item__label">Адрес</p>
-                                <p class="contact-item__text">400050, Волгоград<br>Ул. Маршала Рокоссовского 62<br>БЦ Волгоград Сити, 18 этаж</p>
+                            <div class="contact-card__body">
+                                <p class="contact-card__label">Адрес</p>
+                                <p class="contact-card__text">
+                                    400050, Волгоград, ул. Маршала Рокоссовского 62,<br>
+                                    БЦ Волгоград Сити, 18 этаж
+                                </p>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="contact-item">
-                            <div class="contact-item__icon">
+                        <article class="contact-card">
+                            <div class="contact-card__icon" aria-hidden="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                                     <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.6A2 2 0 014.1 1h3a2 2 0 012 1.7c.1 1 .3 2 .6 2.9a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l2.2-2.1a2 2 0 012.1-.5c1 .3 2 .5 2.9.6a2 2 0 011.7 2z"/>
                                 </svg>
                             </div>
-                            <div class="contact-item__body">
-                                <p class="contact-item__label">Телефон</p>
-                                <p class="contact-item__text">8 (8442) 99-88-99</p>
+                            <div class="contact-card__body">
+                                <p class="contact-card__label">Телефон</p>
+                                <a class="contact-card__link" href="tel:+78442998899">8 (8442) 99-88-99</a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="contact-item">
-                            <div class="contact-item__icon">
+                        <article class="contact-card">
+                            <div class="contact-card__icon" aria-hidden="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                     <rect x="3" y="5" width="18" height="14" rx="2"/>
                                     <path d="M3 7l9 6 9-6"/>
                                 </svg>
                             </div>
-                            <div class="contact-item__body">
-                                <p class="contact-item__label">Email</p>
-                                <p class="contact-item__text">info@bykovogaz.ru</p>
+                            <div class="contact-card__body">
+                                <p class="contact-card__label">Email</p>
+                                <a class="contact-card__link" href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="contact-item">
-                            <div class="contact-item__icon">
+                        <article class="contact-card">
+                            <div class="contact-card__icon" aria-hidden="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10"/>
                                     <path d="M12 6v6l4 2"/>
                                 </svg>
                             </div>
-                            <div class="contact-item__body">
-                                <p class="contact-item__label">Режим работы</p>
-                                <p class="contact-item__text">Понедельник - Пятница: 9:00 - 18:00<br>Суббота - Воскресенье: Выходной</p>
+                            <div class="contact-card__body">
+                                <p class="contact-card__label">Режим работы</p>
+                                <p class="contact-card__text">
+                                    Понедельник - Пятница: 9:00 - 18:00<br>
+                                    Суббота - Воскресенье: выходной
+                                </p>
                             </div>
-                        </div>
-
-                        <div class="rekvizity-box">
-                            <p class="rekvizity-box__title">Реквизиты компании</p>
-                            <p><strong>Полное наименование:</strong></p>
-                            <p>Общество с ограниченной ответственностью «БЫКОВОГАЗ»</p>
-                            <p>ИНН: 3439007015</p>
-                            <p>КПП: 340201001</p>
-                            <p>ОГРН: 1033400954784</p>
-                        </div>
+                        </article>
                     </div>
+                </section>
 
-                    <!-- Right: Contact form -->
-                    <div class="col-12 col-lg-7">
-                        <div class="contact-form-card">
-                            <h2 class="contact-form-card__title">Напишите нам</h2>
-
-                            <div class="form-group">
-                                <label class="form-label-custom">Имя <span class="req">*</span></label>
-                                <input type="text" class="form-control-custom" placeholder="Введите ваше имя">
+                <aside class="contacts-sidebar">
+                    <section class="contacts-card contacts-card--accent" aria-labelledby="contacts-details-title">
+                        <p class="contacts-card__eyebrow">Юридическая информация</p>
+                        <h2 id="contacts-details-title" class="contacts-card__title">Реквизиты компании</h2>
+                        <dl class="company-details">
+                            <div class="company-details__row">
+                                <dt>Полное наименование</dt>
+                                <dd>Общество с ограниченной ответственностью «БЫКОВОГАЗ»</dd>
                             </div>
-
-                            <div class="form-group">
-                                <label class="form-label-custom">Email <span class="req">*</span></label>
-                                <input type="email" class="form-control-custom" placeholder="your@email.com">
+                            <div class="company-details__row">
+                                <dt>ИНН</dt>
+                                <dd>3439007015</dd>
                             </div>
-
-                            <div class="form-group">
-                                <label class="form-label-custom">Телефон</label>
-                                <input type="tel" class="form-control-custom" placeholder="+7 (___) ___-__-__">
+                            <div class="company-details__row">
+                                <dt>КПП</dt>
+                                <dd>340201001</dd>
                             </div>
-
-                            <div class="form-group">
-                                <label class="form-label-custom">Тема обращения <span class="req">*</span></label>
-                                <input type="text" class="form-control-custom" placeholder="Укажите тему">
+                            <div class="company-details__row">
+                                <dt>ОГРН</dt>
+                                <dd>1033400954784</dd>
                             </div>
+                        </dl>
+                    </section>
 
-                            <div class="form-group">
-                                <label class="form-label-custom">Сообщение <span class="req">*</span></label>
-                                <textarea class="form-control-custom" placeholder="Ваше сообщение..."></textarea>
+                    <section class="contacts-card contacts-card--map" aria-labelledby="contacts-map-title">
+                        <div class="contacts-map">
+                            <div class="contacts-map__badge">Локация офиса</div>
+                            <h2 id="contacts-map-title" class="contacts-map__title">Как нас найти</h2>
+                            <p class="contacts-map__text">
+                                БЦ Волгоград Сити, ул. Маршала Рокоссовского 62, 18 этаж
+                            </p>
+                            <div class="contacts-map__placeholder" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path d="M12 21s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z"/>
+                                    <circle cx="12" cy="11" r="2.5"/>
+                                </svg>
+                                <span>Здесь будет интерактивная карта</span>
                             </div>
-
-                            <button type="button" class="btn-submit">Отправить сообщение</button>
-                            <p class="form-note">* Поля обязательные для заполнения</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MAP SECTION -->
-        <section class="map-section">
-            <div class="site-container">
-                <h2 class="map-section__title">Как нас найти</h2>
-                <div class="map-placeholder">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                        <path d="M12 21s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z"/>
-                        <circle cx="12" cy="11" r="2.5"/>
-                    </svg>
-                    <p class="map-placeholder__text">Здесь будет интерактивная карта</p>
-                    <p class="map-placeholder__sub">БЦ Волгоград Сити, ул. Маршала Рокоссовского 62, 18 этаж</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="site-container site-footer__inner">
-            <div class="row row-cols-1 row-cols-lg-3 site-footer__grid g-4 g-lg-5 align-items-start justify-content-center">
-                <div class="col">
-                    <p class="site-footer__brand-title">БЫКОВОГАЗ</p>
-                    <p class="site-footer__lead">Вертикально интегрированная компания по разработке недр и добыче углеводородного сырья</p>
-                    <p class="site-footer__copy">© 2026 ООО «БЫКОВОГАЗ»</p>
-                </div>
-                <div class="col">
-                    <h2 class="site-footer__section-title">Быстрые ссылки</h2>
-                    <ul class="site-footer__list">
-                        <li><a href="#">О компании</a></li>
-                        <li><a href="#">Наши работы</a></li>
-                        <li><a href="#">Новости</a></li>
-                        <li><a href="#">Карьера</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h2 class="site-footer__section-title">Контакты</h2>
-                    <ul class="site-footer__contact-list">
-                        <li class="site-footer__contact-item">
-                            <span class="site-footer__contact-icon" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
-                            </span>
-                            <span class="site-footer__contact-text">400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж</span>
-                        </li>
-                        <li class="site-footer__contact-item">
-                            <span class="site-footer__contact-icon" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.6A2 2 0 014.1 1h3a2 2 0 012 1.7c.1 1 .3 2 .6 2.9a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l2.2-2.1a2 2 0 012.1-.5c1 .3 2 .5 2.9.6a2 2 0 011.7 2z"/></svg>
-                            </span>
-                            <a class="site-footer__contact-text" href="tel:+78442998899">8 (8442) 99-88-99</a>
-                        </li>
-                        <li class="site-footer__contact-item">
-                            <span class="site-footer__contact-icon" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-                            </span>
-                            <a class="site-footer__contact-text" href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="site-footer__chamber">
-                Член Союза «Волгоградская торгово-промышленная палата» с апреля 2019 года
+                    </section>
+                </aside>
             </div>
         </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    </section>
+</div>
+{% endblock %}
