@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Карьера | БыковоГаз{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="career-page">
+    {% include "components/page_hero.html" with title="Карьера" lead="Присоединяйтесь к нашей команде" hero_class="page-hero--career" %}
+
+    <section class="why-section">
+        <div class="site-container">
+            <h2 class="why-section__title">Почему стоит работать с нами?</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 col-md-4">
+                    <article class="why-card">
+                        <div class="why-card__icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+                                <line x1="12" y1="12" x2="12" y2="16"/>
+                                <line x1="10" y1="14" x2="14" y2="14"/>
+                            </svg>
+                        </div>
+                        <h3 class="why-card__title">Стабильность</h3>
+                        <p class="why-card__text">
+                            Работа в крупной компании с более чем 20-летней историей в нефтегазовой отрасли
+                        </p>
+                    </article>
+                </div>
+                <div class="col-12 col-md-4">
+                    <article class="why-card">
+                        <div class="why-card__icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="why-card__title">Развитие</h3>
+                        <p class="why-card__text">
+                            Возможности профессионального роста и участия в крупных проектах
+                        </p>
+                    </article>
+                </div>
+                <div class="col-12 col-md-4">
+                    <article class="why-card">
+                        <div class="why-card__icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="why-card__title">Команда</h3>
+                        <p class="why-card__text">
+                            Работа в команде из 140 профессионалов своего дела
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="site-container">
+            <form class="candidate-form-card" action="#" method="post">
+                <h2 class="candidate-form-card__title">Анкета кандидата</h2>
+                <p class="candidate-form-card__subtitle">
+                    Заполните форму ниже, и мы свяжемся с вами в ближайшее время
+                </p>
+
+                <p class="form-section-label">Персональные данные</p>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-4">
+                        <label class="form-label-custom" for="career-last-name">Фамилия <span class="req">*</span></label>
+                        <input id="career-last-name" type="text" class="form-control-custom" placeholder="Иванов">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label class="form-label-custom" for="career-first-name">Имя <span class="req">*</span></label>
+                        <input id="career-first-name" type="text" class="form-control-custom" placeholder="Иван">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label class="form-label-custom" for="career-middle-name">Отчество</label>
+                        <input id="career-middle-name" type="text" class="form-control-custom" placeholder="Иванович">
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label-custom" for="career-birth-date">Дата рождения <span class="req">*</span></label>
+                        <input id="career-birth-date" type="text" class="form-control-custom" placeholder="ДД.ММ.ГГГГ">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label-custom" for="career-phone">Телефон <span class="req">*</span></label>
+                        <input id="career-phone" type="tel" class="form-control-custom" placeholder="+7 (___) ___-__-__">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label-custom" for="career-email">Email <span class="req">*</span></label>
+                    <input id="career-email" type="email" class="form-control-custom" placeholder="your@email.com">
+                </div>
+
+                <p class="form-section-label form-section-label--spaced">Образование и опыт</p>
+
+                <div class="form-group">
+                    <label class="form-label-custom" for="career-education">Образование <span class="req">*</span></label>
+                    <select id="career-education" class="form-control-custom">
+                        <option value="" disabled selected>Выберите образование</option>
+                        <option>Среднее</option>
+                        <option>Среднее специальное</option>
+                        <option>Неполное высшее</option>
+                        <option>Высшее</option>
+                        <option>Несколько высших</option>
+                        <option>Аспирантура, кандидат наук</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label-custom" for="career-position">Желаемая должность <span class="req">*</span></label>
+                    <input id="career-position" type="text" class="form-control-custom" placeholder="Например: Инженер-технолог">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label-custom" for="career-experience">Опыт работы <span class="req">*</span></label>
+                    <select id="career-experience" class="form-control-custom">
+                        <option value="" disabled selected>Выберите опыт работы</option>
+                        <option>Без опыта</option>
+                        <option>До 1 года</option>
+                        <option>1-3 года</option>
+                        <option>3-5 лет</option>
+                        <option>Более 5 лет</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label-custom" for="career-about">О себе <span class="req">*</span></label>
+                    <textarea
+                        id="career-about"
+                        class="form-control-custom"
+                        placeholder="Расскажите о своих профессиональных навыках, достижениях и мотивации работать в нашей компании..."
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Отправить анкету</button>
+                <p class="form-note">* Поля обязательные для заполнения</p>
+            </form>
+        </div>
+    </section>
+
+    <section class="questions-section">
+        <div class="site-container">
+            <h2 class="questions-section__title">Есть вопросы?</h2>
+            <p class="questions-section__subtitle">
+                Свяжитесь с отделом кадров по телефону или электронной почте
+            </p>
+            <div class="questions-section__contacts">
+                <a href="tel:+78442998899">8 (8442) 99-88-99</a>
+                <span class="questions-section__divider">|</span>
+                <a href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
