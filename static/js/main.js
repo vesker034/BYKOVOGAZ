@@ -207,3 +207,39 @@ document.documentElement.classList.add("js-ready");
         event.preventDefault();
     });
 })();
+
+(function () {
+    const galleryRoot = document.querySelector("[data-gallery-root]");
+
+    if (!galleryRoot) {
+        return;
+    }
+
+    const loadMoreButton = galleryRoot.querySelector("[data-gallery-more]");
+    const hiddenItemsSelector = ".news-gallery-grid__cell--hidden";
+    const revealStep = Number.parseInt(galleryRoot.dataset.galleryStep || "8", 10);
+
+    if (!loadMoreButton) {
+        return;
+    }
+
+    function getHiddenItems() {
+        return Array.from(galleryRoot.querySelectorAll(hiddenItemsSelector));
+    }
+
+    function updateButtonVisibility() {
+        loadMoreButton.hidden = getHiddenItems().length === 0;
+    }
+
+    loadMoreButton.addEventListener("click", function () {
+        const hiddenItems = getHiddenItems();
+
+        hiddenItems.slice(0, revealStep).forEach(function (item) {
+            item.classList.remove("news-gallery-grid__cell--hidden");
+        });
+
+        updateButtonVisibility();
+    });
+
+    updateButtonVisibility();
+})();

@@ -822,6 +822,10 @@
     min-width: 0;
 }
 
+.news-gallery-grid__cell--hidden {
+    display: none;
+}
+
 .news-gallery-card {
     margin: 0;
     border-radius: var(--gallery-radius);
@@ -867,6 +871,10 @@
     color: #fff;
     background-color: var(--gallery-blue-hover);
     transform: translateY(-1px);
+}
+
+.news-gallery-more__btn[hidden] {
+    display: none;
 }
 
 .news-gallery-categories {

@@ -393,7 +393,9 @@ _GALLERY_CATEGORY_OPTIONS = [
     {"id": "office", "label": "Офис"},
 ]
 
-# Статические фото (повтор цикла для демонстрации «ещё» и пагинации).
+_GALLERY_INITIAL_VISIBLE = 8
+
+# Статические фото для клиентской подгрузки кнопкой «Загрузить ещё».
 _GALLERY_ITEMS_RAW = [
     ("img/news/news-01.png", "Промышленный комплекс", "production"),
     ("img/news/news-02.png", "Трубопроводное оборудование", "infrastructure"),
@@ -420,7 +422,7 @@ _GALLERY_ITEMS = [
 
 
 def press_gallery(request):
-    """Страница «Галерея» пресс-центра: сетка фото, категории, подгрузка страниц."""
+    """Страница «Галерея» пресс-центра: сетка фото, категории и клиентская подгрузка."""
     category = (request.GET.get("category") or "all").strip()
     valid_ids = {c["id"] for c in _GALLERY_CATEGORY_OPTIONS}
     if category not in valid_ids:
@@ -432,9 +434,6 @@ def press_gallery(request):
         else [row for row in _GALLERY_ITEMS if row["category"] == category]
     )
 
-    paginator = Paginator(filtered, 8)
-    gallery_page = paginator.get_page(request.GET.get("page") or 1)
-
     return render(
         request,
         "pages/gallery.html",
@@ -442,8 +441,9 @@ def press_gallery(request):
             "page_title": "Галерея",
             "hero_title": "Галерея",
             "hero_subtitle": "Фотографии нашей работы и достижений",
-            "gallery_page": gallery_page,
+            "gallery_items": filtered,
             "gallery_categories": _GALLERY_CATEGORY_OPTIONS,
             "gallery_category_active": category,
+            "gallery_initial_visible": _GALLERY_INITIAL_VISIBLE,
         },
     )
