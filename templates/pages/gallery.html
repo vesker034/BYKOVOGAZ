@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }} | БыковоГаз{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="news-gallery-page">
+    {% include "components/figma_page_hero.html" with hero_heading_id="gallery-hero-title" %}
+
+    <div class="news-gallery-main">
+        <div class="site-container">
+            <ul class="news-gallery-grid" id="gallery-grid">
+                {% for item in gallery_page %}
+                <li class="news-gallery-grid__cell">
+                    <figure class="news-gallery-card">
+                        <img
+                            class="news-gallery-card__img"
+                            src="{% static item.src %}"
+                            alt="{{ item.alt }}"
+                            width="640"
+                            height="400"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </figure>
+                </li>
+                {% endfor %}
+            </ul>
+
+            {% if gallery_page.has_next %}
+            <div class="news-gallery-more">
+                <a
+                    class="news-gallery-more__btn"
+                    href="?{% if gallery_category_active != 'all' %}category={{ gallery_category_active }}&amp;{% endif %}page={{ gallery_page.next_page_number }}"
+                >
+                    Загрузить ещё
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <section class="news-gallery-categories" aria-labelledby="gallery-categories-title">
+        <div class="site-container news-gallery-categories__inner">
+            <h2 id="gallery-categories-title" class="news-gallery-categories__title">Категории</h2>
+            <ul class="news-gallery-categories__list">
+                {% for cat in gallery_categories %}
+                <li>
+                    {% if cat.id == gallery_category_active %}
+                    <span class="news-gallery-categories__pill news-gallery-categories__pill--active">{{ cat.label }}</span>
+                    {% else %}
+                        {% if cat.id == "all" %}
+                        <a class="news-gallery-categories__pill" href="{% url 'main:press_news_gallery' %}">{{ cat.label }}</a>
+                        {% else %}
+                        <a
+                            class="news-gallery-categories__pill"
+                            href="{% url 'main:press_news_gallery' %}?category={{ cat.id }}"
+                        >{{ cat.label }}</a>
+                        {% endif %}
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}
