@@ -146,11 +146,11 @@ def press(request):
 
 
 def career(request):
-    return render(request, "pages/empty.html", {"page_title": "Карьера"})
+    return render(request, "pages/career.html")
 
 
 def contacts(request):
-    return render(request, "pages/empty.html", {"page_title": "Контакты"})
+    return render(request, "pages/contacts.html")
 
 
 def about_company(request):

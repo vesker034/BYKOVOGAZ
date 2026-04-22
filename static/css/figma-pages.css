@@ -899,11 +899,245 @@
     margin: 0;
     padding: 0;
     list-style: none;
+/* --- Карьера --- */
+
+.career-page .why-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.career-page .why-section__title {
+    margin: 0 0 3rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 3vw, 1.625rem);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.career-page .why-card {
+    height: 100%;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.career-page .why-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1rem;
+    border-radius: 999px;
+    background-color: var(--color-primary-muted);
+    color: var(--color-primary);
+}
+
+.career-page .why-card__icon svg {
+    display: block;
+}
+
+.career-page .why-card__title {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.career-page .why-card__text {
+    margin: 0;
+    font-size: var(--fs-small);
+    line-height: 1.55;
+    color: var(--color-text-muted);
+}
+
+.career-page .form-section {
+    padding: 0 0 4rem;
+}
+
+.career-page .candidate-form-card {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2.5rem 2.5rem 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: #fff;
+    box-shadow: 0 4px 30px rgba(26, 77, 184, 0.07);
+}
+
+.career-page .candidate-form-card__title {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.career-page .candidate-form-card__subtitle {
+    margin: 0 0 2rem;
+    font-size: var(--fs-small);
+    color: var(--color-text-muted);
+}
+
+.career-page .form-section-label {
+    margin: 0 0 1.25rem;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.career-page .form-section-label:first-of-type {
+    padding-top: 0;
+}
+
+.career-page .form-section-label--spaced {
+    margin-top: 1.5rem;
+}
+
+.career-page .form-group {
+    margin-bottom: 1rem;
+}
+
+.career-page .form-label-custom {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: var(--fs-small);
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.career-page .form-label-custom .req {
+    color: var(--color-primary);
+}
+
+.career-page .form-control-custom {
+    width: 100%;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    outline: none;
+    appearance: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.career-page .form-control-custom::placeholder {
+    color: #b0bac8;
+}
+
+.career-page .form-control-custom:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(26, 77, 184, 0.12);
+}
+
+.career-page select.form-control-custom {
+    padding-right: 2.25rem;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239aa8be' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+}
+
+.career-page textarea.form-control-custom {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+.career-page .btn-submit {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.career-page .btn-submit:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.career-page .form-note {
+    margin: 0.75rem 0 0;
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+}
+
+.career-page .questions-section {
+    padding: 3.5rem 0;
+    background: #f4f7ff;
+    text-align: center;
+}
+
+.career-page .questions-section__title {
+    margin: 0 0 0.65rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.career-page .questions-section__subtitle {
+    margin: 0 0 1.5rem;
+    font-size: var(--fs-small);
+    color: var(--color-text-muted);
+}
+
+.career-page .questions-section__contacts {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 0.65rem 0.75rem;
+    gap: 1.5rem;
+}
+
+.career-page .questions-section__contacts a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.career-page .questions-section__contacts a:hover {
+    color: var(--color-primary-hover);
+}
+
+.career-page .questions-section__divider {
+    color: var(--color-border);
+    font-size: 1.25rem;
+}
+
+@media (max-width: 767.98px) {
+    .career-page .why-section {
+        padding: 3rem 0;
+    }
+
+    .career-page .candidate-form-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .career-page .questions-section {
+        padding: 2.5rem 0;
+    }
+
+    .career-page .questions-section__divider {
+        display: none;
+    }
+
+    .career-page .questions-section__contacts {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
 }
 
 .news-gallery-categories__pill {
@@ -933,4 +1167,224 @@
     background-color: var(--gallery-blue);
     border-color: transparent;
     cursor: default;
+}
+
+/* --- Контакты --- */
+
+.contacts-page__section {
+    padding: 4rem 0;
+    background:
+        radial-gradient(circle at top right, rgba(21, 93, 252, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.contacts-page__layout {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (min-width: 992px) {
+    .contacts-page__layout {
+        grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+    }
+}
+
+.contacts-panel,
+.contacts-card {
+    border: 1px solid rgba(26, 35, 50, 0.08);
+    border-radius: 24px;
+    background-color: #fff;
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
+}
+
+.contacts-panel {
+    padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.contacts-panel__eyebrow,
+.contacts-card__eyebrow,
+.contacts-map__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background-color: rgba(21, 93, 252, 0.1);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.contacts-panel__title,
+.contacts-card__title,
+.contacts-map__title {
+    margin: 1rem 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2vw, 1.875rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+.contacts-panel__lead,
+.contacts-map__text {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+}
+
+.contacts-panel__list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.contact-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    padding: 1.1rem 1.15rem;
+    border-radius: 18px;
+    background-color: #f8fbff;
+}
+
+.contact-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    background-color: rgba(21, 93, 252, 0.12);
+    color: var(--color-primary);
+}
+
+.contact-card__icon svg {
+    display: block;
+}
+
+.contact-card__label {
+    margin: 0 0 0.25rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.contact-card__text,
+.contact-card__link {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+.contact-card__link:hover {
+    color: var(--color-primary);
+}
+
+.contacts-sidebar {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.contacts-card {
+    padding: 1.5rem;
+}
+
+.contacts-card--accent {
+    background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+}
+
+.company-details {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0 0;
+}
+
+.company-details__row {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(26, 35, 50, 0.08);
+}
+
+.company-details__row:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.company-details dt {
+    margin: 0 0 0.3rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.company-details dd {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.contacts-map {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.contacts-map__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 16rem;
+    margin-top: 0.5rem;
+    border-radius: 20px;
+    border: 1px dashed rgba(21, 93, 252, 0.35);
+    background:
+        linear-gradient(180deg, rgba(238, 244, 255, 0.9) 0%, rgba(255, 255, 255, 0.96) 100%);
+    color: var(--color-primary);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.contacts-map__placeholder svg {
+    display: block;
+}
+
+.contacts-map__placeholder span {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+@media (max-width: 991.98px) {
+    .contacts-page__section {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .contacts-panel,
+    .contacts-card {
+        padding: 1.25rem;
+        border-radius: 20px;
+    }
+
+    .contact-card {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .contacts-map__placeholder {
+        min-height: 13rem;
+    }
 }
