@@ -414,6 +414,9 @@ _GALLERY_ITEMS_RAW = [
     ("img/news/news-04.png", "Разведка участка", "drilling"),
     ("img/home-hero.jpg", "Инфраструктура объекта", "infrastructure"),
 ]
+# Повтор того же набора для теста кнопки «Загрузить ещё» (ещё 8+8+8 снимков).
+_gallery_test_dup = list(_GALLERY_ITEMS_RAW)
+_GALLERY_ITEMS_RAW = _GALLERY_ITEMS_RAW + _gallery_test_dup
 
 _GALLERY_ITEMS = [
     {"src": src, "alt": alt, "category": cat}
