@@ -1957,6 +1957,7 @@ a.site-footer__contact-text:hover {
 
 .home-form-card {
     padding: 2rem;
+    scroll-margin-top: 7rem;
 }
 
 .home-form {
