@@ -5,14 +5,28 @@
     --color-logo-text: #1a4db8;
     --color-tagline: #6b7c93;
 
-    --color-text: #1a2332;
-    --color-text-muted: #5c6778;
-    --color-border: #e2e6ec;
+    --color-text: #000000;
+    --color-text-muted: #1f2937;
+    --color-border: rgba(26, 77, 184, 0.14);
     --color-header-top: rgba(0, 0, 0, 0.06);
 
     --bg-page: #ffffff;
     --bg-header: #ffffff;
-    --bg-footer: #155dfc;
+    --bg-footer: #1a4db8;
+    --bg-surface: #eef5ff;
+    --bg-surface-strong: #dbeafe;
+    --bg-card: #eaf2ff;
+    --bg-control: #ffffff;
+    --bg-dropdown: #ffffff;
+    --bg-page-gradient: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+    --bg-header-gradient: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+    --bg-footer-gradient: linear-gradient(180deg, #1a4db8 0%, #1a4db8 100%);
+    --bg-surface-gradient: linear-gradient(180deg, #eef5ff 0%, #eef5ff 100%);
+    --bg-card-gradient: linear-gradient(180deg, #eaf2ff 0%, #eaf2ff 100%);
+    --bg-control-gradient: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+    --bg-dropdown-gradient: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+    --bg-accent-gradient: linear-gradient(135deg, #1c398e 0%, #155dfc 100%);
+    --bg-accent-gradient-hover: linear-gradient(135deg, #153d94 0%, #0d4ed0 100%);
 
     --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
         sans-serif;
@@ -51,4 +65,40 @@
     /* Утилиты Bootstrap — та же палитра, что и у сайта */
     --bs-primary: var(--color-primary);
     --bs-primary-rgb: 26, 77, 184;
+}
+
+:root[data-theme="dark"] {
+    --color-primary: #7db3ff;
+    --color-primary-hover: #9ec7ff;
+    --color-primary-muted: rgba(125, 179, 255, 0.16);
+    --color-logo-text: #ffffff;
+    --color-tagline: rgba(255, 255, 255, 0.74);
+
+    --color-text: #ffffff;
+    --color-text-muted: rgba(255, 255, 255, 0.82);
+    --color-border: rgba(255, 255, 255, 0.16);
+    --color-header-top: rgba(255, 255, 255, 0.08);
+
+    --bg-page: #020617;
+    --bg-header: #030814;
+    --bg-footer: #08122f;
+    --bg-surface: #08122f;
+    --bg-surface-strong: #0d1b45;
+    --bg-card: #10255c;
+    --bg-control: #071128;
+    --bg-dropdown: #08122f;
+    --bg-page-gradient: linear-gradient(180deg, #020617 0%, #08122f 48%, #0d1b45 100%);
+    --bg-header-gradient: linear-gradient(180deg, #030814 0%, #08122f 100%);
+    --bg-footer-gradient: linear-gradient(180deg, #08122f 0%, #0d1b45 100%);
+    --bg-surface-gradient: linear-gradient(180deg, #071128 0%, #0d1b45 100%);
+    --bg-card-gradient: linear-gradient(180deg, #10255c 0%, #0d1b45 100%);
+    --bg-control-gradient: linear-gradient(180deg, #071128 0%, #091733 100%);
+    --bg-dropdown-gradient: linear-gradient(180deg, #08122f 0%, #0d1b45 100%);
+    --bg-accent-gradient: linear-gradient(135deg, #0f2353 0%, #15306f 55%, #1d4ed8 100%);
+    --bg-accent-gradient-hover: linear-gradient(135deg, #10285f 0%, #1a3d86 55%, #2563eb 100%);
+
+    --shadow-dropdown: 0 18px 40px rgba(0, 0, 0, 0.5);
+
+    --bs-primary: var(--color-primary);
+    --bs-primary-rgb: 125, 179, 255;
 }

@@ -88,6 +88,37 @@
                         <li class="nav-item">
                             <a class="nav-link site-header__link{% if request.path == contacts_url %} site-header__link--active{% endif %}" href="{{ contacts_url }}">Контакты</a>
                         </li>
+                        <li class="nav-item site-header__theme-item">
+                            <div class="site-theme-switch" role="group" aria-label="Переключение темы сайта">
+                                <button
+                                    class="site-theme-switch__button"
+                                    type="button"
+                                    data-theme-option="light"
+                                    aria-pressed="true"
+                                    aria-label="Светлая тема"
+                                    title="Светлая тема"
+                                >
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="4.25" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+                                        <path d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23L5.46 5.46" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path>
+                                    </svg>
+                                    <span class="visually-hidden">Светлая тема</span>
+                                </button>
+                                <button
+                                    class="site-theme-switch__button"
+                                    type="button"
+                                    data-theme-option="dark"
+                                    aria-pressed="false"
+                                    aria-label="Тёмная тема"
+                                    title="Тёмная тема"
+                                >
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M14.5 2.9a8.8 8.8 0 1 0 6.6 14.5A9.6 9.6 0 0 1 14.5 2.9Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path>
+                                    </svg>
+                                    <span class="visually-hidden">Тёмная тема</span>
+                                </button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
