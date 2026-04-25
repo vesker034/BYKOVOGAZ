@@ -2172,8 +2172,7 @@ a.site-footer__contact-text:hover {
 }
 
 :root[data-theme="dark"] .home-section--accent,
-:root[data-theme="dark"] .promo-card,
-:root[data-theme="dark"] .team-values__inner {
+:root[data-theme="dark"] .promo-card {
     background: var(--bg-accent-gradient);
 }
 
@@ -2187,6 +2186,7 @@ a.site-footer__contact-text:hover {
 }
 
 :root[data-theme="dark"] .team-values__inner {
+    background: linear-gradient(135deg, #0b1738 0%, #10285f 52%, #15306f 100%);
     border: 1px solid rgba(125, 179, 255, 0.14);
     box-shadow: 0 18px 40px rgba(8, 18, 47, 0.35);
 }
