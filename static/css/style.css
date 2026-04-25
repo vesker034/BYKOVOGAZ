@@ -852,29 +852,6 @@ a:hover {
     margin-top: 0.45rem;
 }
 
-.tour-location {
-    max-width: 48rem;
-    margin: var(--space-10) auto 0;
-    padding: var(--space-6) var(--space-8);
-    border-radius: 12px;
-    background: linear-gradient(90deg, rgba(26, 77, 184, 0.98), rgba(26, 61, 177, 0.98));
-    color: #fff;
-}
-
-.tour-location__title {
-    margin: 0;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-.tour-location__text {
-    margin: var(--space-3) 0 0;
-    font-size: 0.92rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-}
-
 /* --- Header (макет Figma) --- */
 
 .site-header {
@@ -2285,8 +2262,7 @@ a.site-footer__contact-text:hover {
     box-shadow: 0 18px 40px rgba(8, 18, 47, 0.28);
 }
 
-:root[data-theme="dark"] .tour-page__badge,
-:root[data-theme="dark"] .tour-location {
+:root[data-theme="dark"] .tour-page__badge {
     background: var(--bg-accent-gradient);
 }
 
@@ -2301,16 +2277,14 @@ a.site-footer__contact-text:hover {
 }
 
 :root[data-theme="dark"] .tour-card__title,
-:root[data-theme="dark"] .tour-page__title,
-:root[data-theme="dark"] .tour-location__title {
+:root[data-theme="dark"] .tour-page__title {
     color: #ffffff;
 }
 
 :root[data-theme="dark"] .tour-page__lead,
 :root[data-theme="dark"] .tour-card__text,
 :root[data-theme="dark"] .tour-card__list,
-:root[data-theme="dark"] .tour-page__viewer-text,
-:root[data-theme="dark"] .tour-location__text {
+:root[data-theme="dark"] .tour-page__viewer-text {
     color: rgba(255, 255, 255, 0.82);
 }
 
