@@ -150,21 +150,25 @@ a:hover {
 }
 
 .page-hero--field {
+    --page-hero-bg-position: center 58%;
     --page-hero-scrim:
         linear-gradient(118deg, rgba(7, 18, 46, 0.8) 0%, rgba(13, 41, 98, 0.66) 42%, rgba(47, 118, 255, 0.2) 74%, rgba(7, 21, 58, 0.78) 100%);
 }
 
 .page-hero--team {
+    --page-hero-bg-position: center 58%;
     --page-hero-scrim:
         linear-gradient(118deg, rgba(8, 22, 52, 0.82) 0%, rgba(17, 49, 114, 0.68) 40%, rgba(32, 104, 255, 0.22) 74%, rgba(8, 24, 68, 0.8) 100%);
 }
 
 .page-hero--license {
+    --page-hero-bg-position: center 58%;
     --page-hero-scrim:
         linear-gradient(118deg, rgba(7, 18, 46, 0.82) 0%, rgba(14, 42, 102, 0.68) 42%, rgba(19, 80, 201, 0.24) 72%, rgba(7, 24, 63, 0.8) 100%);
 }
 
 .page-hero--tour {
+    --page-hero-bg-position: center 58%;
     --page-hero-scrim:
         linear-gradient(118deg, rgba(7, 20, 50, 0.82) 0%, rgba(12, 44, 110, 0.68) 40%, rgba(21, 93, 252, 0.24) 72%, rgba(8, 24, 66, 0.8) 100%);
 }
