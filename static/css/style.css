@@ -82,106 +82,126 @@ a:hover {
 
 .page-hero {
     position: relative;
-    min-height: clamp(14rem, 18vw, 18rem);
+    isolation: isolate;
+    min-height: clamp(15rem, 18vw, 18rem);
     display: flex;
     align-items: flex-end;
-    padding: clamp(2.5rem, 5vw, 4rem) 0;
-    background-color: #123a8a;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    padding: clamp(2.75rem, 5vw, 3.75rem) 0 clamp(3rem, 6vw, 4.25rem);
+    background-color: #0a1f4a;
     color: #fff;
     overflow: hidden;
+    --page-hero-bg-image: url("../img/hero-home-main.png");
+    --page-hero-bg-position: center;
+    --page-hero-bg-size: cover;
+    --page-hero-scrim:
+        linear-gradient(118deg, rgba(6, 20, 52, 0.94) 0%, rgba(15, 45, 110, 0.84) 42%, rgba(21, 93, 252, 0.4) 74%, rgba(8, 26, 68, 0.9) 100%);
 }
 
-.page-hero::before {
+.page-hero__media {
+    position: absolute;
+    inset: 0;
+    background-color: #0a1f4a;
+    background-image: var(--page-hero-bg-image);
+    background-position: var(--page-hero-bg-position);
+    background-repeat: no-repeat;
+    background-size: var(--page-hero-bg-size);
+    filter: none;
+    transform: none;
+}
+
+.page-hero__media::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(10, 24, 54, 0.55) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
-        linear-gradient(0deg, rgba(26, 61, 177, 0.65), rgba(26, 61, 177, 0.65));
+    background-image: var(--page-hero-bg-image);
+    background-position: var(--page-hero-bg-position);
+    background-repeat: no-repeat;
+    background-size: var(--page-hero-bg-size);
+    opacity: 0.08;
+    pointer-events: none;
 }
 
-.page-hero--about {
-    background-image: url("../img/home-hero.jpg");
+.page-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: var(--page-hero-scrim);
 }
 
-.page-hero--about::before {
-    background: linear-gradient(90deg, rgba(10, 24, 54, 0.55) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
-        linear-gradient(0deg, rgba(26, 61, 177, 0.62), rgba(26, 61, 177, 0.62));
-}
-
-.page-hero--field {
-    background-image: url("../img/home-hero.jpg");
-}
-
-.page-hero--field::before {
-    background: linear-gradient(90deg, rgba(10, 24, 54, 0.48) 0%, rgba(10, 24, 54, 0.16) 60%, rgba(10, 24, 54, 0.16) 100%),
-        linear-gradient(0deg, rgba(26, 61, 177, 0.58), rgba(26, 61, 177, 0.58));
-}
-
-.page-hero--team {
-    background-image: url("../img/home-hero.jpg");
-}
-
-.page-hero--team::before {
-    background: linear-gradient(90deg, rgba(10, 24, 54, 0.5) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
-        linear-gradient(0deg, rgba(26, 61, 177, 0.6), rgba(26, 61, 177, 0.6));
-}
-
-.page-hero--license {
-    background-image: url("../img/home-hero.jpg");
-}
-
-.page-hero--license::before {
-    background: linear-gradient(90deg, rgba(10, 24, 54, 0.5) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
-        linear-gradient(0deg, rgba(26, 61, 177, 0.56), rgba(26, 61, 177, 0.56));
-}
-
+.page-hero--about,
+.page-hero--field,
+.page-hero--team,
+.page-hero--license,
 .page-hero--tour {
-    background-image: url("../img/home-hero.jpg");
-}
-
-.page-hero--tour::before {
-    background: linear-gradient(90deg, rgba(10, 24, 54, 0.52) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
-        linear-gradient(0deg, rgba(26, 61, 177, 0.6), rgba(26, 61, 177, 0.6));
+    --page-hero-bg-image: url("../img/hero-about-office.png");
 }
 
 .page-hero--career {
-    background-image: url("../img/home-hero.jpg");
-}
-
-.page-hero--career::before {
-    background: linear-gradient(90deg, rgba(10, 24, 54, 0.54) 0%, rgba(10, 24, 54, 0.2) 60%, rgba(10, 24, 54, 0.2) 100%),
-        linear-gradient(0deg, rgba(26, 61, 177, 0.62), rgba(26, 61, 177, 0.62));
+    --page-hero-bg-image: url("../img/hero-career-handshake.png");
 }
 
 .page-hero--contacts {
-    background-image: url("../img/home-hero.jpg");
+    --page-hero-bg-image: url("../img/hero-contacts-icons.png");
 }
 
-.page-hero--contacts::before {
-    background: linear-gradient(90deg, rgba(10, 24, 54, 0.5) 0%, rgba(10, 24, 54, 0.18) 60%, rgba(10, 24, 54, 0.18) 100%),
-        linear-gradient(0deg, rgba(26, 61, 177, 0.58), rgba(26, 61, 177, 0.58));
+.page-hero--about {
+    --page-hero-bg-position: center 58%;
+    --page-hero-scrim:
+        linear-gradient(118deg, rgba(7, 18, 46, 0.82) 0%, rgba(15, 48, 120, 0.68) 44%, rgba(21, 93, 252, 0.24) 72%, rgba(9, 27, 74, 0.8) 100%);
+}
+
+.page-hero--field {
+    --page-hero-scrim:
+        linear-gradient(118deg, rgba(7, 18, 46, 0.8) 0%, rgba(13, 41, 98, 0.66) 42%, rgba(47, 118, 255, 0.2) 74%, rgba(7, 21, 58, 0.78) 100%);
+}
+
+.page-hero--team {
+    --page-hero-scrim:
+        linear-gradient(118deg, rgba(8, 22, 52, 0.82) 0%, rgba(17, 49, 114, 0.68) 40%, rgba(32, 104, 255, 0.22) 74%, rgba(8, 24, 68, 0.8) 100%);
+}
+
+.page-hero--license {
+    --page-hero-scrim:
+        linear-gradient(118deg, rgba(7, 18, 46, 0.82) 0%, rgba(14, 42, 102, 0.68) 42%, rgba(19, 80, 201, 0.24) 72%, rgba(7, 24, 63, 0.8) 100%);
+}
+
+.page-hero--tour {
+    --page-hero-scrim:
+        linear-gradient(118deg, rgba(7, 20, 50, 0.82) 0%, rgba(12, 44, 110, 0.68) 40%, rgba(21, 93, 252, 0.24) 72%, rgba(8, 24, 66, 0.8) 100%);
+}
+
+.page-hero--career {
+    --page-hero-bg-position: center 52%;
+    --page-hero-scrim:
+        linear-gradient(118deg, rgba(7, 20, 50, 0.84) 0%, rgba(14, 45, 108, 0.72) 42%, rgba(21, 93, 252, 0.26) 74%, rgba(8, 24, 66, 0.82) 100%);
+}
+
+.page-hero--contacts {
+    --page-hero-bg-position: center 66%;
+    --page-hero-scrim:
+        linear-gradient(118deg, rgba(7, 18, 46, 0.82) 0%, rgba(13, 39, 94, 0.7) 42%, rgba(21, 93, 252, 0.22) 72%, rgba(8, 22, 60, 0.8) 100%);
 }
 
 .page-hero__inner {
     position: relative;
     z-index: 1;
+    text-align: left;
 }
 
 .page-hero__title {
-    margin: 0;
+    margin: 0 0 0.65rem;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: clamp(1.75rem, 2vw + 1rem, 2.5rem);
-    line-height: 1.1;
+    font-size: clamp(2rem, 1.7rem + 1.4vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: 0.02em;
 }
 
 .page-hero__lead {
-    margin: var(--space-3) 0 0;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    max-width: 38rem;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.94);
 }
 
 .content-grid {
@@ -1375,7 +1395,7 @@ a.site-footer__contact-text:hover {
     overflow: hidden;
     background:
         linear-gradient(90deg, rgba(28, 57, 142, 0.82), rgba(20, 71, 230, 0.78)),
-        url("https://upload.wikimedia.org/wikipedia/commons/4/48/Chevron_El_Segundo_refinery%2C_2007.jpg"),
+        url("../img/hero-home-main.png"),
         linear-gradient(180deg, #5971ad 0%, #2b4ba2 100%);
     color: #fff;
     background-size: cover;

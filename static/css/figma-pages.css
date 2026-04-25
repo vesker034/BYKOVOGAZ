@@ -52,7 +52,7 @@
 
 .works-figma {
     /* Hero: как у «Новости» — градиент 100% + фото 20% (Figma); файл static/img/works/hero-works-industrial.png */
-    --works-hero-bg-image: url("../img/works/hero-works-industrial.png");
+    --works-hero-bg-image: url("../img/hero-works-main.png");
     --figma-page-hero-bg: var(--works-hero-bg-image);
     --works-blue: #155dfc;
     --works-blue-deep: #0d4ed0;
@@ -462,7 +462,8 @@
     --news-surface: #f9fafb;
     --news-radius: 10px;
     /* Hero Figma: Fill 1 — изображение 20%; Fill 2 — linear gradient 100% (ниже по стеку). */
-    --news-hero-bg-image: url("../img/news/hero-news-press.png");
+    --news-hero-bg-image: url("../img/hero-press-microphones.png");
+    --news-hero-bg-position: center 48%;
     --figma-page-hero-bg: var(--news-hero-bg-image);
 }
 
@@ -488,7 +489,7 @@
     inset: 0;
     background-image: var(--news-hero-bg-image);
     background-size: cover;
-    background-position: center;
+    background-position: var(--news-hero-bg-position);
     opacity: 0.2;
     pointer-events: none;
 }
@@ -732,7 +733,8 @@
     --gallery-surface: #f9fafb;
     --gallery-canvas: #eceff3;
     --gallery-radius: 12px;
-    --gallery-hero-bg-image: url("../img/works/hero-works-industrial.png");
+    --gallery-hero-bg-image: url("../img/hero-press-microphones.png");
+    --gallery-hero-bg-position: center 48%;
     --figma-page-hero-bg: var(--gallery-hero-bg-image);
 }
 
@@ -757,7 +759,7 @@
     inset: 0;
     background-image: var(--gallery-hero-bg-image);
     background-size: cover;
-    background-position: center;
+    background-position: var(--gallery-hero-bg-position);
     opacity: 0.2;
     pointer-events: none;
 }
