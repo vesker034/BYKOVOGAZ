@@ -283,6 +283,91 @@ document.documentElement.classList.add("js-ready");
 })();
 
 (function () {
+    const newsPaginationRoot = document.querySelector("[data-news-pagination-root]");
+    let abortController = null;
+
+    if (!newsPaginationRoot) {
+        return;
+    }
+
+    function setLoadingState(isLoading) {
+        newsPaginationRoot.setAttribute("aria-busy", String(isLoading));
+    }
+
+    function updateNewsContent(nextRoot) {
+        newsPaginationRoot.innerHTML = nextRoot.innerHTML;
+    }
+
+    function fetchAndSwapPage(url, shouldPushState) {
+        if (abortController) {
+            abortController.abort();
+        }
+
+        abortController = new window.AbortController();
+        setLoadingState(true);
+
+        window.fetch(url, {
+            signal: abortController.signal,
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+            },
+        })
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error("Не удалось загрузить страницу новостей.");
+                }
+
+                return response.text();
+            })
+            .then(function (html) {
+                const parser = new window.DOMParser();
+                const documentFromResponse = parser.parseFromString(html, "text/html");
+                const nextRoot = documentFromResponse.querySelector("[data-news-pagination-root]");
+
+                if (!nextRoot) {
+                    throw new Error("Не найден блок новостей в ответе сервера.");
+                }
+
+                updateNewsContent(nextRoot);
+
+                if (shouldPushState) {
+                    window.history.pushState({ newsPagination: true }, "", url);
+                }
+            })
+            .catch(function (error) {
+                if (error.name === "AbortError") {
+                    return;
+                }
+
+                window.location.href = url;
+            })
+            .finally(function () {
+                setLoadingState(false);
+                abortController = null;
+            });
+    }
+
+    newsPaginationRoot.addEventListener("click", function (event) {
+        const link = event.target.closest(".news-pagination__btn[href]");
+
+        if (!link) {
+            return;
+        }
+
+        event.preventDefault();
+        fetchAndSwapPage(link.href, true);
+    });
+
+    window.addEventListener("popstate", function () {
+        if (!window.location.search.includes("page=") && !newsPaginationRoot.querySelector(".news-pagination")) {
+            return;
+        }
+
+        fetchAndSwapPage(window.location.href, false);
+    });
+})();
+
+(function () {
     const desktopMediaQuery = window.matchMedia("(min-width: 992px)");
     const dropdownItems = Array.from(document.querySelectorAll(".site-header .nav-item.dropdown"));
 

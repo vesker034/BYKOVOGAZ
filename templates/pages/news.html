@@ -11,7 +11,7 @@
 <div class="news-page">
     {% include "components/figma_page_hero.html" with hero_heading_id="news-hero-title" %}
 
-    <div class="news-page-main">
+    <div class="news-page-main" data-news-pagination-root>
         <div class="site-container">
             <ul class="news-page-grid">
                 {% for item in news_page %}
