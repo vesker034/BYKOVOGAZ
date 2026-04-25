@@ -245,6 +245,44 @@ document.documentElement.classList.add("js-ready");
 })();
 
 (function () {
+    const storageKey = "site-theme";
+    const root = document.documentElement;
+    const themeButtons = Array.from(document.querySelectorAll("[data-theme-option]"));
+
+    function getStoredTheme() {
+        const storedTheme = window.localStorage.getItem(storageKey);
+        return storedTheme === "dark" ? "dark" : "light";
+    }
+
+    function updateToggleUi(theme) {
+        themeButtons.forEach(function (button) {
+            const isActive = button.dataset.themeOption === theme;
+            button.classList.toggle("is-active", isActive);
+            button.setAttribute("aria-pressed", String(isActive));
+        });
+    }
+
+    function applyTheme(theme) {
+        root.dataset.theme = theme;
+        updateToggleUi(theme);
+    }
+
+    if (!themeButtons.length) {
+        return;
+    }
+
+    applyTheme(getStoredTheme());
+
+    themeButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const selectedTheme = button.dataset.themeOption === "dark" ? "dark" : "light";
+            applyTheme(selectedTheme);
+            window.localStorage.setItem(storageKey, selectedTheme);
+        });
+    });
+})();
+
+(function () {
     const desktopMediaQuery = window.matchMedia("(min-width: 992px)");
     const dropdownItems = Array.from(document.querySelectorAll(".site-header .nav-item.dropdown"));
 
