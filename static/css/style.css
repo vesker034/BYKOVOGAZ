@@ -174,9 +174,14 @@ a:hover {
 }
 
 .page-hero--career {
-    --page-hero-bg-position: center 52%;
+    --page-hero-bg-position: center 50%;
     --page-hero-scrim:
         linear-gradient(118deg, rgba(7, 20, 50, 0.84) 0%, rgba(14, 45, 108, 0.72) 42%, rgba(21, 93, 252, 0.26) 74%, rgba(8, 24, 66, 0.82) 100%);
+}
+
+.page-hero.page-hero--career {
+    min-height: clamp(20rem, 26vw, 24rem);
+    padding-bottom: clamp(3.75rem, 6vw, 5.5rem);
 }
 
 .page-hero--contacts {
