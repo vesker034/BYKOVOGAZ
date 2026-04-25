@@ -923,8 +923,15 @@
 
 /* --- Карьера --- */
 
-.career-page .why-section {
+.career-page .career-page__main {
     padding: 4rem 0;
+    background:
+        radial-gradient(circle at top center, rgba(21, 93, 252, 0.12), transparent 32%),
+        linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-page) 100%);
+}
+
+.career-page .why-section {
+    padding: 0 0 4rem;
     text-align: center;
 }
 
@@ -1123,7 +1130,7 @@
 }
 
 .career-page .form-section {
-    padding: 0 0 4rem;
+    padding: 0;
 }
 
 .career-page .candidate-form-card {
@@ -1289,8 +1296,12 @@
 }
 
 @media (max-width: 767.98px) {
-    .career-page .why-section {
+    .career-page .career-page__main {
         padding: 3rem 0;
+    }
+
+    .career-page .why-section {
+        padding: 0 0 3rem;
     }
 
     .career-page .vacancies-section {
@@ -1616,9 +1627,7 @@
 :root[data-theme="dark"] .news-page-main,
 :root[data-theme="dark"] .news-gallery-main,
 :root[data-theme="dark"] .news-gallery-categories,
-:root[data-theme="dark"] .career-page .why-section,
-:root[data-theme="dark"] .career-page .vacancies-section,
-:root[data-theme="dark"] .career-page .form-section {
+:root[data-theme="dark"] .career-page .career-page__main {
     background: var(--bg-surface-gradient);
 }
 
