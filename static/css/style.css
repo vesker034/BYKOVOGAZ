@@ -2259,8 +2259,8 @@ a.site-footer__contact-text:hover {
     color: rgba(255, 255, 255, 0.72);
 }
 
-:root[data-theme="dark"] .tour-card__media {
-    background: linear-gradient(180deg, var(--bg-surface-strong) 0%, var(--bg-card) 100%);
+:root[data-theme="dark"] .tour-card__media::before {
+    background: linear-gradient(180deg, rgba(4, 10, 28, 0.34), rgba(4, 10, 28, 0.58));
 }
 
 :root[data-theme="dark"] .tour-card__title,
