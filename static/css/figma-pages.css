@@ -615,28 +615,6 @@
     color: var(--news-body);
 }
 
-.news-card__more {
-    align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--news-blue);
-    text-decoration: none;
-}
-
-.news-card__more:hover {
-    color: #0d4ed0;
-    text-decoration: underline;
-    text-underline-offset: 0.15em;
-}
-
-.news-card__more-arrow {
-    font-size: 1.05em;
-    line-height: 1;
-}
-
 .news-pagination {
     margin-top: 2.25rem;
     display: flex;
