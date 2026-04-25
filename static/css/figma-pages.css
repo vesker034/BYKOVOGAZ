@@ -463,7 +463,7 @@
     --news-radius: 10px;
     /* Hero Figma: Fill 1 — изображение 20%; Fill 2 — linear gradient 100% (ниже по стеку). */
     --news-hero-bg-image: url("../img/hero-press-microphones.png");
-    --news-hero-bg-position: center 48%;
+    --news-hero-bg-position: center 18%;
     --figma-page-hero-bg: var(--news-hero-bg-image);
 }
 
@@ -734,7 +734,7 @@
     --gallery-canvas: #eceff3;
     --gallery-radius: 12px;
     --gallery-hero-bg-image: url("../img/hero-press-microphones.png");
-    --gallery-hero-bg-position: center 48%;
+    --gallery-hero-bg-position: center 18%;
     --figma-page-hero-bg: var(--gallery-hero-bg-image);
 }
 
