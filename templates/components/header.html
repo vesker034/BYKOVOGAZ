@@ -1,3 +1,5 @@
+{% load static %}
+
 <header class="site-header">
     <div class="site-header__main">
         <nav class="navbar navbar-expand-lg navbar-light site-header__nav" aria-label="Основное меню">
@@ -9,6 +11,9 @@
                 {% url 'main:career' as career_url %}
                 {% url 'main:contacts' as contacts_url %}
                 <a class="site-header__brand" href="{% url 'main:home' %}">
+                    <span class="site-header__logo-mark" aria-hidden="true">
+                        <img class="site-header__logo-img" src="{% static 'img/logo-bull.png' %}" alt="">
+                    </span>
                     <span class="site-header__brand-text">
                         <span class="site-header__logo-title">БЫКОВОГАЗ</span>
                         <span class="site-header__logo-tagline">Добыча углеводородного сырья</span>
