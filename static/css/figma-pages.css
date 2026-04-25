@@ -304,12 +304,12 @@
     padding-top: 0.75rem;
     font-size: 0.8125rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.95);
+    color: #86efac;
 }
 
 .works-timeline__done {
     flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.95);
+    color: #22c55e;
 }
 
 .works-timeline__detail {

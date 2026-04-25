@@ -1670,8 +1670,13 @@ a.site-footer__contact-text:hover {
     content: "";
     width: 0.75rem;
     height: 0.75rem;
+    flex-shrink: 0;
     border-radius: 50%;
     background-color: #22c55e;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 6.2 5.1 8.3 9 4.3' stroke='%23ffffff' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.55rem 0.55rem;
 }
 
 .home-project__summary {
