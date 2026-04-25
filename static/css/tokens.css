@@ -2,6 +2,8 @@
     --color-primary: #1a4db8;
     --color-primary-hover: #153d94;
     --color-primary-muted: rgba(26, 77, 184, 0.1);
+    --color-icon-global: #1a4db8;
+    --color-icon-global-muted: rgba(26, 77, 184, 0.12);
     --color-logo-text: #1a4db8;
     --color-tagline: #6b7c93;
 
@@ -71,6 +73,8 @@
     --color-primary: #7db3ff;
     --color-primary-hover: #9ec7ff;
     --color-primary-muted: rgba(125, 179, 255, 0.16);
+    --color-icon-global: #7db3ff;
+    --color-icon-global-muted: rgba(125, 179, 255, 0.16);
     --color-logo-text: #ffffff;
     --color-tagline: rgba(255, 255, 255, 0.74);
 

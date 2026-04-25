@@ -299,6 +299,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.16);
+    color: var(--color-icon-global);
 }
 
 .promo-card__title {
@@ -332,8 +333,8 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(26, 77, 184, 0.12);
-    color: var(--color-primary);
+    background-color: var(--color-icon-global-muted);
+    color: var(--color-icon-global);
 }
 
 .card-ui__title--tight {
@@ -539,7 +540,18 @@ a:hover {
 }
 
 .team-value__icon {
-    font-size: 1.35rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    background: var(--color-icon-global-muted);
+    color: var(--color-icon-global);
+}
+
+.team-value__icon svg {
+    display: block;
 }
 
 .team-value__title {
@@ -583,8 +595,8 @@ a:hover {
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 0.75rem;
-    background-color: rgba(26, 77, 184, 0.12);
-    color: var(--color-primary);
+    background-color: var(--color-icon-global-muted);
+    color: var(--color-icon-global);
     flex-shrink: 0;
 }
 
@@ -753,6 +765,7 @@ a:hover {
 
 .tour-page__viewer-icon {
     line-height: 1;
+    color: var(--color-icon-global);
 }
 
 .tour-page__viewer-text {
@@ -792,7 +805,7 @@ a:hover {
     justify-content: center;
     position: relative;
     background: linear-gradient(180deg, #f9fbff 0%, #eef4ff 100%);
-    color: #fff;
+    color: var(--color-icon-global);
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -1564,8 +1577,8 @@ a.site-footer__contact-text:hover {
     height: 4rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
-    background-color: rgba(21, 93, 252, 0.08);
-    color: #155dfc;
+    background-color: var(--color-icon-global-muted);
+    color: var(--color-icon-global);
 }
 
 .home-feature-card__title {
@@ -1894,8 +1907,8 @@ a.site-footer__contact-text:hover {
     width: 3rem;
     height: 3rem;
     border-radius: 0.875rem;
-    background-color: rgba(21, 93, 252, 0.08);
-    color: #155dfc;
+    background-color: var(--color-icon-global-muted);
+    color: var(--color-icon-global);
 }
 
 .home-contact-item__title,
@@ -2206,14 +2219,8 @@ a.site-footer__contact-text:hover {
 }
 
 :root[data-theme="dark"] .team-value__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #dbeafe;
+    background: var(--color-icon-global-muted);
+    color: var(--color-icon-global);
 }
 
 :root[data-theme="dark"] .team-value__title {
@@ -2233,8 +2240,8 @@ a.site-footer__contact-text:hover {
 }
 
 :root[data-theme="dark"] .license-page__icon {
-    background: rgba(125, 179, 255, 0.12);
-    color: #dbeafe;
+    background: var(--color-icon-global-muted);
+    color: var(--color-icon-global);
 }
 
 :root[data-theme="dark"] .license-page__meta,

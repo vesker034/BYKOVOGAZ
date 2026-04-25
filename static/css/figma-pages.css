@@ -957,8 +957,8 @@
     height: 4rem;
     margin: 0 auto 1rem;
     border-radius: 999px;
-    background-color: var(--color-primary-muted);
-    color: var(--color-primary);
+    background-color: var(--color-icon-global-muted);
+    color: var(--color-icon-global);
 }
 
 .career-page .why-card__icon svg {
@@ -1465,8 +1465,8 @@
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 999px;
-    background-color: rgba(21, 93, 252, 0.12);
-    color: var(--color-primary);
+    background-color: var(--color-icon-global-muted);
+    color: var(--color-icon-global);
 }
 
 .contact-card__icon svg {
