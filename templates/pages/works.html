@@ -11,26 +11,28 @@
 <div class="works-figma">
     {% include "components/figma_page_hero.html" with hero_heading_id="works-page-hero-title" %}
 
-    <section class="works-intro" aria-labelledby="works-realized-title">
-        <div class="site-container">
-            <h2 id="works-realized-title" class="works-intro__title">{{ realized_title }}</h2>
-            <p class="works-intro__lead">{{ realized_lead }}</p>
-        </div>
-    </section>
-
-    <section class="works-timeline" aria-label="Реализованные проекты по периодам">
-        <div class="site-container works-timeline__inner">
-            {% for item in timeline %}
-            <div class="works-timeline__row {% if item.blue_left %}works-timeline__row--blue-left{% else %}works-timeline__row--blue-right{% endif %}">
-                {% if item.blue_left %}
-                    {% include "components/works_timeline_blue_card.html" %}
-                    {% include "components/works_timeline_detail_card.html" %}
-                {% else %}
-                    {% include "components/works_timeline_detail_card.html" %}
-                    {% include "components/works_timeline_blue_card.html" %}
-                {% endif %}
+    <section class="works-projects" aria-labelledby="works-realized-title">
+        <div class="works-intro">
+            <div class="site-container">
+                <h2 id="works-realized-title" class="works-intro__title">{{ realized_title }}</h2>
+                <p class="works-intro__lead">{{ realized_lead }}</p>
             </div>
-            {% endfor %}
+        </div>
+
+        <div class="works-timeline" aria-label="Реализованные проекты по периодам">
+            <div class="site-container works-timeline__inner">
+                {% for item in timeline %}
+                <div class="works-timeline__row {% if item.blue_left %}works-timeline__row--blue-left{% else %}works-timeline__row--blue-right{% endif %}">
+                    {% if item.blue_left %}
+                        {% include "components/works_timeline_blue_card.html" %}
+                        {% include "components/works_timeline_detail_card.html" %}
+                    {% else %}
+                        {% include "components/works_timeline_detail_card.html" %}
+                        {% include "components/works_timeline_blue_card.html" %}
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
 
