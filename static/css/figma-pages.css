@@ -958,6 +958,155 @@
     color: var(--color-text-muted);
 }
 
+.career-page .vacancies-section {
+    padding: 0 0 4rem;
+}
+
+.career-page .vacancies-section__heading {
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.career-page .vacancies-section__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.career-page .vacancies-section__lead {
+    margin: 0.85rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+}
+
+.career-page .vacancies-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .career-page .vacancies-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.career-page .vacancy-card {
+    height: 100%;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--bg-card);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.career-page .vacancy-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+}
+
+.career-page .vacancy-card__badge,
+.career-page .vacancy-card__location {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.career-page .vacancy-card__badge {
+    background-color: var(--color-primary-muted);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.career-page .vacancy-card__location {
+    background-color: rgba(15, 23, 42, 0.06);
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.career-page .vacancy-card__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.career-page .vacancy-card__department {
+    margin: 0.5rem 0 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.career-page .vacancy-card__summary {
+    margin: 1rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+.career-page .vacancy-card__requirements {
+    margin-top: 1.25rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.career-page .vacancy-card__requirements-title {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.career-page .vacancy-card__requirements-list {
+    margin: 0.85rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.career-page .vacancy-card__requirements-list li + li {
+    margin-top: 0.45rem;
+}
+
+.career-page .vacancies-empty {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px dashed var(--color-border);
+    border-radius: 1rem;
+    background: var(--bg-surface);
+    text-align: center;
+}
+
+.career-page .vacancies-empty__title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.career-page .vacancies-empty__text {
+    margin: 0.9rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+}
+
 .career-page .form-section {
     padding: 0 0 4rem;
 }
@@ -1127,6 +1276,10 @@
 @media (max-width: 767.98px) {
     .career-page .why-section {
         padding: 3rem 0;
+    }
+
+    .career-page .vacancies-section {
+        padding: 0 0 3rem;
     }
 
     .career-page .candidate-form-card {
@@ -1405,6 +1558,7 @@
 :root[data-theme="dark"] .news-gallery-main,
 :root[data-theme="dark"] .news-gallery-categories,
 :root[data-theme="dark"] .career-page .why-section,
+:root[data-theme="dark"] .career-page .vacancies-section,
 :root[data-theme="dark"] .career-page .form-section {
     background: var(--bg-surface-gradient);
 }
@@ -1420,6 +1574,7 @@
 :root[data-theme="dark"] .works-kpi__card,
 :root[data-theme="dark"] .news-card,
 :root[data-theme="dark"] .news-gallery-card,
+:root[data-theme="dark"] .career-page .vacancy-card,
 :root[data-theme="dark"] .career-page .candidate-form-card,
 :root[data-theme="dark"] .contact-card,
 :root[data-theme="dark"] .contacts-card,
@@ -1435,6 +1590,10 @@
 :root[data-theme="dark"] .news-card__title,
 :root[data-theme="dark"] .news-page-cta__title,
 :root[data-theme="dark"] .news-gallery-categories__title,
+:root[data-theme="dark"] .career-page .vacancies-section__title,
+:root[data-theme="dark"] .career-page .vacancy-card__title,
+:root[data-theme="dark"] .career-page .vacancy-card__requirements-title,
+:root[data-theme="dark"] .career-page .vacancies-empty__title,
 :root[data-theme="dark"] .career-page .why-section__title,
 :root[data-theme="dark"] .career-page .why-card__title,
 :root[data-theme="dark"] .career-page .candidate-form-card__title,
@@ -1456,6 +1615,11 @@
 :root[data-theme="dark"] .news-card__excerpt,
 :root[data-theme="dark"] .news-card__meta,
 :root[data-theme="dark"] .news-page-cta__lead,
+:root[data-theme="dark"] .career-page .vacancies-section__lead,
+:root[data-theme="dark"] .career-page .vacancy-card__location,
+:root[data-theme="dark"] .career-page .vacancy-card__summary,
+:root[data-theme="dark"] .career-page .vacancy-card__requirements-list,
+:root[data-theme="dark"] .career-page .vacancies-empty__text,
 :root[data-theme="dark"] .career-page .why-card__text,
 :root[data-theme="dark"] .career-page .candidate-form-card__subtitle,
 :root[data-theme="dark"] .career-page .form-note,
@@ -1470,11 +1634,16 @@
 
 :root[data-theme="dark"] .news-pagination__btn,
 :root[data-theme="dark"] .news-gallery-categories__pill,
+:root[data-theme="dark"] .career-page .vacancies-empty,
 :root[data-theme="dark"] .career-page .form-control-custom,
 :root[data-theme="dark"] .contacts-map__placeholder {
     background: var(--bg-control-gradient);
     color: var(--color-text);
     border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] .career-page .vacancy-card__location {
+    background: rgba(255, 255, 255, 0.06);
 }
 
 :root[data-theme="dark"] .career-page .form-control-custom::placeholder {

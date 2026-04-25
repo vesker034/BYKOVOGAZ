@@ -1,6 +1,8 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
 
+from .models import Vacancy
+
 
 def home(request):
     return render(request, "pages/home.html")
@@ -146,7 +148,8 @@ def press(request):
 
 
 def career(request):
-    return render(request, "pages/career.html")
+    vacancies = Vacancy.objects.filter(is_active=True)
+    return render(request, "pages/career.html", {"vacancies": vacancies})
 
 
 def contacts(request):

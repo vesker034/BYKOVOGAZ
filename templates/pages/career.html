@@ -65,6 +65,52 @@
         </div>
     </section>
 
+    <section class="vacancies-section">
+        <div class="site-container">
+            <div class="vacancies-section__heading">
+                <h2 class="vacancies-section__title">Открытые вакансии</h2>
+                <p class="vacancies-section__lead">
+                    Актуальные позиции, на которые компания сейчас ведет поиск специалистов.
+                </p>
+            </div>
+
+            {% if vacancies %}
+                <div class="vacancies-grid">
+                    {% for vacancy in vacancies %}
+                        <article class="vacancy-card">
+                            <div class="vacancy-card__meta">
+                                <span class="vacancy-card__badge">{{ vacancy.get_employment_type_display }}</span>
+                                {% if vacancy.location %}
+                                    <span class="vacancy-card__location">{{ vacancy.location }}</span>
+                                {% endif %}
+                            </div>
+                            <h3 class="vacancy-card__title">{{ vacancy.title }}</h3>
+                            <p class="vacancy-card__department">{{ vacancy.department }}</p>
+                            <p class="vacancy-card__summary">{{ vacancy.summary }}</p>
+
+                            <div class="vacancy-card__requirements">
+                                <h4 class="vacancy-card__requirements-title">Основные требования</h4>
+                                <ul class="vacancy-card__requirements-list">
+                                    {% for requirement in vacancy.requirements_list %}
+                                        <li>{{ requirement }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="vacancies-empty">
+                    <h3 class="vacancies-empty__title">Сейчас открытых вакансий нет</h3>
+                    <p class="vacancies-empty__text">
+                        Вы все равно можете заполнить анкету кандидата ниже, и мы свяжемся с вами,
+                        когда появится подходящая позиция.
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
     <section class="form-section">
         <div class="site-container">
             <form class="candidate-form-card" action="#" method="post">
