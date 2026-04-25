@@ -1736,7 +1736,7 @@ a.site-footer__contact-text:hover {
 }
 
 .home-section--news {
-    padding-top: 0;
+    padding-top: var(--space-8);
 }
 
 .home-news-heading {
