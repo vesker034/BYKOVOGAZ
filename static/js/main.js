@@ -243,3 +243,69 @@ document.documentElement.classList.add("js-ready");
 
     updateButtonVisibility();
 })();
+
+(function () {
+    const desktopMediaQuery = window.matchMedia("(min-width: 992px)");
+    const dropdownItems = Array.from(document.querySelectorAll(".site-header .nav-item.dropdown"));
+
+    if (!dropdownItems.length || !window.bootstrap || !window.bootstrap.Dropdown) {
+        return;
+    }
+
+    dropdownItems.forEach(function (dropdownItem) {
+        const toggle = dropdownItem.querySelector(".dropdown-toggle");
+
+        if (!toggle) {
+            return;
+        }
+
+        const dropdown = window.bootstrap.Dropdown.getOrCreateInstance(toggle);
+        let closeTimeoutId = null;
+
+        function clearCloseTimeout() {
+            if (closeTimeoutId !== null) {
+                window.clearTimeout(closeTimeoutId);
+                closeTimeoutId = null;
+            }
+        }
+
+        function showDropdown() {
+            clearCloseTimeout();
+
+            if (desktopMediaQuery.matches) {
+                dropdown.show();
+            }
+        }
+
+        function hideDropdown() {
+            clearCloseTimeout();
+
+            if (!desktopMediaQuery.matches) {
+                return;
+            }
+
+            closeTimeoutId = window.setTimeout(function () {
+                dropdown.hide();
+            }, 120);
+        }
+
+        dropdownItem.addEventListener("mouseenter", showDropdown);
+        dropdownItem.addEventListener("mouseleave", hideDropdown);
+        dropdownItem.addEventListener("focusin", showDropdown);
+        dropdownItem.addEventListener("focusout", function (event) {
+            if (dropdownItem.contains(event.relatedTarget)) {
+                return;
+            }
+
+            hideDropdown();
+        });
+
+        desktopMediaQuery.addEventListener("change", function (event) {
+            clearCloseTimeout();
+
+            if (!event.matches) {
+                dropdown.hide();
+            }
+        });
+    });
+})();

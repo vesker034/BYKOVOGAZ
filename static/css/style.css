@@ -1028,6 +1028,15 @@ a:hover {
     .site-header .nav-item.dropdown {
         position: relative;
     }
+
+    .site-header .nav-item.dropdown > .site-header__dropdown {
+        margin-top: 0;
+    }
+
+    .site-header .nav-item.dropdown:hover > .site-header__link,
+    .site-header .nav-item.dropdown:focus-within > .site-header__link {
+        color: var(--color-primary);
+    }
 }
 
 @media (max-width: 991.98px) {
