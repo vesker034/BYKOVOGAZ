@@ -1096,6 +1096,11 @@ a:hover {
     color: #fff;
 }
 
+:root[data-theme="dark"] .site-theme-switch__button.is-active[data-theme-option="dark"] {
+    background-color: #294a96;
+    color: #fff;
+}
+
 @media (min-width: 992px) {
     .site-header .nav-item.dropdown {
         position: relative;
