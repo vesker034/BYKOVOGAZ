@@ -2188,6 +2188,14 @@ a.site-footer__contact-text:hover {
     border-color: var(--color-border);
 }
 
+:root[data-theme="dark"] .home-form__control--invalid,
+:root[data-theme="dark"] .home-form__control--invalid:focus,
+:root[data-theme="dark"] .home-form__control:user-invalid,
+:root[data-theme="dark"] .home-form__control:user-invalid:focus {
+    border-color: #f97066;
+    box-shadow: 0 0 0 4px rgba(249, 112, 102, 0.18);
+}
+
 :root[data-theme="dark"] .home-form__control::placeholder {
     color: rgba(255, 255, 255, 0.46);
 }

@@ -114,7 +114,7 @@
 
         <section class="form-section">
             <div class="site-container">
-                <form class="candidate-form-card" action="#" method="post">
+                <form class="candidate-form-card" action="#" method="post" novalidate data-career-form>
                     <h2 class="candidate-form-card__title">Анкета кандидата</h2>
                     <p class="candidate-form-card__subtitle">
                         Заполните форму ниже, и мы свяжемся с вами в ближайшее время
@@ -125,39 +125,39 @@
                     <div class="row g-3 mb-3">
                         <div class="col-12 col-md-4">
                             <label class="form-label-custom" for="career-last-name">Фамилия <span class="req">*</span></label>
-                            <input id="career-last-name" type="text" class="form-control-custom" placeholder="Иванов">
+                            <input id="career-last-name" type="text" class="form-control-custom" placeholder="Иванов" required minlength="2" maxlength="80" autocomplete="family-name" data-field="last-name">
                         </div>
                         <div class="col-12 col-md-4">
                             <label class="form-label-custom" for="career-first-name">Имя <span class="req">*</span></label>
-                            <input id="career-first-name" type="text" class="form-control-custom" placeholder="Иван">
+                            <input id="career-first-name" type="text" class="form-control-custom" placeholder="Иван" required minlength="2" maxlength="80" autocomplete="given-name" data-field="first-name">
                         </div>
                         <div class="col-12 col-md-4">
                             <label class="form-label-custom" for="career-middle-name">Отчество</label>
-                            <input id="career-middle-name" type="text" class="form-control-custom" placeholder="Иванович">
+                            <input id="career-middle-name" type="text" class="form-control-custom" placeholder="Иванович" maxlength="80" autocomplete="additional-name" data-field="middle-name">
                         </div>
                     </div>
 
                     <div class="row g-3 mb-3">
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom" for="career-birth-date">Дата рождения <span class="req">*</span></label>
-                            <input id="career-birth-date" type="text" class="form-control-custom" placeholder="ДД.ММ.ГГГГ">
+                            <input id="career-birth-date" type="text" class="form-control-custom" placeholder="ДД.ММ.ГГГГ" required inputmode="numeric" maxlength="10" data-field="birth-date">
                         </div>
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom" for="career-phone">Телефон <span class="req">*</span></label>
-                            <input id="career-phone" type="tel" class="form-control-custom" placeholder="+7 (___) ___-__-__">
+                            <input id="career-phone" type="tel" class="form-control-custom" placeholder="+7 (___) ___-__-__" required inputmode="tel" autocomplete="tel" maxlength="18" data-field="phone">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label-custom" for="career-email">Email <span class="req">*</span></label>
-                        <input id="career-email" type="email" class="form-control-custom" placeholder="your@email.com">
+                        <input id="career-email" type="email" class="form-control-custom" placeholder="your@email.com" required maxlength="120" autocomplete="email" data-field="email">
                     </div>
 
                     <p class="form-section-label form-section-label--spaced">Образование и опыт</p>
 
                     <div class="form-group">
                         <label class="form-label-custom" for="career-education">Образование <span class="req">*</span></label>
-                        <select id="career-education" class="form-control-custom">
+                        <select id="career-education" class="form-control-custom" required data-field="education">
                             <option value="" disabled selected>Выберите образование</option>
                             <option>Среднее</option>
                             <option>Среднее специальное</option>
@@ -170,12 +170,12 @@
 
                     <div class="form-group">
                         <label class="form-label-custom" for="career-position">Желаемая должность <span class="req">*</span></label>
-                        <input id="career-position" type="text" class="form-control-custom" placeholder="Например: Инженер-технолог">
+                        <input id="career-position" type="text" class="form-control-custom" placeholder="Например: Инженер-технолог" required minlength="3" maxlength="120" data-field="position">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label-custom" for="career-experience">Опыт работы <span class="req">*</span></label>
-                        <select id="career-experience" class="form-control-custom">
+                        <select id="career-experience" class="form-control-custom" required data-field="experience">
                             <option value="" disabled selected>Выберите опыт работы</option>
                             <option>Без опыта</option>
                             <option>До 1 года</option>
@@ -191,6 +191,10 @@
                             id="career-about"
                             class="form-control-custom"
                             placeholder="Расскажите о своих профессиональных навыках, достижениях и мотивации работать в нашей компании..."
+                            required
+                            minlength="10"
+                            maxlength="2000"
+                            data-field="about"
                         ></textarea>
                     </div>
 

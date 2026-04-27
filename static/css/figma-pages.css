@@ -1212,6 +1212,14 @@
     box-shadow: 0 0 0 3px rgba(26, 77, 184, 0.12);
 }
 
+.career-page .form-control-custom--invalid,
+.career-page .form-control-custom--invalid:focus,
+.career-page .form-control-custom:user-invalid,
+.career-page .form-control-custom:user-invalid:focus {
+    border-color: #d92d20;
+    box-shadow: 0 0 0 3px rgba(217, 45, 32, 0.12);
+}
+
 .career-page select.form-control-custom {
     padding-right: 2.25rem;
     cursor: pointer;
@@ -1708,6 +1716,14 @@
     background: var(--bg-control-gradient);
     color: var(--color-text);
     border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] .career-page .form-control-custom--invalid,
+:root[data-theme="dark"] .career-page .form-control-custom--invalid:focus,
+:root[data-theme="dark"] .career-page .form-control-custom:user-invalid,
+:root[data-theme="dark"] .career-page .form-control-custom:user-invalid:focus {
+    border-color: #f97066;
+    box-shadow: 0 0 0 3px rgba(249, 112, 102, 0.18);
 }
 
 :root[data-theme="dark"] .career-page .vacancy-card__location {

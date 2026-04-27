@@ -209,6 +209,334 @@ document.documentElement.classList.add("js-ready");
 })();
 
 (function () {
+    const form = document.querySelector("[data-career-form]");
+
+    if (!form) {
+        return;
+    }
+
+    const lastNameField = form.querySelector('[data-field="last-name"]');
+    const firstNameField = form.querySelector('[data-field="first-name"]');
+    const middleNameField = form.querySelector('[data-field="middle-name"]');
+    const birthDateField = form.querySelector('[data-field="birth-date"]');
+    const phoneField = form.querySelector('[data-field="phone"]');
+    const emailField = form.querySelector('[data-field="email"]');
+    const educationField = form.querySelector('[data-field="education"]');
+    const positionField = form.querySelector('[data-field="position"]');
+    const experienceField = form.querySelector('[data-field="experience"]');
+    const aboutField = form.querySelector('[data-field="about"]');
+    const allFields = [
+        lastNameField,
+        firstNameField,
+        middleNameField,
+        birthDateField,
+        phoneField,
+        emailField,
+        educationField,
+        positionField,
+        experienceField,
+        aboutField,
+    ];
+
+    function shouldShowError(field, force) {
+        const rawValue = "value" in field ? field.value : "";
+        const isRequiredEmpty = field.hasAttribute("required") && !rawValue.trim();
+
+        if (force) {
+            return !field.checkValidity();
+        }
+
+        if (field.dataset.touched === "true") {
+            return !field.checkValidity();
+        }
+
+        if (!isRequiredEmpty && rawValue.trim() !== "") {
+            return !field.checkValidity();
+        }
+
+        return false;
+    }
+
+    function toggleErrorState(field, force) {
+        if (!field) {
+            return;
+        }
+
+        field.classList.toggle("form-control-custom--invalid", shouldShowError(field, force));
+    }
+
+    function formatPhoneValue(value) {
+        const digitsOnly = value.replace(/\D/g, "");
+
+        if (!digitsOnly) {
+            return "";
+        }
+
+        let nationalDigits = digitsOnly;
+
+        if (digitsOnly[0] === "7" || digitsOnly[0] === "8") {
+            nationalDigits = digitsOnly.slice(1);
+        }
+
+        nationalDigits = nationalDigits.slice(0, 10);
+
+        let formatted = "+7";
+
+        if (digitsOnly.length > 0) {
+            formatted += " (";
+        }
+
+        if (nationalDigits.length > 0) {
+            formatted += nationalDigits.slice(0, 3);
+        }
+
+        if (nationalDigits.length >= 3) {
+            formatted += ") ";
+        }
+
+        if (nationalDigits.length > 3) {
+            formatted += nationalDigits.slice(3, 6);
+        }
+
+        if (nationalDigits.length >= 6) {
+            formatted += "-";
+        }
+
+        if (nationalDigits.length > 6) {
+            formatted += nationalDigits.slice(6, 8);
+        }
+
+        if (nationalDigits.length >= 8) {
+            formatted += "-";
+        }
+
+        if (nationalDigits.length > 8) {
+            formatted += nationalDigits.slice(8, 10);
+        }
+
+        return formatted;
+    }
+
+    function isValidDate(value) {
+        const match = value.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+
+        if (!match) {
+            return false;
+        }
+
+        const day = Number.parseInt(match[1], 10);
+        const month = Number.parseInt(match[2], 10);
+        const year = Number.parseInt(match[3], 10);
+        const date = new Date(year, month - 1, day);
+
+        return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+    }
+
+    function setPersonNameValidity(field, emptyMessage, shortMessage, invalidMessage, isRequired) {
+        const value = field.value.trim();
+
+        if (!value) {
+            field.setCustomValidity(isRequired ? emptyMessage : "");
+        } else if (value.length < 2) {
+            field.setCustomValidity(shortMessage);
+        } else if (!/^[A-Za-zА-Яа-яЁё\s-]+$/.test(value)) {
+            field.setCustomValidity(invalidMessage);
+        } else {
+            field.setCustomValidity("");
+        }
+    }
+
+    function setBirthDateValidity() {
+        const value = birthDateField.value.trim();
+
+        if (!value) {
+            birthDateField.setCustomValidity("Введите дату рождения.");
+        } else if (!isValidDate(value)) {
+            birthDateField.setCustomValidity("Введите дату в формате ДД.ММ.ГГГГ.");
+        } else {
+            birthDateField.setCustomValidity("");
+        }
+    }
+
+    function setPhoneValidity() {
+        const value = phoneField.value.trim();
+
+        if (!value) {
+            phoneField.setCustomValidity("Введите телефон.");
+        } else if (!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(value)) {
+            phoneField.setCustomValidity("Введите телефон в формате +7 (900) 123-45-67.");
+        } else {
+            phoneField.setCustomValidity("");
+        }
+    }
+
+    function setEmailValidity() {
+        const value = emailField.value.trim();
+
+        if (!value) {
+            emailField.setCustomValidity("Введите email.");
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
+            emailField.setCustomValidity("Укажите корректный email, например your@email.com.");
+        } else {
+            emailField.setCustomValidity("");
+        }
+    }
+
+    function setSelectValidity(field, emptyMessage) {
+        if (!field.value) {
+            field.setCustomValidity(emptyMessage);
+        } else {
+            field.setCustomValidity("");
+        }
+    }
+
+    function setPositionValidity() {
+        const value = positionField.value.trim();
+
+        if (!value) {
+            positionField.setCustomValidity("Укажите желаемую должность.");
+        } else if (value.length < 3) {
+            positionField.setCustomValidity("Должность должна содержать минимум 3 символа.");
+        } else {
+            positionField.setCustomValidity("");
+        }
+    }
+
+    function setAboutValidity() {
+        const value = aboutField.value.trim();
+
+        if (!value) {
+            aboutField.setCustomValidity("Расскажите немного о себе.");
+        } else if (value.length < 10) {
+            aboutField.setCustomValidity("Поле \"О себе\" должно содержать минимум 10 символов.");
+        } else {
+            aboutField.setCustomValidity("");
+        }
+    }
+
+    function bindValidation(field, validate) {
+        field.addEventListener("input", function () {
+            validate();
+            toggleErrorState(field, false);
+        });
+
+        field.addEventListener("blur", function () {
+            field.dataset.touched = "true";
+            validate();
+            toggleErrorState(field, true);
+        });
+    }
+
+    bindValidation(lastNameField, function () {
+        setPersonNameValidity(
+            lastNameField,
+            "Введите фамилию.",
+            "Фамилия должна содержать минимум 2 символа.",
+            "Фамилия может содержать только буквы, пробелы и дефис.",
+            true
+        );
+    });
+
+    bindValidation(firstNameField, function () {
+        setPersonNameValidity(
+            firstNameField,
+            "Введите имя.",
+            "Имя должно содержать минимум 2 символа.",
+            "Имя может содержать только буквы, пробелы и дефис.",
+            true
+        );
+    });
+
+    bindValidation(middleNameField, function () {
+        setPersonNameValidity(
+            middleNameField,
+            "",
+            "Отчество должно содержать минимум 2 символа.",
+            "Отчество может содержать только буквы, пробелы и дефис.",
+            false
+        );
+    });
+
+    bindValidation(birthDateField, setBirthDateValidity);
+    birthDateField.addEventListener("input", function () {
+        birthDateField.value = birthDateField.value
+            .replace(/[^\d]/g, "")
+            .slice(0, 8)
+            .replace(/(\d{2})(\d)/, "$1.$2")
+            .replace(/(\d{2}\.\d{2})(\d)/, "$1.$2");
+        setBirthDateValidity();
+        toggleErrorState(birthDateField, false);
+    });
+
+    phoneField.addEventListener("input", function () {
+        phoneField.value = formatPhoneValue(phoneField.value);
+        setPhoneValidity();
+        toggleErrorState(phoneField, false);
+    });
+
+    phoneField.addEventListener("blur", function () {
+        phoneField.dataset.touched = "true";
+        phoneField.value = formatPhoneValue(phoneField.value);
+        setPhoneValidity();
+        toggleErrorState(phoneField, true);
+    });
+
+    bindValidation(emailField, setEmailValidity);
+    bindValidation(educationField, function () {
+        setSelectValidity(educationField, "Выберите образование.");
+    });
+    bindValidation(positionField, setPositionValidity);
+    bindValidation(experienceField, function () {
+        setSelectValidity(experienceField, "Выберите опыт работы.");
+    });
+    bindValidation(aboutField, setAboutValidity);
+
+    form.addEventListener("submit", function (event) {
+        setPersonNameValidity(
+            lastNameField,
+            "Введите фамилию.",
+            "Фамилия должна содержать минимум 2 символа.",
+            "Фамилия может содержать только буквы, пробелы и дефис.",
+            true
+        );
+        setPersonNameValidity(
+            firstNameField,
+            "Введите имя.",
+            "Имя должно содержать минимум 2 символа.",
+            "Имя может содержать только буквы, пробелы и дефис.",
+            true
+        );
+        setPersonNameValidity(
+            middleNameField,
+            "",
+            "Отчество должно содержать минимум 2 символа.",
+            "Отчество может содержать только буквы, пробелы и дефис.",
+            false
+        );
+        setBirthDateValidity();
+        setPhoneValidity();
+        setEmailValidity();
+        setSelectValidity(educationField, "Выберите образование.");
+        setPositionValidity();
+        setSelectValidity(experienceField, "Выберите опыт работы.");
+        setAboutValidity();
+
+        allFields.forEach(function (field) {
+            field.dataset.touched = "true";
+            toggleErrorState(field, true);
+        });
+
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            form.reportValidity();
+            return;
+        }
+
+        event.preventDefault();
+    });
+})();
+
+(function () {
     const galleryRoot = document.querySelector("[data-gallery-root]");
 
     if (!galleryRoot) {
