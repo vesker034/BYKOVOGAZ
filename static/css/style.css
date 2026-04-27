@@ -546,8 +546,8 @@ a:hover {
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 999px;
-    background: var(--color-icon-global-muted);
-    color: var(--color-icon-global);
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
 }
 
 .team-value__icon svg {
