@@ -580,6 +580,7 @@ const newsMessages = siteI18n.news || {};
 (function () {
     const storageKey = "site-theme";
     const root = document.documentElement;
+    const toggleButton = document.querySelector("[data-theme-toggle]");
     const themeButtons = Array.from(document.querySelectorAll("[data-theme-option]"));
 
     function getStoredTheme() {
@@ -588,6 +589,21 @@ const newsMessages = siteI18n.news || {};
     }
 
     function updateToggleUi(theme) {
+        if (toggleButton) {
+            const isDark = theme === "dark";
+            const labelNode = toggleButton.querySelector("[data-theme-label]");
+            const lightLabel = toggleButton.dataset.labelLight || "Light theme";
+            const darkLabel = toggleButton.dataset.labelDark || "Dark theme";
+
+            toggleButton.classList.toggle("is-dark", isDark);
+            toggleButton.setAttribute("aria-pressed", String(isDark));
+            toggleButton.setAttribute("title", isDark ? darkLabel : lightLabel);
+
+            if (labelNode) {
+                labelNode.textContent = isDark ? darkLabel : lightLabel;
+            }
+        }
+
         themeButtons.forEach(function (button) {
             const isActive = button.dataset.themeOption === theme;
             button.classList.toggle("is-active", isActive);
@@ -600,11 +616,19 @@ const newsMessages = siteI18n.news || {};
         updateToggleUi(theme);
     }
 
-    if (!themeButtons.length) {
+    if (!toggleButton && !themeButtons.length) {
         return;
     }
 
     applyTheme(getStoredTheme());
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", function () {
+            const selectedTheme = root.dataset.theme === "dark" ? "light" : "dark";
+            applyTheme(selectedTheme);
+            window.localStorage.setItem(storageKey, selectedTheme);
+        });
+    }
 
     themeButtons.forEach(function (button) {
         button.addEventListener("click", function () {

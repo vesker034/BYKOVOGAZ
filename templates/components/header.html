@@ -96,85 +96,70 @@
                             <a class="nav-link site-header__link{% if current_name == 'contacts' %} site-header__link--active{% endif %}" href="{{ contacts_url }}">{% trans "Контакты" %}</a>
                         </li>
                         <li class="nav-item site-header__language-item">
-                            <div class="site-language-switch" role="group" aria-label="{% trans 'Переключение языка сайта' %}">
-                                <form action="{% url 'set_language' %}" method="post">
-                                    {% csrf_token %}
+                            <form class="site-language-switch" action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                {% if CURRENT_LANGUAGE == 'en' %}
                                     <input type="hidden" name="language" value="ru">
                                     <input
                                         type="hidden"
                                         name="next"
-                                        value="{% if CURRENT_LANGUAGE == 'en' %}{% if request.get_full_path == '/en/' %}/{% else %}{{ request.get_full_path|slice:'3:' }}{% endif %}{% else %}{{ request.get_full_path }}{% endif %}"
+                                        value="{% if request.get_full_path == '/en/' %}/{% else %}{{ request.get_full_path|slice:'3:' }}{% endif %}"
                                     >
-                                    <button
-                                        class="site-language-switch__button{% if CURRENT_LANGUAGE == 'ru' %} is-active{% endif %}"
-                                        type="submit"
-                                        aria-pressed="{% if CURRENT_LANGUAGE == 'ru' %}true{% else %}false{% endif %}"
-                                        aria-label="{% trans 'Русский язык' %}"
-                                        title="{% trans 'Русский язык' %}"
-                                    >
-                                        <img
-                                            class="site-language-switch__flag-img"
-                                            src="{% static 'img/flags/ru.svg' %}"
-                                            alt=""
-                                            aria-hidden="true"
-                                        >
-                                        <span class="visually-hidden">{% trans "Русский язык" %}</span>
-                                    </button>
-                                </form>
-                                <form action="{% url 'set_language' %}" method="post">
-                                    {% csrf_token %}
+                                {% else %}
                                     <input type="hidden" name="language" value="en">
                                     <input
                                         type="hidden"
                                         name="next"
-                                        value="{% if CURRENT_LANGUAGE == 'en' %}{{ request.get_full_path }}{% else %}{% if request.get_full_path == '/' %}/en/{% else %}/en{{ request.get_full_path }}{% endif %}{% endif %}"
+                                        value="{% if request.get_full_path == '/' %}/en/{% else %}/en{{ request.get_full_path }}{% endif %}"
                                     >
-                                    <button
-                                        class="site-language-switch__button{% if CURRENT_LANGUAGE == 'en' %} is-active{% endif %}"
-                                        type="submit"
-                                        aria-pressed="{% if CURRENT_LANGUAGE == 'en' %}true{% else %}false{% endif %}"
-                                        aria-label="{% trans 'English language' %}"
-                                        title="{% trans 'English language' %}"
-                                    >
+                                {% endif %}
+                                <button
+                                    class="site-header__utility-button site-header__utility-button--language"
+                                    type="submit"
+                                    aria-label="{% trans 'Переключить язык сайта' %}"
+                                    title="{% trans 'Переключить язык сайта' %}"
+                                >
+                                    {% if CURRENT_LANGUAGE == 'en' %}
                                         <img
-                                            class="site-language-switch__flag-img"
+                                            class="site-header__utility-flag"
                                             src="{% static 'img/flags/gb.svg' %}"
                                             alt=""
                                             aria-hidden="true"
                                         >
-                                        <span class="visually-hidden">{% trans "English language" %}</span>
-                                    </button>
-                                </form>
-                            </div>
+                                        <span class="site-header__utility-label">{% trans "English" %}</span>
+                                    {% else %}
+                                        <img
+                                            class="site-header__utility-flag"
+                                            src="{% static 'img/flags/ru.svg' %}"
+                                            alt=""
+                                            aria-hidden="true"
+                                        >
+                                        <span class="site-header__utility-label">{% trans "Русский" %}</span>
+                                    {% endif %}
+                                </button>
+                            </form>
                         </li>
                         <li class="nav-item site-header__theme-item">
-                            <div class="site-theme-switch" role="group" aria-label="{% trans 'Переключение темы сайта' %}">
+                            <div class="site-theme-switch">
                                 <button
-                                    class="site-theme-switch__button"
+                                    class="site-header__utility-button site-header__utility-button--theme"
                                     type="button"
-                                    data-theme-option="light"
-                                    aria-pressed="true"
-                                    aria-label="{% trans 'Светлая тема' %}"
-                                    title="{% trans 'Светлая тема' %}"
+                                    data-theme-toggle
+                                    data-label-light="{% trans 'Светлая тема' %}"
+                                    data-label-dark="{% trans 'Тёмная тема' %}"
+                                    aria-label="{% trans 'Переключить тему сайта' %}"
+                                    title="{% trans 'Переключить тему сайта' %}"
                                 >
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <circle cx="12" cy="12" r="4.25" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-                                        <path d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23L5.46 5.46" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path>
-                                    </svg>
-                                    <span class="visually-hidden">{% trans "Светлая тема" %}</span>
-                                </button>
-                                <button
-                                    class="site-theme-switch__button"
-                                    type="button"
-                                    data-theme-option="dark"
-                                    aria-pressed="false"
-                                    aria-label="{% trans 'Тёмная тема' %}"
-                                    title="{% trans 'Тёмная тема' %}"
-                                >
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M14.5 2.9a8.8 8.8 0 1 0 6.6 14.5A9.6 9.6 0 0 1 14.5 2.9Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path>
-                                    </svg>
-                                    <span class="visually-hidden">{% trans "Тёмная тема" %}</span>
+                                    <span class="site-header__utility-theme-icon" aria-hidden="true">
+                                        <svg class="site-header__theme-icon site-header__theme-icon--light" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="4.25" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+                                            <path d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23L5.46 5.46" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path>
+                                        </svg>
+                                        <svg class="site-header__theme-icon site-header__theme-icon--dark" viewBox="0 0 24 24">
+                                            <path d="M14.5 2.9a8.8 8.8 0 1 0 6.6 14.5A9.6 9.6 0 0 1 14.5 2.9Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="site-header__utility-label" data-theme-label>{% trans "Светлая тема" %}</span>
                                 </button>
                             </div>
                         </li>

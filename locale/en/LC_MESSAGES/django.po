@@ -1102,3 +1102,15 @@ msgstr "About Me"
 
 msgid "Расскажите о своих профессиональных навыках, достижениях и мотивации работать в нашей компании..."
 msgstr "Tell us about your professional skills, achievements, and motivation to work at our company..."
+
+msgid "Переключить язык сайта"
+msgstr "Switch site language"
+
+msgid "Переключить тему сайта"
+msgstr "Switch site theme"
+
+msgid "English"
+msgstr "English"
+
+msgid "Русский"
+msgstr "Russian"
