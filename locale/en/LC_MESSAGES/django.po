@@ -1,0 +1,1104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BykovoGaz\n"
+"POT-Creation-Date: 2026-04-27 20:30+0300\n"
+"PO-Revision-Date: 2026-04-27 20:30+0300\n"
+"Last-Translator: Cursor Agent\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Основное меню"
+msgstr "Main menu"
+
+msgid "Добыча углеводородного сырья"
+msgstr "Hydrocarbon production"
+
+msgid "Открыть меню"
+msgstr "Open menu"
+
+msgid "Главная"
+msgstr "Home"
+
+msgid "О нас"
+msgstr "About"
+
+msgid "О компании"
+msgstr "About the Company"
+
+msgid "О месторождении"
+msgstr "About the Field"
+
+msgid "Состав команды"
+msgstr "Team"
+
+msgid "Лицензия"
+msgstr "License"
+
+msgid "Виртуальный тур"
+msgstr "Virtual Tour"
+
+msgid "Наши работы"
+msgstr "Our Works"
+
+msgid "Пресс-центр"
+msgstr "Press Center"
+
+msgid "Новости"
+msgstr "News"
+
+msgid "Галерея"
+msgstr "Gallery"
+
+msgid "Карьера"
+msgstr "Career"
+
+msgid "Контакты"
+msgstr "Contacts"
+
+msgid "Переключение языка сайта"
+msgstr "Website language switch"
+
+msgid "Русский язык"
+msgstr "Russian"
+
+msgid "English language"
+msgstr "English"
+
+msgid "Переключение темы сайта"
+msgstr "Website theme switch"
+
+msgid "Светлая тема"
+msgstr "Light theme"
+
+msgid "Тёмная тема"
+msgstr "Dark theme"
+
+msgid "Вертикально интегрированная компания по разработке недр и добыче углеводородного сырья"
+msgstr "Vertically integrated company engaged in subsurface development and hydrocarbon production"
+
+msgid "Быстрые ссылки"
+msgstr "Quick links"
+
+msgid "400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж"
+msgstr "62 Marshal Rokossovsky St., Volgograd City Business Center, 18th floor, Volgograd 400050"
+
+msgid "Член Союза «Волгоградская торгово-промышленная палата» с апреля 2019 года"
+msgstr "Member of the Volgograd Chamber of Commerce and Industry since April 2019"
+
+msgid "Введите имя."
+msgstr "Enter your name."
+
+msgid "Имя должно содержать минимум 2 символа."
+msgstr "The name must contain at least 2 characters."
+
+msgid "Имя может содержать только буквы, пробелы и дефис."
+msgstr "The name may contain only letters, spaces, and a hyphen."
+
+msgid "Введите email."
+msgstr "Enter an email address."
+
+msgid "Укажите корректный email, например your@email.com."
+msgstr "Enter a valid email, for example your@email.com."
+
+msgid "Введите телефон в формате +7 (900) 123-45-67."
+msgstr "Enter the phone number in the format +7 (900) 123-45-67."
+
+msgid "Укажите тему обращения."
+msgstr "Specify the subject of the request."
+
+msgid "Тема должна содержать минимум 3 символа."
+msgstr "The subject must contain at least 3 characters."
+
+msgid "Введите сообщение."
+msgstr "Enter a message."
+
+msgid "Сообщение должно содержать минимум 10 символов."
+msgstr "The message must contain at least 10 characters."
+
+msgid "Введите фамилию."
+msgstr "Enter the last name."
+
+msgid "Фамилия должна содержать минимум 2 символа."
+msgstr "The last name must contain at least 2 characters."
+
+msgid "Фамилия может содержать только буквы, пробелы и дефис."
+msgstr "The last name may contain only letters, spaces, and a hyphen."
+
+msgid "Отчество должно содержать минимум 2 символа."
+msgstr "The middle name must contain at least 2 characters."
+
+msgid "Отчество может содержать только буквы, пробелы и дефис."
+msgstr "The middle name may contain only letters, spaces, and a hyphen."
+
+msgid "Введите дату рождения."
+msgstr "Enter the date of birth."
+
+msgid "Введите дату в формате ДД.ММ.ГГГГ."
+msgstr "Enter the date in the format DD.MM.YYYY."
+
+msgid "Введите телефон."
+msgstr "Enter the phone number."
+
+msgid "Выберите образование."
+msgstr "Select education."
+
+msgid "Укажите желаемую должность."
+msgstr "Specify the desired position."
+
+msgid "Должность должна содержать минимум 3 символа."
+msgstr "The position must contain at least 3 characters."
+
+msgid "Выберите опыт работы."
+msgstr "Select work experience."
+
+msgid "Расскажите немного о себе."
+msgstr "Tell us a little about yourself."
+
+msgid "Поле \"О себе\" должно содержать минимум 10 символов."
+msgstr "The \"About me\" field must contain at least 10 characters."
+
+msgid "Поле О себе должно содержать минимум 10 символов."
+msgstr "The About Me field must contain at least 10 characters."
+
+msgid "Не удалось загрузить страницу новостей."
+msgstr "Failed to load the news page."
+
+msgid "Не найден блок новостей в ответе сервера."
+msgstr "The news block was not found in the server response."
+
+msgid "Ключевые показатели компании"
+msgstr "Key company figures"
+
+msgid "Год основания"
+msgstr "Year founded"
+
+msgid "Млн м<sup>3</sup>/год газа"
+msgstr "Million m<sup>3</sup>/year of gas"
+
+msgid "Тыс. тонн/год конденсата"
+msgstr "Thousand tonnes/year of condensate"
+
+msgid "Сотрудников"
+msgstr "Employees"
+
+msgid "ООО «БЫКОВОГАЗ» создано в 2002 г. с целью добычи и реализации газа, конденсата и нефти, а также оказания услуг по бурению скважин на нефть и газ."
+msgstr "BYKOVOGAZ LLC was established in 2002 to produce and market gas, condensate, and oil, and to provide oil and gas well drilling services."
+
+msgid "Компания является владельцем лицензии на право разведки и добычи углеводородного сырья в пределах Южно-Кисловского участка недр, расположенного в Быковском районе Волгоградской области."
+msgstr "The company holds a license for hydrocarbon exploration and production within the Yuzhno-Kislovsky subsoil block located in the Bykovsky district of the Volgograd region."
+
+msgid "Узнать больше"
+msgstr "Learn more"
+
+msgid "Производственная установка"
+msgstr "Production facility"
+
+msgid "Основные направления деятельности"
+msgstr "Core areas of activity"
+
+msgid "Разработка недр"
+msgstr "Subsurface development"
+
+msgid "Геологоразведка и разработка углеводородных месторождений."
+msgstr "Geological exploration and hydrocarbon field development."
+
+msgid "Добыча газа"
+msgstr "Gas production"
+
+msgid "Промышленная добыча природного газа до 250 млн м<sup>3</sup>/год."
+msgstr "Industrial production of natural gas up to 250 million m<sup>3</sup>/year."
+
+msgid "Добыча конденсата"
+msgstr "Condensate production"
+
+msgid "Производство газового конденсата до 40 тыс. тонн/год."
+msgstr "Gas condensate production up to 40 thousand tonnes/year."
+
+msgid "Буровые услуги"
+msgstr "Drilling services"
+
+msgid "Бурение скважин на нефть и газ, обустройство месторождений."
+msgstr "Oil and gas well drilling and field infrastructure development."
+
+msgid "Южно-Кисловское месторождение"
+msgstr "Yuzhno-Kislovskoe Field"
+
+msgid "Южно-Кисловское газоконденсатное месторождение расположено в Быковском районе Волгоградской области, в 30 км к юго-востоку от р. п. Быково, на левом берегу Волги."
+msgstr "The Yuzhno-Kislovskoe gas-condensate field is located in the Bykovsky district of the Volgograd region, 30 km southeast of Bykovo, on the left bank of the Volga."
+
+msgid "Запасы категории С1: по газу – 3,857 млрд. м<sup>3</sup>, по конденсату – 667 тыс. тонн (протокол ГКЗ РФ №18/799-пр от 01.12.2006 г.)."
+msgstr "Category C1 reserves: 3.857 billion m<sup>3</sup> of gas and 667 thousand tonnes of condensate (State Reserves Committee protocol No. 18/799-pr dated 01.12.2006)."
+
+msgid "Подробнее о месторождении"
+msgstr "More about the field"
+
+msgid "Присоединяйтесь к нашей команде"
+msgstr "Join our team"
+
+msgid "Мы всегда в поиске талантливых специалистов для развития нашей компании."
+msgstr "We are always looking for talented professionals to help grow our company."
+
+msgid "Вакансии и карьера"
+msgstr "Vacancies and careers"
+
+msgid "Реализованные проекты"
+msgstr "Completed projects"
+
+msgid "За годы работы мы успешно реализовали множество проектов по разработке месторождения и созданию производственной инфраструктуры."
+msgstr "Over the years, we have successfully delivered numerous field development and production infrastructure projects."
+
+msgid "Завершено"
+msgstr "Completed"
+
+msgid "Основные достижения:"
+msgstr "Key achievements:"
+
+msgid "Смотреть больше"
+msgstr "See more"
+
+msgid "Мы в новостях"
+msgstr "We are in the news"
+
+msgid "Производство"
+msgstr "Production"
+
+msgid "Читать далее"
+msgstr "Read more"
+
+msgid "Корпоративные новости"
+msgstr "Corporate news"
+
+msgid "Геологоразведка"
+msgstr "Exploration"
+
+msgid "Контактная информация"
+msgstr "Contact information"
+
+msgid "Адрес"
+msgstr "Address"
+
+msgid "Телефон"
+msgstr "Phone"
+
+msgid "Режим работы"
+msgstr "Business hours"
+
+msgid "Понедельник - Пятница: 9:00 - 18:00"
+msgstr "Monday - Friday: 9:00 - 18:00"
+
+msgid "Суббота - Воскресенье: Выходной"
+msgstr "Saturday - Sunday: Closed"
+
+msgid "Суббота - Воскресенье: выходной"
+msgstr "Saturday - Sunday: closed"
+
+msgid "Реквизиты компании"
+msgstr "Company details"
+
+msgid "Полное наименование: Общество с ограниченной ответственностью «БЫКОВОГАЗ»"
+msgstr "Full legal name: BYKOVOGAZ Limited Liability Company"
+
+msgid "Напишите нам"
+msgstr "Write to us"
+
+msgid "Имя *"
+msgstr "Name *"
+
+msgid "Введите ваше имя"
+msgstr "Enter your name"
+
+msgid "Email *"
+msgstr "Email *"
+
+msgid "Тема обращения *"
+msgstr "Subject *"
+
+msgid "Укажите тему"
+msgstr "Specify the subject"
+
+msgid "Сообщение *"
+msgstr "Message *"
+
+msgid "Ваше сообщение..."
+msgstr "Your message..."
+
+msgid "Отправить сообщение"
+msgstr "Send message"
+
+msgid "* Поля обязательные для заполнения"
+msgstr "* Required fields"
+
+msgid "Почему стоит работать с нами?"
+msgstr "Why work with us?"
+
+msgid "Стабильность"
+msgstr "Stability"
+
+msgid "Работа в крупной компании с более чем 20-летней историей в нефтегазовой отрасли"
+msgstr "Work at a major company with more than 20 years of experience in the oil and gas industry"
+
+msgid "Развитие"
+msgstr "Growth"
+
+msgid "Возможности профессионального роста и участия в крупных проектах"
+msgstr "Opportunities for professional growth and participation in large-scale projects"
+
+msgid "Команда"
+msgstr "Team"
+
+msgid "Работа в команде из 140 профессионалов своего дела"
+msgstr "Work in a team of 140 skilled professionals"
+
+msgid "Актуальные позиции, на которые компания сейчас ведет поиск специалистов."
+msgstr "Current openings for which the company is actively searching for specialists."
+
+msgid "Основные требования"
+msgstr "Key requirements"
+
+msgid "Сейчас открытых вакансий нет"
+msgstr "There are currently no open vacancies"
+
+msgid "Вы все равно можете заполнить анкету кандидата ниже, и мы свяжемся с вами, когда появится подходящая позиция."
+msgstr "You can still fill out the candidate form below, and we will contact you when a suitable position becomes available."
+
+msgid "Анкета кандидата"
+msgstr "Candidate application form"
+
+msgid "Заполните форму ниже, и мы свяжемся с вами в ближайшее время"
+msgstr "Fill out the form below, and we will contact you shortly"
+
+msgid "Персональные данные"
+msgstr "Personal details"
+
+msgid "Фамилия"
+msgstr "Last name"
+
+msgid "Иванов"
+msgstr "Ivanov"
+
+msgid "Иван"
+msgstr "Ivan"
+
+msgid "Отчество"
+msgstr "Middle name"
+
+msgid "Иванович"
+msgstr "Ivanovich"
+
+msgid "Дата рождения"
+msgstr "Date of birth"
+
+msgid "ДД.ММ.ГГГГ"
+msgstr "DD.MM.YYYY"
+
+msgid "Образование и опыт"
+msgstr "Education and experience"
+
+msgid "Образование"
+msgstr "Education"
+
+msgid "Среднее"
+msgstr "Secondary"
+
+msgid "Среднее специальное"
+msgstr "Vocational secondary"
+
+msgid "Неполное высшее"
+msgstr "Incomplete higher education"
+
+msgid "Высшее"
+msgstr "Higher education"
+
+msgid "Несколько высших"
+msgstr "Multiple degrees"
+
+msgid "Аспирантура, кандидат наук"
+msgstr "Postgraduate, PhD"
+
+msgid "Желаемая должность"
+msgstr "Desired position"
+
+msgid "Например: Инженер-технолог"
+msgstr "For example: Process Engineer"
+
+msgid "Опыт работы"
+msgstr "Work experience"
+
+msgid "Без опыта"
+msgstr "No experience"
+
+msgid "До 1 года"
+msgstr "Up to 1 year"
+
+msgid "1-3 года"
+msgstr "1-3 years"
+
+msgid "3-5 лет"
+msgstr "3-5 years"
+
+msgid "Более 5 лет"
+msgstr "More than 5 years"
+
+msgid "О себе"
+msgstr "About me"
+
+msgid "Расскажите о своих профессиональных навыках, достижениях и мотивации работать в нашей компании..."
+msgstr "Tell us about your professional skills, achievements, and motivation to work at our company..."
+
+msgid "Отправить анкету"
+msgstr "Submit application"
+
+msgid "Есть вопросы?"
+msgstr "Have questions?"
+
+msgid "Свяжитесь с отделом кадров по телефону или электронной почте"
+msgstr "Contact HR by phone or email"
+
+msgid "Свяжитесь с нами удобным способом"
+msgstr "Contact us in the most convenient way"
+
+msgid "Мы всегда на связи"
+msgstr "We are always in touch"
+
+msgid "Для общих вопросов, сотрудничества и деловой переписки используйте удобный для вас канал связи."
+msgstr "For general inquiries, cooperation, and business correspondence, use the communication channel that is most convenient for you."
+
+msgid "Юридическая информация"
+msgstr "Legal information"
+
+msgid "Полное наименование"
+msgstr "Full legal name"
+
+msgid "Общество с ограниченной ответственностью «БЫКОВОГАЗ»"
+msgstr "BYKOVOGAZ Limited Liability Company"
+
+msgid "Расчётный счёт"
+msgstr "Settlement account"
+
+msgid "Банк"
+msgstr "Bank"
+
+msgid "Филиал «Ростовский» АО «АЛЬФА-БАНК», г. Ростов-на-Дону"
+msgstr "Rostovsky Branch of ALFA-BANK JSC, Rostov-on-Don"
+
+msgid "Корреспондентский счёт"
+msgstr "Correspondent account"
+
+msgid "Локация офиса"
+msgstr "Office location"
+
+msgid "Как нас найти"
+msgstr "How to find us"
+
+msgid "БЦ Волгоград Сити, ул. Маршала Рокоссовского 62, 18 этаж"
+msgstr "Volgograd City Business Center, 62 Marshal Rokossovsky St., 18th floor"
+
+msgid "Интерактивная карта офиса БыковоГаз"
+msgstr "Interactive map of the BykovoGaz office"
+
+msgid "О компании"
+msgstr "About the Company"
+
+msgid "Более 20 лет опыта в нефтегазовой отрасли"
+msgstr "More than 20 years of experience in the oil and gas industry"
+
+msgid "История компании"
+msgstr "Company history"
+
+msgid "Достижения и результаты"
+msgstr "Achievements and results"
+
+msgid "Проектная мощность по природному газу"
+msgstr "Design capacity for natural gas"
+
+msgid "Проектная мощность по газовому конденсату"
+msgstr "Design capacity for gas condensate"
+
+msgid "Планы развития"
+msgstr "Development plans"
+
+msgid "Член ТПП"
+msgstr "CCI member"
+
+msgid "Узнайте больше"
+msgstr "Learn more"
+
+msgid "Подробнее"
+msgstr "Details"
+
+msgid "Южно-Кисловское газоконденсатное месторождение"
+msgstr "Yuzhno-Kislovskoe gas-condensate field"
+
+msgid "История открытия"
+msgstr "Discovery history"
+
+msgid "Производственный объект месторождения"
+msgstr "Production facility at the field"
+
+msgid "Переоценка запасов 2006 года"
+msgstr "Reserve reassessment in 2006"
+
+msgid "Утвержденные запасы"
+msgstr "Approved reserves"
+
+msgid "Суммарные запасы газа по категории С1"
+msgstr "Total gas reserves in category C1"
+
+msgid "Извлекаемые запасы газового конденсата категории С1"
+msgstr "Recoverable gas condensate reserves in category C1"
+
+msgid "Опытно-промышленная эксплуатация"
+msgstr "Pilot industrial operation"
+
+msgid "Расположение месторождения"
+msgstr "Field location"
+
+msgid "Географическое положение"
+msgstr "Geographical location"
+
+msgid "Геологические характеристики"
+msgstr "Geological characteristics"
+
+msgid "Петров Дмитрий Александрович"
+msgstr "Pyotr Dmitry Alexandrovich"
+
+msgid "Иванова Мария Сергеевна"
+msgstr "Ivanova Maria Sergeyevna"
+
+msgid "Кузнецов Сергей Иванович"
+msgstr "Kuznetsov Sergey Ivanovich"
+
+msgid "Федорова Ольга Петровна"
+msgstr "Fedorova Olga Petrovna"
+
+msgid "Волков Алексей Николаевич"
+msgstr "Volkov Alexey Nikolaevich"
+
+msgid "Николаева Анна Дмитриевна"
+msgstr "Nikolaeva Anna Dmitrievna"
+
+msgid "Иванов Иван Иванович"
+msgstr "Ivanov Ivan Ivanovich"
+
+msgid "Генеральный директор"
+msgstr "Chief Executive Officer"
+
+msgid "Заместитель генерального директора"
+msgstr "Deputy Chief Executive Officer"
+
+msgid "Главный инженер"
+msgstr "Chief Engineer"
+
+msgid "Главный геолог"
+msgstr "Chief Geologist"
+
+msgid "Начальник отдела безопасности"
+msgstr "Head of Security Department"
+
+msgid "Инженер по промышленной безопасности"
+msgstr "Industrial Safety Engineer"
+
+msgid "Начальник отдела материально-технического снабжения"
+msgstr "Head of Procurement and Supply Department"
+
+msgid "Главный IT специалист"
+msgstr "Lead IT Specialist"
+
+msgid "Наши ценности"
+msgstr "Our values"
+
+msgid "Профессионализм"
+msgstr "Professionalism"
+
+msgid "Ответственность"
+msgstr "Responsibility"
+
+msgid "Инновации"
+msgstr "Innovation"
+
+msgid "На разведку и добычу углеводородного сырья"
+msgstr "For hydrocarbon exploration and production"
+
+msgid "От 22.04.2006"
+msgstr "Dated 22.04.2006"
+
+msgid "Лицензиат:"
+msgstr "License holder:"
+
+msgid "Вид права:"
+msgstr "Type of right:"
+
+msgid "Участок недр:"
+msgstr "Subsoil block:"
+
+msgid "Местоположение:"
+msgstr "Location:"
+
+msgid "Фотография лицензии"
+msgstr "License photo"
+
+msgid "Скан лицензии на пользование недрами"
+msgstr "Scan of the subsoil use license"
+
+msgid "Запасы газа"
+msgstr "Gas reserves"
+
+msgid "Категория С1"
+msgstr "Category C1"
+
+msgid "Запасы конденсата"
+msgstr "Condensate reserves"
+
+msgid "Посетите наш офис виртуально"
+msgstr "Visit our office virtually"
+
+msgid "Виртуальная экскурсия по офису"
+msgstr "Virtual office tour"
+
+msgid "Зона виртуального тура"
+msgstr "Virtual tour area"
+
+msgid "Основные зоны офиса"
+msgstr "Main office zones"
+
+msgid "Серверная"
+msgstr "Server room"
+
+msgid "Офисное пространство"
+msgstr "Office space"
+
+msgid "Комната совещаний"
+msgstr "Meeting room"
+
+msgid "Навигация по страницам новостей"
+msgstr "News page navigation"
+
+msgid "Загрузить ещё"
+msgstr "Load more"
+
+msgid "Категории"
+msgstr "Categories"
+
+msgid "Перейти к анкете"
+msgstr "Go to the form"
+
+msgid "Название вакансии (RU)"
+msgstr "Vacancy title (RU)"
+
+msgid "Название вакансии (EN)"
+msgstr "Vacancy title (EN)"
+
+msgid "Подразделение (RU)"
+msgstr "Department (RU)"
+
+msgid "Подразделение (EN)"
+msgstr "Department (EN)"
+
+msgid "Локация (RU)"
+msgstr "Location (RU)"
+
+msgid "Локация (EN)"
+msgstr "Location (EN)"
+
+msgid "Формат работы"
+msgstr "Employment type"
+
+msgid "Краткое описание (RU)"
+msgstr "Short description (RU)"
+
+msgid "Краткое описание (EN)"
+msgstr "Short description (EN)"
+
+msgid "Требования (RU)"
+msgstr "Requirements (RU)"
+
+msgid "Требования (EN)"
+msgstr "Requirements (EN)"
+
+msgid "Укажите каждый пункт с новой строки."
+msgstr "Specify each item on a new line."
+
+msgid "Показывать на сайте"
+msgstr "Show on the website"
+
+msgid "Порядок"
+msgstr "Order"
+
+msgid "Дата создания"
+msgstr "Creation date"
+
+msgid "Вакансия"
+msgstr "Vacancy"
+
+msgid "Вакансии"
+msgstr "Vacancies"
+
+msgid "Полная занятость"
+msgstr "Full-time"
+
+msgid "Сменный график"
+msgstr "Shift work"
+
+msgid "Частичная занятость"
+msgstr "Part-time"
+
+msgid "Стажировка"
+msgstr "Internship"
+
+msgid "БЫКОВОГАЗ"
+msgstr "BYKOVOGAZ"
+
+msgid "ООО «БЫКОВОГАЗ»"
+msgstr "BYKOVOGAZ LLC"
+
+msgid "ООО «БЫКОВОГАЗ»."
+msgstr "BYKOVOGAZ LLC."
+
+msgid "ООО «БЫКОВОГАЗ» является владельцем лицензии на право разведки и добычи углеводородного сырья в пределах Южно-Кисловского участка недр. Данный участок расположен в Быковском районе Волгоградской области, в 30 км к юго-востоку от р. п. Быково, на левом берегу Волги."
+msgstr "BYKOVOGAZ LLC holds the license for hydrocarbon exploration and production within the Yuzhno-Kislovsky subsoil block. The block is located in the Bykovsky district of the Volgograd region, 30 km southeast of Bykovo, on the left bank of the Volga."
+
+msgid "Несмотря на сложную экономическую ситуацию, связанную с введением санкций и относительно невысокого сектора спроса, ООО «БЫКОВОГАЗ» успешно выполнило поставленные перед собой задачи по строительству комплекса комплексной подготовки газа и обустройству месторождения."
+msgstr "Despite the difficult economic environment caused by sanctions and relatively low demand in the sector, BYKOVOGAZ LLC successfully completed its objectives for constructing the gas treatment complex and developing the field."
+
+msgid "В 4 квартале 2017 г. получено разрешение на ввод УКПГ в промышленную эксплуатацию. Намечается этап промышленной разработки месторождения."
+msgstr "In Q4 2017, approval was received to put the gas treatment unit into industrial operation. The field then moved into the industrial development stage."
+
+msgid "Несмотря на достигнутые результаты, ООО «БЫКОВОГАЗ» не планирует останавливаться. В краткосрочной перспективе планируется продолжить поиск разрабатываемых и перспективных запасов, а в среднесрочной — расширение ресурсной базы."
+msgstr "Despite the results achieved, BYKOVOGAZ LLC does not plan to stop. In the short term, the company plans to continue searching for developed and prospective reserves, and in the medium term, to expand its resource base."
+
+msgid "До конца 2019 г. планируется ввод в промышленную эксплуатацию разведочной скважины №12 Южно-Кисловского газоконденсатного месторождения. Общая производственная численность предприятия на этапе эксплуатации составляет 140 человек."
+msgstr "By the end of 2019, exploration well No. 12 at the Yuzhno-Kislovskoe gas-condensate field was scheduled for commissioning. The total production staff at the operating stage is 140 employees."
+
+msgid "С апреля 2019 года ООО «БЫКОВОГАЗ» является членом Союза «Волгоградская торгово‑промышленная палата»."
+msgstr "Since April 2019, BYKOVOGAZ LLC has been a member of the Volgograd Chamber of Commerce and Industry."
+
+msgid "История и характеристика Южно-Кисловского месторождения."
+msgstr "History and characteristics of the Yuzhno-Kislovskoe field."
+
+msgid "Лицензия на разведку и добычу углеводородного сырья."
+msgstr "License for hydrocarbon exploration and production."
+
+msgid "Совершите виртуальную экскурсию по нашему офису."
+msgstr "Take a virtual tour of our office."
+
+msgid "Южно-Кисловское газоконденсатное месторождение выявлено в результате сейсморазведочных исследований, выполненных в 1966 году. По результатам работ была подготовлена структура, установленная поисково-разведочной скважиной №14 в 1974 году."
+msgstr "The Yuzhno-Kislovskoe gas-condensate field was identified as a result of seismic surveys carried out in 1966. Based on the results, a structure was prepared and confirmed by exploration well No. 14 in 1974."
+
+msgid "В ходе этой доразведки было выявлено более 50 перспективных локальных структур и скоплений углеводородов. Наиболее значимой стала зона в пределах Южно-Кисловской структуры, где подтверждены промышленные запасы газа и конденсата."
+msgstr "During this additional exploration, more than 50 promising local structures and hydrocarbon accumulations were identified. The most significant area was within the Yuzhno-Kislovskaya structure, where commercial reserves of gas and condensate were confirmed."
+
+msgid "В 2006 г. была проведена независимая оценка запасов, потребовавшая обновления проектных решений и уточнения геологической модели. По результатам работ были скорректированы показатели по запасам газа и конденсата Южно-Кисловского месторождения."
+msgstr "In 2006, an independent reserve assessment was carried out, requiring updates to engineering solutions and refinement of the geological model. As a result, gas and condensate reserve indicators for the Yuzhno-Kislovskoe field were adjusted."
+
+msgid "Полученные результаты создали технологическую и инвестиционную основу для дальнейшего освоения участка."
+msgstr "The results formed the technological and investment foundation for further development of the block."
+
+msgid "В 2006 году в рамках ГКЗ России были утверждены запасы углеводородов Южно-Кисловского газоконденсатного месторождения по категориям С1."
+msgstr "In 2006, within the framework of the State Reserves Committee of Russia, hydrocarbon reserves of the Yuzhno-Kislovskoe gas-condensate field were approved under category C1."
+
+msgid "Запасы утверждены на основании протокола ГКЗ РФ №18/799-пр от 01.12.2006 г."
+msgstr "The reserves were approved on the basis of State Reserves Committee protocol No. 18/799-pr dated 01.12.2006."
+
+msgid "Для ввода Южно-Кисловского газоконденсатного месторождения в опытно-промышленную эксплуатацию компанией «Инвестпроект» в 2005 г. разработан проект опытно-промышленной эксплуатации."
+msgstr "To launch the Yuzhno-Kislovskoe gas-condensate field into pilot industrial operation, Investproekt developed a pilot operation project in 2005."
+
+msgid "Для уточнения геологического строения месторождения компанией была также выполнена сейсморазведка МОГТ-3D общим объемом 63 км<sup>2</sup>."
+msgstr "To refine the geological structure of the field, the company also carried out a 3D seismic survey with a total area of 63 km<sup>2</sup>."
+
+msgid "С 2006 г. на основании лицензии компания ведет разведку и добычу углеводородного сырья в границах Южно-Кисловского участка недр."
+msgstr "Since 2006, under the license, the company has been conducting exploration and hydrocarbon production within the Yuzhno-Kislovsky subsoil block."
+
+msgid "ВОЛ 100122 НР от 22.04.2006"
+msgstr "VOL 100122 NR dated 22.04.2006"
+
+msgid "Быковский район Волгоградской области"
+msgstr "Bykovsky district of the Volgograd region"
+
+msgid "30 км к юго-востоку от р. п. Быково"
+msgstr "30 km southeast of Bykovo"
+
+msgid "Левый берег Волги"
+msgstr "Left bank of the Volga"
+
+msgid "Продуктивные песчаные пласты нижнего мела"
+msgstr "Productive Lower Cretaceous sandstone layers"
+
+msgid "Газоконденсатная залежь"
+msgstr "Gas-condensate reservoir"
+
+msgid "Площадь лицензированного участка 36 км<sup>2</sup>"
+msgstr "Licensed area of 36 km<sup>2</sup>"
+
+msgid "Высококвалифицированные специалисты с многолетним опытом."
+msgstr "Highly qualified specialists with many years of experience."
+
+msgid "Гарантируем выполнение всех обязательств перед клиентами."
+msgstr "We guarantee fulfillment of all obligations to our clients."
+
+msgid "Внедряем современные технологии для улучшения качества услуг."
+msgstr "We implement modern technologies to improve service quality."
+
+msgid "Лицензия ВОЛ №01223 НЭ"
+msgstr "License VOL No. 01223 NE"
+
+msgid "Разведка и добыча углеводородного сырья."
+msgstr "Hydrocarbon exploration and production."
+
+msgid "Южно-Кисловский участок недр, включающий Южно-Кисловское газоконденсатное месторождение."
+msgstr "The Yuzhno-Kislovsky subsoil block, including the Yuzhno-Kislovskoe gas-condensate field."
+
+msgid "Быковский район Волгоградской области, 30 км к юго-востоку от р. п. Быково, левый берег Волги."
+msgstr "Bykovsky district of the Volgograd region, 30 km southeast of Bykovo, left bank of the Volga."
+
+msgid "Запасы утверждены на основании протокола ГКЗ России (протокол №18/799-пр от 01.12.2006 г.)."
+msgstr "The reserves were approved under the State Reserves Committee of Russia protocol (No. 18/799-pr dated 01.12.2006)."
+
+msgid "Место для встроенного виртуального тура. Здесь будет размещен интерактивный 360°-обзор офиса с возможностью просмотра зон."
+msgstr "A place for the embedded virtual tour. An interactive 360° office overview with zone navigation will be placed here."
+
+msgid "Помести тур в <code>static/tours/office-tour/index.html</code>, затем замени этот блок на iframe."
+msgstr "Place the tour in <code>static/tours/office-tour/index.html</code>, then replace this block with an iframe."
+
+msgid "Техническое сердце компании: здесь размещено оборудование для поддержки корпоративной инфраструктуры и хранения данных."
+msgstr "The technical heart of the company: equipment for supporting corporate infrastructure and data storage is located here."
+
+msgid "Поддержка IT-систем"
+msgstr "IT systems support"
+
+msgid "Система наблюдения"
+msgstr "Monitoring system"
+
+msgid "Защита данных"
+msgstr "Data protection"
+
+msgid "Современное рабочее пространство с комфортными условиями для продуктивной работы и взаимодействия между отделами."
+msgstr "A modern workspace with comfortable conditions for productive work and collaboration between departments."
+
+msgid "Эргономичные рабочие места"
+msgstr "Ergonomic workstations"
+
+msgid "Естественное освещение"
+msgstr "Natural lighting"
+
+msgid "Современная техника"
+msgstr "Modern equipment"
+
+msgid "Пространство для проведения совещаний, презентаций и переговоров, оснащенное необходимым мультимедийным оборудованием."
+msgstr "A space for meetings, presentations, and negotiations equipped with the necessary multimedia tools."
+
+msgid "Мультимедийное оборудование"
+msgstr "Multimedia equipment"
+
+msgid "Видеоконференцсвязь"
+msgstr "Video conferencing"
+
+msgid "Комфортная мебель"
+msgstr "Comfortable furniture"
+
+msgid "Строительство УКПГ"
+msgstr "Gas Treatment Unit Construction"
+
+msgid "Получено разрешение на ввод в промышленную эксплуатацию в 4 квартале 2017 г."
+msgstr "Commissioning approval was obtained in Q4 2017."
+
+msgid "Все работы выполнены в срок."
+msgstr "All work was completed on time."
+
+msgid "Обустройство месторождения"
+msgstr "Field Development Infrastructure"
+
+msgid "Комплексные работы по обустройству Южно-Кисловского газоконденсатного месторождения, включая строительство инфраструктуры и инженерных коммуникаций."
+msgstr "Comprehensive development work at the Yuzhno-Kislovskoe gas-condensate field, including infrastructure and utility construction."
+
+msgid "Создана необходимая инфраструктура."
+msgstr "The required infrastructure was created."
+
+msgid "Проложены газопроводы и инженерные сети."
+msgstr "Gas pipelines and utility networks were laid."
+
+msgid "15 декабря 2019"
+msgstr "December 15, 2019"
+
+msgid "Введение в эксплуатацию разведочной скважины №12"
+msgstr "Commissioning of Exploration Well No. 12"
+
+msgid "Компания успешно ввела в промышленную эксплуатацию разведочную скважину №12 Южно-Кисловского газоконденсатного месторождения."
+msgstr "The company successfully commissioned exploration well No. 12 at the Yuzhno-Kislovskoe gas-condensate field."
+
+msgid "15 апреля 2019"
+msgstr "April 15, 2019"
+
+msgid "БЫКОВОГАЗ вступил в Торгово-промышленную палату"
+msgstr "BYKOVOGAZ Joined the Chamber of Commerce and Industry"
+
+msgid "ООО «БЫКОВОГАЗ» стало членом Союза «Волгоградская торгово-промышленная палата», укрепив свои позиции в деловом сообществе региона."
+msgstr "BYKOVOGAZ LLC became a member of the Volgograd Chamber of Commerce and Industry, strengthening its position in the region's business community."
+
+msgid "20 декабря 2017"
+msgstr "December 20, 2017"
+
+msgid "Запуск УКПГ в промышленную эксплуатацию"
+msgstr "Launch of the Gas Treatment Unit into Industrial Operation"
+
+msgid "Получено разрешение на ввод установки комплексной подготовки газа в промышленную эксплуатацию. Начался этап промышленной разработки месторождения."
+msgstr "Approval was obtained to put the gas treatment unit into industrial operation. The industrial development phase of the field began."
+
+msgid "30 июня 2017"
+msgstr "June 30, 2017"
+
+msgid "Завершение строительства УКПГ"
+msgstr "Completion of Gas Treatment Unit Construction"
+
+msgid "Успешно завершено строительство установки комплексной подготовки газа с проектной мощностью 250 млн м<sup>3</sup>/год по газу и 40 тыс. т/год по конденсату."
+msgstr "Construction of the gas treatment unit was successfully completed with a design capacity of 250 million m<sup>3</sup>/year of gas and 40 thousand tonnes/year of condensate."
+
+msgid "10 сентября 2014"
+msgstr "September 10, 2014"
+
+msgid "Завершение сейсморазведочных работ МОГТ-3D"
+msgstr "Completion of 3D Seismic Survey Work"
+
+msgid "Компанией успешно завершены сейсморазведочные работы МОГТ-3D на площади 63 км² для уточнения геологического строения месторождения."
+msgstr "The company successfully completed 3D seismic survey work over an area of 63 km² to refine the geological structure of the field."
+
+msgid "1 декабря 2006"
+msgstr "December 1, 2006"
+
+msgid "Утверждение запасов месторождения ГКЗ РФ"
+msgstr "Approval of Field Reserves by the State Reserves Committee"
+
+msgid "Запасы углеводородного сырья Южно-Кисловского месторождения поставлены на государственный баланс ГКЗ РФ."
+msgstr "Hydrocarbon reserves of the Yuzhno-Kislovskoe field were placed on the state balance of the State Reserves Committee."
+
+msgid "Открытые вакансии"
+msgstr "Open Vacancies"
+
+msgid "Успешное строительство установки комплексной подготовки газа (УКПГ) с проектной мощностью по очищенному газу 250 млн м<sup>3</sup>/год и по газовому конденсату 40 тыс. т/год."
+msgstr "Successful construction of the gas treatment unit (GTU) with a design capacity of 250 million m<sup>3</sup>/year of treated gas and 40 thousand tonnes/year of gas condensate."
+
+msgid "ИНН"
+msgstr "TIN"
+
+msgid "КПП"
+msgstr "TRRC"
+
+msgid "ОГРН"
+msgstr "PSRN"
+
+msgid "БИК"
+msgstr "BIC"
+
+msgid "Реализованные проекты по периодам"
+msgstr "Completed projects by period"
+
+msgid "Проектная мощность достигнута."
+msgstr "The design capacity was achieved."
+
+msgid "ООО «БЫКОВОГАЗ» создано в 2002 г. с целью добычи и реализации газа, конденсата и нефти, а также оказания услуг по бурению скважин на нефть и газ и осуществления других работ, связанных с разведкой и добычей углеводородного сырья."
+msgstr "BYKOVOGAZ LLC was established in 2002 for the production and sale of gas, condensate, and oil, as well as for providing oil and gas well drilling services and other work related to hydrocarbon exploration and production."
+
+msgid "250 млн м³/год"
+msgstr "250 million m³/year"
+
+msgid "40 тыс. т/год"
+msgstr "40 thousand t/year"
+
+msgid "3,857 млрд м<sup>3</sup>"
+msgstr "3.857 billion m<sup>3</sup>"
+
+msgid "667 тыс. т"
+msgstr "667 thousand t"
+
+msgid "Обеспечена промышленная безопасность."
+msgstr "Industrial safety has been ensured."
+
+msgid "Персональные данные"
+msgstr "Personal Information"
+
+msgid "Фамилия"
+msgstr "Last Name"
+
+msgid "Иванов"
+msgstr "Ivanov"
+
+msgid "Имя"
+msgstr "First Name"
+
+msgid "Иван"
+msgstr "Ivan"
+
+msgid "Отчество"
+msgstr "Middle Name"
+
+msgid "Иванович"
+msgstr "Ivanovich"
+
+msgid "Дата рождения"
+msgstr "Date of Birth"
+
+msgid "ДД.ММ.ГГГГ"
+msgstr "DD.MM.YYYY"
+
+msgid "Образование и опыт"
+msgstr "Education and Experience"
+
+msgid "Образование"
+msgstr "Education"
+
+msgid "Выберите образование"
+msgstr "Select education"
+
+msgid "Среднее"
+msgstr "Secondary"
+
+msgid "Среднее специальное"
+msgstr "Secondary vocational"
+
+msgid "Неполное высшее"
+msgstr "Incomplete higher education"
+
+msgid "Высшее"
+msgstr "Higher education"
+
+msgid "Несколько высших"
+msgstr "Multiple higher education degrees"
+
+msgid "Аспирантура, кандидат наук"
+msgstr "Postgraduate studies, Candidate of Sciences"
+
+msgid "Желаемая должность"
+msgstr "Desired Position"
+
+msgid "Например: Инженер-технолог"
+msgstr "For example: Process Engineer"
+
+msgid "Опыт работы"
+msgstr "Work Experience"
+
+msgid "Выберите опыт работы"
+msgstr "Select work experience"
+
+msgid "Без опыта"
+msgstr "No experience"
+
+msgid "До 1 года"
+msgstr "Up to 1 year"
+
+msgid "1-3 года"
+msgstr "1-3 years"
+
+msgid "3-5 лет"
+msgstr "3-5 years"
+
+msgid "Более 5 лет"
+msgstr "More than 5 years"
+
+msgid "О себе"
+msgstr "About Me"
+
+msgid "Расскажите о своих профессиональных навыках, достижениях и мотивации работать в нашей компании..."
+msgstr "Tell us about your professional skills, achievements, and motivation to work at our company..."

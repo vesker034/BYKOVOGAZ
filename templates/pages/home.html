@@ -1,25 +1,25 @@
 {% extends "base.html" %}
-{% load static %}
+{% load i18n static %}
 
-{% block title %}Главная | БыковоГаз{% endblock %}
+{% block title %}{% trans "Главная" %} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
 
 {% block content %}
 <div class="home-page">
     <section class="home-hero">
         <div class="site-container home-hero__inner">
             <div class="home-hero__content">
-                <h1 class="home-hero__title">БЫКОВОГАЗ</h1>
+                <h1 class="home-hero__title">{% trans "БЫКОВОГАЗ" %}</h1>
                 <p class="home-hero__lead">
-                    Вертикально интегрированная компания по разработке недр и добыче
-                    углеводородного сырья
+                    {% blocktrans trimmed %}Вертикально интегрированная компания по разработке недр и добыче
+                    углеводородного сырья{% endblocktrans %}
                 </p>
                 <div class="home-hero__actions">
                     <a class="home-btn home-btn--light" href="#company">
-                        О компании
+                        {% trans "О компании" %}
                         <span aria-hidden="true">→</span>
                     </a>
                     <a class="home-btn home-btn--light" href="#contacts">
-                        Контакты
+                        {% trans "Контакты" %}
                         <span aria-hidden="true">→</span>
                     </a>
                 </div>
@@ -27,24 +27,24 @@
         </div>
     </section>
 
-    <section class="home-stats" aria-label="Ключевые показатели компании">
+    <section class="home-stats" aria-label="{% trans 'Ключевые показатели компании' %}">
         <div class="site-container">
             <div class="home-stats__grid">
                 <article class="home-stat">
                     <div class="home-stat__value">2002</div>
-                    <p class="home-stat__label">Год основания</p>
+                    <p class="home-stat__label">{% trans "Год основания" %}</p>
                 </article>
                 <article class="home-stat">
                     <div class="home-stat__value">250</div>
-                    <p class="home-stat__label">Млн м<sup>3</sup>/год газа</p>
+                    <p class="home-stat__label">{% blocktrans trimmed %}Млн м<sup>3</sup>/год газа{% endblocktrans %}</p>
                 </article>
                 <article class="home-stat">
                     <div class="home-stat__value">40</div>
-                    <p class="home-stat__label">Тыс. тонн/год конденсата</p>
+                    <p class="home-stat__label">{% trans "Тыс. тонн/год конденсата" %}</p>
                 </article>
                 <article class="home-stat">
                     <div class="home-stat__value">140</div>
-                    <p class="home-stat__label">Сотрудников</p>
+                    <p class="home-stat__label">{% trans "Сотрудников" %}</p>
                 </article>
             </div>
         </div>
@@ -54,18 +54,18 @@
         <div class="site-container">
             <div class="home-about">
                 <div class="home-about__content">
-                    <h2 class="home-section__title">О компании</h2>
+                    <h2 class="home-section__title">{% trans "О компании" %}</h2>
                     <p class="home-section__text">
-                        ООО «БЫКОВОГАЗ» создано в 2002 г. с целью добычи и реализации газа,
-                        конденсата и нефти, а также оказания услуг по бурению скважин на нефть и газ.
+                        {% blocktrans trimmed %}ООО «БЫКОВОГАЗ» создано в 2002 г. с целью добычи и реализации газа,
+                        конденсата и нефти, а также оказания услуг по бурению скважин на нефть и газ.{% endblocktrans %}
                     </p>
                     <p class="home-section__text">
-                        Компания является владельцем лицензии на право разведки и добычи
+                        {% blocktrans trimmed %}Компания является владельцем лицензии на право разведки и добычи
                         углеводородного сырья в пределах Южно-Кисловского участка недр,
-                        расположенного в Быковском районе Волгоградской области.
+                        расположенного в Быковском районе Волгоградской области.{% endblocktrans %}
                     </p>
                     <a class="home-link" href="{% url 'main:about_company' %}">
-                        Узнать больше
+                        {% trans "Узнать больше" %}
                         <span aria-hidden="true">→</span>
                     </a>
                 </div>
@@ -73,9 +73,9 @@
                     <img
                         class="home-media-card__image"
                         src="{% static 'img/home-about.jpg' %}"
-                        alt="Производственная установка"
+                        alt="{% trans 'Производственная установка' %}"
                     >
-                    <div class="home-media-card__label">Производственная установка</div>
+                    <div class="home-media-card__label">{% trans "Производственная установка" %}</div>
                 </div>
             </div>
         </div>
@@ -84,43 +84,43 @@
     <section class="home-section" aria-labelledby="directions-title">
         <div class="site-container">
             <div class="home-section__heading home-section__heading--center">
-                <h2 class="home-section__title" id="directions-title">Основные направления деятельности</h2>
+                <h2 class="home-section__title" id="directions-title">{% trans "Основные направления деятельности" %}</h2>
             </div>
             <div class="home-directions">
                 <article class="home-feature-card">
                     <div class="home-feature-card__icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M6 20V10l6-4 6 4v10"/><path d="M10 13h4"/><path d="M12 9v8"/></svg>
                     </div>
-                    <h3 class="home-feature-card__title">Разработка недр</h3>
+                    <h3 class="home-feature-card__title">{% trans "Разработка недр" %}</h3>
                     <p class="home-feature-card__text">
-                        Геологоразведка и разработка углеводородных месторождений.
+                        {% trans "Геологоразведка и разработка углеводородных месторождений." %}
                     </p>
                 </article>
                 <article class="home-feature-card">
                     <div class="home-feature-card__icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 3c2.6 3.2 4.5 6.1 4.5 8.7A4.5 4.5 0 1 1 7.5 11.7C7.5 9.1 9.4 6.2 12 3z"/><path d="M10 14c.6.7 1.2 1 2 1s1.4-.3 2-1"/></svg>
                     </div>
-                    <h3 class="home-feature-card__title">Добыча газа</h3>
+                    <h3 class="home-feature-card__title">{% trans "Добыча газа" %}</h3>
                     <p class="home-feature-card__text">
-                        Промышленная добыча природного газа до 250 млн м<sup>3</sup>/год.
+                        {% blocktrans trimmed %}Промышленная добыча природного газа до 250 млн м<sup>3</sup>/год.{% endblocktrans %}
                     </p>
                 </article>
                 <article class="home-feature-card">
                     <div class="home-feature-card__icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M6 20h12"/><path d="M8 20v-6a4 4 0 1 1 8 0v6"/><path d="M10 10V6h4v4"/><path d="M12 3v3"/></svg>
                     </div>
-                    <h3 class="home-feature-card__title">Добыча конденсата</h3>
+                    <h3 class="home-feature-card__title">{% trans "Добыча конденсата" %}</h3>
                     <p class="home-feature-card__text">
-                        Производство газового конденсата до 40 тыс. тонн/год.
+                        {% trans "Производство газового конденсата до 40 тыс. тонн/год." %}
                     </p>
                 </article>
                 <article class="home-feature-card">
                     <div class="home-feature-card__icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M5 19l6.5-6.5"/><path d="M14 5l5 5"/><path d="M10 10l4 4"/><path d="M7 7l10 10"/><path d="M3 21l4-1 11-11-3-3L4 17l-1 4z"/></svg>
                     </div>
-                    <h3 class="home-feature-card__title">Буровые услуги</h3>
+                    <h3 class="home-feature-card__title">{% trans "Буровые услуги" %}</h3>
                     <p class="home-feature-card__text">
-                        Бурение скважин на нефть и газ, обустройство месторождений.
+                        {% trans "Бурение скважин на нефть и газ, обустройство месторождений." %}
                     </p>
                 </article>
             </div>
@@ -131,21 +131,21 @@
         <div class="site-container">
             <div class="home-field">
                 <div class="home-media-card home-media-card--field" aria-hidden="true">
-                    <div class="home-media-card__label">Южно-Кисловское месторождение</div>
+                    <div class="home-media-card__label">{% trans "Южно-Кисловское месторождение" %}</div>
                 </div>
                 <div class="home-field__content">
-                    <h2 class="home-section__title">Южно-Кисловское месторождение</h2>
+                    <h2 class="home-section__title">{% trans "Южно-Кисловское месторождение" %}</h2>
                     <p class="home-section__text">
-                        Южно-Кисловское газоконденсатное месторождение расположено в Быковском
+                        {% blocktrans trimmed %}Южно-Кисловское газоконденсатное месторождение расположено в Быковском
                         районе Волгоградской области, в 30 км к юго-востоку от р. п. Быково,
-                        на левом берегу Волги.
+                        на левом берегу Волги.{% endblocktrans %}
                     </p>
                     <p class="home-section__text">
-                        Запасы категории С1: по газу – 3,857 млрд. м<sup>3</sup>, по конденсату –
-                        667 тыс. тонн (протокол ГКЗ РФ №18/799-пр от 01.12.2006 г.).
+                        {% blocktrans trimmed %}Запасы категории С1: по газу – 3,857 млрд. м<sup>3</sup>, по конденсату –
+                        667 тыс. тонн (протокол ГКЗ РФ №18/799-пр от 01.12.2006 г.).{% endblocktrans %}
                     </p>
                     <a class="home-link" href="{% url 'main:about_field' %}">
-                        Подробнее о месторождении
+                        {% trans "Подробнее о месторождении" %}
                         <span aria-hidden="true">→</span>
                     </a>
                 </div>
@@ -156,14 +156,14 @@
     <section class="home-section home-section--accent home-cta" id="career">
         <div class="site-container">
             <div class="home-section__heading home-section__heading--center">
-                <h2 class="home-section__title">Присоединяйтесь к нашей команде</h2>
+                <h2 class="home-section__title">{% trans "Присоединяйтесь к нашей команде" %}</h2>
                 <p class="home-section__subtitle">
-                    Мы всегда в поиске талантливых специалистов для развития нашей компании.
+                    {% trans "Мы всегда в поиске талантливых специалистов для развития нашей компании." %}
                 </p>
             </div>
             <div class="home-cta__actions">
                 <a class="home-btn home-btn--light" href="{% url 'main:career' %}">
-                    Вакансии и карьера
+                    {% trans "Вакансии и карьера" %}
                     <span aria-hidden="true">→</span>
                 </a>
             </div>
@@ -173,10 +173,10 @@
     <section class="home-section" id="works">
         <div class="site-container">
             <div class="home-section__heading home-section__heading--center">
-                <h2 class="home-section__title">Реализованные проекты</h2>
+                <h2 class="home-section__title">{% trans "Реализованные проекты" %}</h2>
                 <p class="home-section__subtitle">
-                    За годы работы мы успешно реализовали множество проектов по разработке
-                    месторождения и созданию производственной инфраструктуры.
+                    {% blocktrans trimmed %}За годы работы мы успешно реализовали множество проектов по разработке
+                    месторождения и созданию производственной инфраструктуры.{% endblocktrans %}
                 </p>
             </div>
 
@@ -184,20 +184,20 @@
                 <article class="home-project">
                     <div class="home-project__meta">
                         <div class="home-project__period">2015-2017</div>
-                        <h3 class="home-project__title">Строительство УКПГ</h3>
-                        <div class="home-project__status">Завершено</div>
+                        <h3 class="home-project__title">{% trans "Строительство УКПГ" %}</h3>
+                        <div class="home-project__status">{% trans "Завершено" %}</div>
                     </div>
                     <div class="home-project__body">
                         <p class="home-project__summary">
-                            Успешное строительство установки комплексной подготовки газа (УКПГ)
+                            {% blocktrans trimmed %}Успешное строительство установки комплексной подготовки газа (УКПГ)
                             с проектной мощностью по очищенному газу 250 млн м<sup>3</sup>/год и
-                            по газовому конденсату 40 тыс. т/год.
+                            по газовому конденсату 40 тыс. т/год.{% endblocktrans %}
                         </p>
-                        <h4 class="home-project__subtitle">Основные достижения:</h4>
+                        <h4 class="home-project__subtitle">{% trans "Основные достижения:" %}</h4>
                         <ul class="home-project__list">
-                            <li>Получено разрешение на ввод в промышленную эксплуатацию в 4 квартале 2017 г.</li>
-                            <li>Проектная мощность достигнута.</li>
-                            <li>Все работы выполнены в срок.</li>
+                            <li>{% trans "Получено разрешение на ввод в промышленную эксплуатацию в 4 квартале 2017 г." %}</li>
+                            <li>{% trans "Проектная мощность достигнута." %}</li>
+                            <li>{% trans "Все работы выполнены в срок." %}</li>
                         </ul>
                     </div>
                 </article>
@@ -205,33 +205,33 @@
                 <article class="home-project home-project--reverse">
                     <div class="home-project__meta">
                         <div class="home-project__period">2016-2018</div>
-                        <h3 class="home-project__title">Обустройство месторождения</h3>
-                        <div class="home-project__status">Завершено</div>
+                        <h3 class="home-project__title">{% trans "Обустройство месторождения" %}</h3>
+                        <div class="home-project__status">{% trans "Завершено" %}</div>
                     </div>
                     <div class="home-project__body">
                         <p class="home-project__summary">
-                            Комплексные работы по обустройству Южно-Кисловского газоконденсатного
-                            месторождения, включая строительство инфраструктуры и инженерных коммуникаций.
+                            {% blocktrans trimmed %}Комплексные работы по обустройству Южно-Кисловского газоконденсатного
+                            месторождения, включая строительство инфраструктуры и инженерных коммуникаций.{% endblocktrans %}
                         </p>
-                        <h4 class="home-project__subtitle">Основные достижения:</h4>
+                        <h4 class="home-project__subtitle">{% trans "Основные достижения:" %}</h4>
                         <ul class="home-project__list">
-                            <li>Создана необходимая инфраструктура.</li>
-                            <li>Проложены газопроводы и инженерные сети.</li>
-                            <li>Обеспечена промышленная безопасность.</li>
+                            <li>{% trans "Создана необходимая инфраструктура." %}</li>
+                            <li>{% trans "Проложены газопроводы и инженерные сети." %}</li>
+                            <li>{% trans "Обеспечена промышленная безопасность." %}</li>
                         </ul>
                     </div>
                 </article>
             </div>
 
             <div class="home-more">
-                <a class="home-btn home-btn--primary" href="{% url 'main:works' %}">Смотреть больше</a>
+                <a class="home-btn home-btn--primary" href="{% url 'main:works' %}">{% trans "Смотреть больше" %}</a>
             </div>
         </div>
     </section>
 
     <section class="home-section home-section--accent home-section--news-title" id="news">
         <div class="site-container">
-            <div class="home-news-heading">Мы в новостях</div>
+            <div class="home-news-heading">{% trans "Мы в новостях" %}</div>
         </div>
     </section>
 
@@ -240,91 +240,91 @@
             <div class="home-news-grid">
                 <article class="home-news-card">
                     <div class="home-news-card__media home-news-card__media--production">
-                        <span class="home-news-card__tag">Производство</span>
+                        <span class="home-news-card__tag">{% trans "Производство" %}</span>
                     </div>
                     <div class="home-news-card__body">
-                        <div class="home-news-card__date">15 декабря 2019</div>
-                        <h3 class="home-news-card__title">Введение в эксплуатацию разведочной скважины №12</h3>
+                        <div class="home-news-card__date">{% trans "15 декабря 2019" %}</div>
+                        <h3 class="home-news-card__title">{% trans "Введение в эксплуатацию разведочной скважины №12" %}</h3>
                         <p class="home-news-card__text">
-                            Компания успешно ввела в промышленную эксплуатацию разведочную
-                            скважину №12 Южно-Кисловского газоконденсатного месторождения.
+                            {% blocktrans trimmed %}Компания успешно ввела в промышленную эксплуатацию разведочную
+                            скважину №12 Южно-Кисловского газоконденсатного месторождения.{% endblocktrans %}
                         </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">Читать далее <span aria-hidden="true">→</span></a>
+                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
                     </div>
                 </article>
 
                 <article class="home-news-card">
                     <div class="home-news-card__media home-news-card__media--corporate">
-                        <span class="home-news-card__tag">Корпоративные новости</span>
+                        <span class="home-news-card__tag">{% trans "Корпоративные новости" %}</span>
                     </div>
                     <div class="home-news-card__body">
-                        <div class="home-news-card__date">15 апреля 2019</div>
-                        <h3 class="home-news-card__title">БЫКОВОГАЗ вступил в Торгово-промышленную палату</h3>
+                        <div class="home-news-card__date">{% trans "15 апреля 2019" %}</div>
+                        <h3 class="home-news-card__title">{% trans "БЫКОВОГАЗ вступил в Торгово-промышленную палату" %}</h3>
                         <p class="home-news-card__text">
-                            ООО «БЫКОВОГАЗ» стало членом Союза «Волгоградская торгово-промышленная палата»,
-                            укрепив свои позиции в деловом сообществе региона.
+                            {% blocktrans trimmed %}ООО «БЫКОВОГАЗ» стало членом Союза «Волгоградская торгово-промышленная палата»,
+                            укрепив свои позиции в деловом сообществе региона.{% endblocktrans %}
                         </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">Читать далее <span aria-hidden="true">→</span></a>
+                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
                     </div>
                 </article>
 
                 <article class="home-news-card">
                     <div class="home-news-card__media home-news-card__media--industry">
-                        <span class="home-news-card__tag">Производство</span>
+                        <span class="home-news-card__tag">{% trans "Производство" %}</span>
                     </div>
                     <div class="home-news-card__body">
-                        <div class="home-news-card__date">20 декабря 2017</div>
-                        <h3 class="home-news-card__title">Запуск УКПГ в промышленную эксплуатацию</h3>
+                        <div class="home-news-card__date">{% trans "20 декабря 2017" %}</div>
+                        <h3 class="home-news-card__title">{% trans "Запуск УКПГ в промышленную эксплуатацию" %}</h3>
                         <p class="home-news-card__text">
-                            Получено разрешение на ввод установки комплексной подготовки газа
-                            в промышленную эксплуатацию. Начался этап промышленной разработки месторождения.
+                            {% blocktrans trimmed %}Получено разрешение на ввод установки комплексной подготовки газа
+                            в промышленную эксплуатацию. Начался этап промышленной разработки месторождения.{% endblocktrans %}
                         </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">Читать далее <span aria-hidden="true">→</span></a>
+                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
                     </div>
                 </article>
 
                 <article class="home-news-card">
                     <div class="home-news-card__media home-news-card__media--plant">
-                        <span class="home-news-card__tag">Производство</span>
+                        <span class="home-news-card__tag">{% trans "Производство" %}</span>
                     </div>
                     <div class="home-news-card__body">
-                        <div class="home-news-card__date">30 июня 2017</div>
-                        <h3 class="home-news-card__title">Завершение строительства УКПГ</h3>
+                        <div class="home-news-card__date">{% trans "30 июня 2017" %}</div>
+                        <h3 class="home-news-card__title">{% trans "Завершение строительства УКПГ" %}</h3>
                         <p class="home-news-card__text">
-                            Успешно завершено строительство установки комплексной подготовки газа
-                            с проектной мощностью 250 млн м<sup>3</sup>/год по газу и 40 тыс. т/год по конденсату.
+                            {% blocktrans trimmed %}Успешно завершено строительство установки комплексной подготовки газа
+                            с проектной мощностью 250 млн м<sup>3</sup>/год по газу и 40 тыс. т/год по конденсату.{% endblocktrans %}
                         </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">Читать далее <span aria-hidden="true">→</span></a>
+                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
                     </div>
                 </article>
 
                 <article class="home-news-card">
                     <div class="home-news-card__media home-news-card__media--survey">
-                        <span class="home-news-card__tag">Геологоразведка</span>
+                        <span class="home-news-card__tag">{% trans "Геологоразведка" %}</span>
                     </div>
                     <div class="home-news-card__body">
-                        <div class="home-news-card__date">10 сентября 2014</div>
-                        <h3 class="home-news-card__title">Завершение сейсморазведочных работ МОГТ-3D</h3>
+                        <div class="home-news-card__date">{% trans "10 сентября 2014" %}</div>
+                        <h3 class="home-news-card__title">{% trans "Завершение сейсморазведочных работ МОГТ-3D" %}</h3>
                         <p class="home-news-card__text">
-                            Компанией успешно завершены сейсморазведочные работы МОГТ-3D на площади
-                            63 км² для уточнения геологического строения месторождения.
+                            {% blocktrans trimmed %}Компанией успешно завершены сейсморазведочные работы МОГТ-3D на площади
+                            63 км² для уточнения геологического строения месторождения.{% endblocktrans %}
                         </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">Читать далее <span aria-hidden="true">→</span></a>
+                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
                     </div>
                 </article>
 
                 <article class="home-news-card">
                     <div class="home-news-card__media home-news-card__media--archive">
-                        <span class="home-news-card__tag">Корпоративные новости</span>
+                        <span class="home-news-card__tag">{% trans "Корпоративные новости" %}</span>
                     </div>
                     <div class="home-news-card__body">
-                        <div class="home-news-card__date">1 декабря 2006</div>
-                        <h3 class="home-news-card__title">Утверждение запасов месторождения ГКЗ РФ</h3>
+                        <div class="home-news-card__date">{% trans "1 декабря 2006" %}</div>
+                        <h3 class="home-news-card__title">{% trans "Утверждение запасов месторождения ГКЗ РФ" %}</h3>
                         <p class="home-news-card__text">
-                            Запасы углеводородного сырья Южно-Кисловского месторождения поставлены
-                            на государственный баланс ГКЗ РФ.
+                            {% blocktrans trimmed %}Запасы углеводородного сырья Южно-Кисловского месторождения поставлены
+                            на государственный баланс ГКЗ РФ.{% endblocktrans %}
                         </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">Читать далее <span aria-hidden="true">→</span></a>
+                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
                     </div>
                 </article>
             </div>
@@ -335,7 +335,7 @@
         <div class="site-container">
             <div class="home-contacts">
                 <div class="home-contacts__info">
-                    <h2 class="home-section__title">Контактная информация</h2>
+                    <h2 class="home-section__title">{% trans "Контактная информация" %}</h2>
 
                     <div class="home-contact-list">
                         <article class="home-contact-item">
@@ -343,10 +343,9 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
                             </div>
                             <div>
-                                <h3 class="home-contact-item__title">Адрес</h3>
+                                <h3 class="home-contact-item__title">{% trans "Адрес" %}</h3>
                                 <p class="home-contact-item__text">
-                                    400050, Волгоград, ул. Маршала Рокоссовского 62,
-                                    БЦ Волгоград Сити, 18 этаж
+                                    {% trans "400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж" %}
                                 </p>
                             </div>
                         </article>
@@ -356,7 +355,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 1h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l2.2-2.1a2 2 0 0 1 2.1-.5c1 .3 2 .5 2.9.6a2 2 0 0 1 1.7 2z"/></svg>
                             </div>
                             <div>
-                                <h3 class="home-contact-item__title">Телефон</h3>
+                                <h3 class="home-contact-item__title">{% trans "Телефон" %}</h3>
                                 <p class="home-contact-item__text">
                                     <a href="tel:+78442998899">8 (8442) 99-88-99</a>
                                 </p>
@@ -368,7 +367,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
                             </div>
                             <div>
-                                <h3 class="home-contact-item__title">Email</h3>
+                                <h3 class="home-contact-item__title">{% trans "Email" %}</h3>
                                 <p class="home-contact-item__text">
                                     <a href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
                                 </p>
@@ -380,50 +379,49 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
                             </div>
                             <div>
-                                <h3 class="home-contact-item__title">Режим работы</h3>
+                                <h3 class="home-contact-item__title">{% trans "Режим работы" %}</h3>
                                 <p class="home-contact-item__text">
-                                    Понедельник - Пятница: 9:00 - 18:00
+                                    {% trans "Понедельник - Пятница: 9:00 - 18:00" %}
                                     <br>
-                                    Суббота - Воскресенье: Выходной
+                                    {% trans "Суббота - Воскресенье: Выходной" %}
                                 </p>
                             </div>
                         </article>
                     </div>
 
                     <div class="home-company-card">
-                        <h3 class="home-company-card__title">Реквизиты компании</h3>
+                        <h3 class="home-company-card__title">{% trans "Реквизиты компании" %}</h3>
                         <p class="home-company-card__text">
-                            Полное наименование: Общество с ограниченной ответственностью «БЫКОВОГАЗ»
+                            {% trans "Полное наименование: Общество с ограниченной ответственностью «БЫКОВОГАЗ»" %}
                         </p>
                         <ul class="home-company-card__list">
-                            <li><strong>ИНН:</strong> 3439007015</li>
-                            <li><strong>КПП:</strong> 340201001</li>
-                            <li><strong>ОГРН:</strong> 1033400954784</li>
+                            <li><strong>{% trans "ИНН" %}:</strong> 3439007015</li>
+                            <li><strong>{% trans "КПП" %}:</strong> 340201001</li>
+                            <li><strong>{% trans "ОГРН" %}:</strong> 1033400954784</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="home-form-card" id="home-contact-form">
-                    <h2 class="home-form-card__title">Напишите нам</h2>
+                    <h2 class="home-form-card__title">{% trans "Напишите нам" %}</h2>
                     <form class="home-form" action="#" method="get" novalidate data-home-contact-form>
                         <label class="home-form__field">
-                            <span class="home-form__label">Имя *</span>
+                            <span class="home-form__label">{% trans "Имя *" %}</span>
                             <input
                                 class="home-form__control"
                                 type="text"
                                 name="name"
-                                placeholder="Введите ваше имя"
+                                placeholder="{% trans 'Введите ваше имя' %}"
                                 required
                                 minlength="2"
                                 maxlength="80"
                                 inputmode="text"
                                 autocomplete="name"
-                                pattern="^[A-Za-zА-Яа-яЁё\s-]+$"
                                 data-field="name"
                             >
                         </label>
                         <label class="home-form__field">
-                            <span class="home-form__label">Email *</span>
+                            <span class="home-form__label">{% trans "Email *" %}</span>
                             <input
                                 class="home-form__control"
                                 type="email"
@@ -436,7 +434,7 @@
                             >
                         </label>
                         <label class="home-form__field">
-                            <span class="home-form__label">Телефон</span>
+                            <span class="home-form__label">{% trans "Телефон" %}</span>
                             <input
                                 class="home-form__control"
                                 type="tel"
@@ -450,12 +448,12 @@
                             >
                         </label>
                         <label class="home-form__field">
-                            <span class="home-form__label">Тема обращения *</span>
+                            <span class="home-form__label">{% trans "Тема обращения *" %}</span>
                             <input
                                 class="home-form__control"
                                 type="text"
                                 name="subject"
-                                placeholder="Укажите тему"
+                                placeholder="{% trans 'Укажите тему' %}"
                                 required
                                 minlength="3"
                                 maxlength="120"
@@ -463,11 +461,11 @@
                             >
                         </label>
                         <label class="home-form__field">
-                            <span class="home-form__label">Сообщение *</span>
+                            <span class="home-form__label">{% trans "Сообщение *" %}</span>
                             <textarea
                                 class="home-form__control home-form__control--textarea"
                                 name="message"
-                                placeholder="Ваше сообщение..."
+                                placeholder="{% trans 'Ваше сообщение...' %}"
                                 required
                                 minlength="10"
                                 maxlength="2000"
@@ -475,9 +473,9 @@
                             ></textarea>
                         </label>
                         <button class="home-btn home-btn--primary home-btn--full" type="submit">
-                            Отправить сообщение
+                            {% trans "Отправить сообщение" %}
                         </button>
-                        <p class="home-form__note">* Поля обязательные для заполнения</p>
+                        <p class="home-form__note">{% trans "* Поля обязательные для заполнения" %}</p>
                     </form>
                 </div>
             </div>

@@ -1,84 +1,86 @@
 {% extends "base.html" %}
-{% load static %}
+{% load i18n static %}
 
-{% block title %}Состав команды | БыковоГаз{% endblock %}
+{% block title %}{% trans "Состав команды" %} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
 
 {% block content %}
 <div class="page">
-    {% include "components/page_hero.html" with title="Состав команды" lead="Южно-Кисловское газоконденсатное месторождение" hero_class="page-hero--team" %}
+    {% trans "Состав команды" as hero_title %}
+    {% trans "Южно-Кисловское газоконденсатное месторождение" as hero_lead %}
+    {% include "components/page_hero.html" with title=hero_title lead=hero_lead hero_class="page-hero--team" %}
 
     <section class="section">
         <div class="site-container">
             <!-- Позже карточки команды будут заполняться данными из БД. -->
             <div class="team-page__grid">
                 <article class="team-card">
-                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Иванов Иван Иванович">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="{% trans 'Иванов Иван Иванович' %}">
                     <div class="team-card__body">
-                        <h2 class="team-card__name">Иванов Иван Иванович</h2>
-                        <p class="team-card__role">Генеральный директор</p>
+                    <h2 class="team-card__name">{% trans "Иванов Иван Иванович" %}</h2>
+                    <p class="team-card__role">{% trans "Генеральный директор" %}</p>
                     </div>
                 </article>
 
                 <article class="team-card">
-                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Иванов Иван Иванович">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="{% trans 'Иванов Иван Иванович' %}">
                     <div class="team-card__body">
-                        <h2 class="team-card__name">Иванов Иван Иванович</h2>
-                        <p class="team-card__role">Заместитель генерального директора</p>
+                    <h2 class="team-card__name">{% trans "Иванов Иван Иванович" %}</h2>
+                    <p class="team-card__role">{% trans "Заместитель генерального директора" %}</p>
                     </div>
                 </article>
 
                 <article class="team-card">
-                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Петров Дмитрий Александрович">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="{% trans 'Петров Дмитрий Александрович' %}">
                     <div class="team-card__body">
-                        <h2 class="team-card__name">Петров Дмитрий Александрович</h2>
-                        <p class="team-card__role">Главный инженер</p>
+                    <h2 class="team-card__name">{% trans "Петров Дмитрий Александрович" %}</h2>
+                    <p class="team-card__role">{% trans "Главный инженер" %}</p>
                     </div>
                 </article>
 
                 <article class="team-card">
-                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Иванова Мария Сергеевна">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="{% trans 'Иванова Мария Сергеевна' %}">
                     <div class="team-card__body">
-                        <h2 class="team-card__name">Иванова Мария Сергеевна</h2>
-                        <p class="team-card__role">Главный геолог</p>
+                    <h2 class="team-card__name">{% trans "Иванова Мария Сергеевна" %}</h2>
+                    <p class="team-card__role">{% trans "Главный геолог" %}</p>
                     </div>
                 </article>
 
                 <article class="team-card">
-                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Кузнецов Сергей Иванович">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="{% trans 'Кузнецов Сергей Иванович' %}">
                     <div class="team-card__body">
-                        <h2 class="team-card__name">Кузнецов Сергей Иванович</h2>
-                        <p class="team-card__role">Начальник отдела безопасности</p>
+                    <h2 class="team-card__name">{% trans "Кузнецов Сергей Иванович" %}</h2>
+                    <p class="team-card__role">{% trans "Начальник отдела безопасности" %}</p>
                     </div>
                 </article>
 
                 <article class="team-card">
-                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Федорова Ольга Петровна">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="{% trans 'Федорова Ольга Петровна' %}">
                     <div class="team-card__body">
-                        <h2 class="team-card__name">Федорова Ольга Петровна</h2>
-                        <p class="team-card__role">Инженер по промышленной безопасности</p>
+                    <h2 class="team-card__name">{% trans "Федорова Ольга Петровна" %}</h2>
+                    <p class="team-card__role">{% trans "Инженер по промышленной безопасности" %}</p>
                     </div>
                 </article>
 
                 <article class="team-card">
-                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Волков Алексей Николаевич">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="{% trans 'Волков Алексей Николаевич' %}">
                     <div class="team-card__body">
-                        <h2 class="team-card__name">Волков Алексей Николаевич</h2>
-                        <p class="team-card__role">Начальник отдела материально-технического снабжения</p>
+                    <h2 class="team-card__name">{% trans "Волков Алексей Николаевич" %}</h2>
+                    <p class="team-card__role">{% trans "Начальник отдела материально-технического снабжения" %}</p>
                     </div>
                 </article>
 
                 <article class="team-card">
-                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="Николаева Анна Дмитриевна">
+                    <img class="team-card__photo" src="{% static 'img/team-placeholder.svg' %}" alt="{% trans 'Николаева Анна Дмитриевна' %}">
                     <div class="team-card__body">
-                        <h2 class="team-card__name">Николаева Анна Дмитриевна</h2>
-                        <p class="team-card__role">Главный IT специалист</p>
+                    <h2 class="team-card__name">{% trans "Николаева Анна Дмитриевна" %}</h2>
+                    <p class="team-card__role">{% trans "Главный IT специалист" %}</p>
                     </div>
                 </article>
             </div>
 
             <section class="team-values">
                 <div class="team-values__inner">
-                    <h2 class="team-values__title">Наши ценности</h2>
+                    <h2 class="team-values__title">{% trans "Наши ценности" %}</h2>
                     <div class="team-values__grid">
                         <article class="team-value">
                             <div class="team-value__icon" aria-hidden="true">
@@ -91,9 +93,9 @@
                                     <path d="M3 12h2"/>
                                 </svg>
                             </div>
-                            <h3 class="team-value__title">Профессионализм</h3>
+                            <h3 class="team-value__title">{% trans "Профессионализм" %}</h3>
                             <p class="team-value__text">
-                                Высококвалифицированные специалисты с многолетним опытом.
+                                {% trans "Высококвалифицированные специалисты с многолетним опытом." %}
                             </p>
                         </article>
 
@@ -106,9 +108,9 @@
                                     <path d="M15 8l-2.2-1.6a2.7 2.7 0 0 0-3.4.2L7 8.8a2 2 0 1 0 2.8 2.8l1.3-1.3"/>
                                 </svg>
                             </div>
-                            <h3 class="team-value__title">Ответственность</h3>
+                            <h3 class="team-value__title">{% trans "Ответственность" %}</h3>
                             <p class="team-value__text">
-                                Гарантируем выполнение всех обязательств перед клиентами.
+                                {% trans "Гарантируем выполнение всех обязательств перед клиентами." %}
                             </p>
                         </article>
 
@@ -120,9 +122,9 @@
                                     <path d="M12 2a7 7 0 0 0-4 12.75c.6.42 1 1.08 1 1.8V18h6v-1.45c0-.72.4-1.38 1-1.8A7 7 0 0 0 12 2z"/>
                                 </svg>
                             </div>
-                            <h3 class="team-value__title">Инновации</h3>
+                            <h3 class="team-value__title">{% trans "Инновации" %}</h3>
                             <p class="team-value__text">
-                                Внедряем современные технологии для улучшения качества услуг.
+                                {% trans "Внедряем современные технологии для улучшения качества услуг." %}
                             </p>
                         </article>
                     </div>

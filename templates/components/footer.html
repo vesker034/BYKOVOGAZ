@@ -1,3 +1,4 @@
+{% load i18n %}
 <footer class="site-footer">
     <div class="site-container site-footer__inner">
         {% url 'main:about_company' as about_company_url %}
@@ -7,31 +8,31 @@
         {% url 'main:contacts' as contacts_url %}
         <div class="row row-cols-1 row-cols-lg-3 site-footer__grid g-4 g-lg-5">
             <div class="col">
-                <p class="site-footer__brand-title">БЫКОВОГАЗ</p>
+                <p class="site-footer__brand-title">{% trans "БЫКОВОГАЗ" %}</p>
                 <p class="site-footer__lead">
-                    Вертикально интегрированная компания по разработке недр и добыче углеводородного сырья
+                    {% trans "Вертикально интегрированная компания по разработке недр и добыче углеводородного сырья" %}
                 </p>
-                <p class="site-footer__copy">© {% now "Y" %} ООО «БЫКОВОГАЗ»</p>
+                <p class="site-footer__copy">© {% now "Y" %} {% trans "ООО «БЫКОВОГАЗ»" %}</p>
             </div>
             <div class="col">
-                <h2 class="site-footer__section-title">Быстрые ссылки</h2>
+                <h2 class="site-footer__section-title">{% trans "Быстрые ссылки" %}</h2>
                 <ul class="site-footer__list">
-                    <li><a href="{{ about_company_url }}">О компании</a></li>
-                    <li><a href="{{ works_url }}">Наши работы</a></li>
-                    <li><a href="{{ press_news_url }}">Новости</a></li>
-                    <li><a href="{{ career_url }}">Карьера</a></li>
-                    <li><a href="{{ contacts_url }}">Контакты</a></li>
+                    <li><a href="{{ about_company_url }}">{% trans "О компании" %}</a></li>
+                    <li><a href="{{ works_url }}">{% trans "Наши работы" %}</a></li>
+                    <li><a href="{{ press_news_url }}">{% trans "Новости" %}</a></li>
+                    <li><a href="{{ career_url }}">{% trans "Карьера" %}</a></li>
+                    <li><a href="{{ contacts_url }}">{% trans "Контакты" %}</a></li>
                 </ul>
             </div>
             <div class="col">
-                <h2 class="site-footer__section-title">Контакты</h2>
+                <h2 class="site-footer__section-title">{% trans "Контакты" %}</h2>
                 <ul class="site-footer__contact-list">
                     <li class="site-footer__contact-item">
                         <span class="site-footer__contact-icon" aria-hidden="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
                         </span>
                         <span class="site-footer__contact-text">
-                            400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж
+                            {% trans "400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж" %}
                         </span>
                     </li>
                     <li class="site-footer__contact-item">
@@ -51,7 +52,7 @@
         </div>
 
         <div class="site-footer__chamber">
-            Член Союза «Волгоградская торгово-промышленная палата» с апреля 2019 года
+            {% trans "Член Союза «Волгоградская торгово-промышленная палата» с апреля 2019 года" %}
         </div>
     </div>
 </footer>

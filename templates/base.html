@@ -1,10 +1,11 @@
-{% load static %}
+{% load i18n static %}
 <!DOCTYPE html>
-<html lang="ru">
+{% get_current_language as CURRENT_LANGUAGE %}
+<html lang="{{ CURRENT_LANGUAGE }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}БыковоГаз{% endblock %}</title>
+    <title>{% block title %}{% trans "БЫКОВОГАЗ" %}{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -28,6 +29,48 @@
     <link rel="stylesheet" href="{% static 'css/tokens.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block extra_css %}{% endblock %}
+    <script>
+        window.siteI18n = {
+            homeForm: {
+                nameRequired: "{% trans 'Введите имя.' %}",
+                nameShort: "{% trans 'Имя должно содержать минимум 2 символа.' %}",
+                nameInvalid: "{% trans 'Имя может содержать только буквы, пробелы и дефис.' %}",
+                emailRequired: "{% trans 'Введите email.' %}",
+                emailInvalid: "{% trans 'Укажите корректный email, например your@email.com.' %}",
+                phoneInvalid: "{% trans 'Введите телефон в формате +7 (900) 123-45-67.' %}",
+                subjectRequired: "{% trans 'Укажите тему обращения.' %}",
+                subjectShort: "{% trans 'Тема должна содержать минимум 3 символа.' %}",
+                messageRequired: "{% trans 'Введите сообщение.' %}",
+                messageShort: "{% trans 'Сообщение должно содержать минимум 10 символов.' %}"
+            },
+            careerForm: {
+                lastNameRequired: "{% trans 'Введите фамилию.' %}",
+                lastNameShort: "{% trans 'Фамилия должна содержать минимум 2 символа.' %}",
+                lastNameInvalid: "{% trans 'Фамилия может содержать только буквы, пробелы и дефис.' %}",
+                firstNameRequired: "{% trans 'Введите имя.' %}",
+                firstNameShort: "{% trans 'Имя должно содержать минимум 2 символа.' %}",
+                firstNameInvalid: "{% trans 'Имя может содержать только буквы, пробелы и дефис.' %}",
+                middleNameShort: "{% trans 'Отчество должно содержать минимум 2 символа.' %}",
+                middleNameInvalid: "{% trans 'Отчество может содержать только буквы, пробелы и дефис.' %}",
+                birthDateRequired: "{% trans 'Введите дату рождения.' %}",
+                birthDateInvalid: "{% trans 'Введите дату в формате ДД.ММ.ГГГГ.' %}",
+                phoneRequired: "{% trans 'Введите телефон.' %}",
+                phoneInvalid: "{% trans 'Введите телефон в формате +7 (900) 123-45-67.' %}",
+                emailRequired: "{% trans 'Введите email.' %}",
+                emailInvalid: "{% trans 'Укажите корректный email, например your@email.com.' %}",
+                educationRequired: "{% trans 'Выберите образование.' %}",
+                positionRequired: "{% trans 'Укажите желаемую должность.' %}",
+                positionShort: "{% trans 'Должность должна содержать минимум 3 символа.' %}",
+                experienceRequired: "{% trans 'Выберите опыт работы.' %}",
+                aboutRequired: "{% trans 'Расскажите немного о себе.' %}",
+                aboutShort: "{% trans 'Поле О себе должно содержать минимум 10 символов.' %}"
+            },
+            news: {
+                loadFailed: "{% trans 'Не удалось загрузить страницу новостей.' %}",
+                blockMissing: "{% trans 'Не найден блок новостей в ответе сервера.' %}"
+            }
+        };
+    </script>
 </head>
 <body class="d-flex flex-column min-vh-100">
     {% include "components/header.html" %}

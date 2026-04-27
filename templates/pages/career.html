@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% load static %}
+{% load i18n static %}
 
-{% block title %}Карьера | БыковоГаз{% endblock %}
+{% block title %}{% trans "Карьера" %} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
@@ -9,12 +9,14 @@
 
 {% block content %}
 <div class="career-page">
-    {% include "components/page_hero.html" with title="Карьера" lead="Присоединяйтесь к нашей команде" hero_class="page-hero--career" %}
+    {% trans "Карьера" as career_hero_title %}
+    {% trans "Присоединяйтесь к нашей команде" as career_hero_lead %}
+    {% include "components/page_hero.html" with title=career_hero_title lead=career_hero_lead hero_class="page-hero--career" %}
 
     <div class="career-page__main">
         <section class="why-section">
             <div class="site-container">
-                <h2 class="why-section__title">Почему стоит работать с нами?</h2>
+                <h2 class="why-section__title">{% trans "Почему стоит работать с нами?" %}</h2>
                 <div class="row g-4 justify-content-center">
                     <div class="col-12 col-md-4">
                         <article class="why-card">
@@ -26,9 +28,9 @@
                                     <line x1="10" y1="14" x2="14" y2="14"/>
                                 </svg>
                             </div>
-                            <h3 class="why-card__title">Стабильность</h3>
+                            <h3 class="why-card__title">{% trans "Стабильность" %}</h3>
                             <p class="why-card__text">
-                                Работа в крупной компании с более чем 20-летней историей в нефтегазовой отрасли
+                                {% trans "Работа в крупной компании с более чем 20-летней историей в нефтегазовой отрасли" %}
                             </p>
                         </article>
                     </div>
@@ -40,9 +42,9 @@
                                     <polyline points="17 6 23 6 23 12"/>
                                 </svg>
                             </div>
-                            <h3 class="why-card__title">Развитие</h3>
+                            <h3 class="why-card__title">{% trans "Развитие" %}</h3>
                             <p class="why-card__text">
-                                Возможности профессионального роста и участия в крупных проектах
+                                {% trans "Возможности профессионального роста и участия в крупных проектах" %}
                             </p>
                         </article>
                     </div>
@@ -56,9 +58,9 @@
                                     <path d="M16 3.13a4 4 0 010 7.75"/>
                                 </svg>
                             </div>
-                            <h3 class="why-card__title">Команда</h3>
+                            <h3 class="why-card__title">{% trans "Команда" %}</h3>
                             <p class="why-card__text">
-                                Работа в команде из 140 профессионалов своего дела
+                                {% trans "Работа в команде из 140 профессионалов своего дела" %}
                             </p>
                         </article>
                     </div>
@@ -69,9 +71,9 @@
         <section class="vacancies-section">
             <div class="site-container">
                 <div class="vacancies-section__heading">
-                    <h2 class="vacancies-section__title">Открытые вакансии</h2>
+                    <h2 class="vacancies-section__title">{% trans "Открытые вакансии" %}</h2>
                     <p class="vacancies-section__lead">
-                        Актуальные позиции, на которые компания сейчас ведет поиск специалистов.
+                        {% trans "Актуальные позиции, на которые компания сейчас ведет поиск специалистов." %}
                     </p>
                 </div>
 
@@ -81,18 +83,18 @@
                             <article class="vacancy-card">
                                 <div class="vacancy-card__meta">
                                     <span class="vacancy-card__badge">{{ vacancy.get_employment_type_display }}</span>
-                                    {% if vacancy.location %}
-                                        <span class="vacancy-card__location">{{ vacancy.location }}</span>
+                                    {% if vacancy.localized_location %}
+                                        <span class="vacancy-card__location">{{ vacancy.localized_location }}</span>
                                     {% endif %}
                                 </div>
-                                <h3 class="vacancy-card__title">{{ vacancy.title }}</h3>
-                                <p class="vacancy-card__department">{{ vacancy.department }}</p>
-                                <p class="vacancy-card__summary">{{ vacancy.summary }}</p>
+                                <h3 class="vacancy-card__title">{{ vacancy.localized_title }}</h3>
+                                <p class="vacancy-card__department">{{ vacancy.localized_department }}</p>
+                                <p class="vacancy-card__summary">{{ vacancy.localized_summary }}</p>
 
                                 <div class="vacancy-card__requirements">
-                                    <h4 class="vacancy-card__requirements-title">Основные требования</h4>
+                                    <h4 class="vacancy-card__requirements-title">{% trans "Основные требования" %}</h4>
                                     <ul class="vacancy-card__requirements-list">
-                                        {% for requirement in vacancy.requirements_list %}
+                                        {% for requirement in vacancy.localized_requirements_list %}
                                             <li>{{ requirement }}</li>
                                         {% endfor %}
                                     </ul>
@@ -102,10 +104,10 @@
                     </div>
                 {% else %}
                     <div class="vacancies-empty">
-                        <h3 class="vacancies-empty__title">Сейчас открытых вакансий нет</h3>
+                        <h3 class="vacancies-empty__title">{% trans "Сейчас открытых вакансий нет" %}</h3>
                         <p class="vacancies-empty__text">
-                            Вы все равно можете заполнить анкету кандидата ниже, и мы свяжемся с вами,
-                            когда появится подходящая позиция.
+                            {% blocktrans trimmed %}Вы все равно можете заполнить анкету кандидата ниже, и мы свяжемся с вами,
+                            когда появится подходящая позиция.{% endblocktrans %}
                         </p>
                     </div>
                 {% endif %}
@@ -115,35 +117,35 @@
         <section class="form-section">
             <div class="site-container">
                 <form class="candidate-form-card" action="#" method="post" novalidate data-career-form>
-                    <h2 class="candidate-form-card__title">Анкета кандидата</h2>
+                    <h2 class="candidate-form-card__title">{% trans "Анкета кандидата" %}</h2>
                     <p class="candidate-form-card__subtitle">
-                        Заполните форму ниже, и мы свяжемся с вами в ближайшее время
+                        {% trans "Заполните форму ниже, и мы свяжемся с вами в ближайшее время" %}
                     </p>
 
-                    <p class="form-section-label">Персональные данные</p>
+                    <p class="form-section-label">{% trans "Персональные данные" %}</p>
 
                     <div class="row g-3 mb-3">
                         <div class="col-12 col-md-4">
-                            <label class="form-label-custom" for="career-last-name">Фамилия <span class="req">*</span></label>
-                            <input id="career-last-name" type="text" class="form-control-custom" placeholder="Иванов" required minlength="2" maxlength="80" autocomplete="family-name" data-field="last-name">
+                            <label class="form-label-custom" for="career-last-name">{% trans "Фамилия" %} <span class="req">*</span></label>
+                            <input id="career-last-name" type="text" class="form-control-custom" placeholder="{% trans 'Иванов' %}" required minlength="2" maxlength="80" autocomplete="family-name" data-field="last-name">
                         </div>
                         <div class="col-12 col-md-4">
-                            <label class="form-label-custom" for="career-first-name">Имя <span class="req">*</span></label>
-                            <input id="career-first-name" type="text" class="form-control-custom" placeholder="Иван" required minlength="2" maxlength="80" autocomplete="given-name" data-field="first-name">
+                            <label class="form-label-custom" for="career-first-name">{% trans "Имя" %} <span class="req">*</span></label>
+                            <input id="career-first-name" type="text" class="form-control-custom" placeholder="{% trans 'Иван' %}" required minlength="2" maxlength="80" autocomplete="given-name" data-field="first-name">
                         </div>
                         <div class="col-12 col-md-4">
-                            <label class="form-label-custom" for="career-middle-name">Отчество</label>
-                            <input id="career-middle-name" type="text" class="form-control-custom" placeholder="Иванович" maxlength="80" autocomplete="additional-name" data-field="middle-name">
+                            <label class="form-label-custom" for="career-middle-name">{% trans "Отчество" %}</label>
+                            <input id="career-middle-name" type="text" class="form-control-custom" placeholder="{% trans 'Иванович' %}" maxlength="80" autocomplete="additional-name" data-field="middle-name">
                         </div>
                     </div>
 
                     <div class="row g-3 mb-3">
                         <div class="col-12 col-md-6">
-                            <label class="form-label-custom" for="career-birth-date">Дата рождения <span class="req">*</span></label>
-                            <input id="career-birth-date" type="text" class="form-control-custom" placeholder="ДД.ММ.ГГГГ" required inputmode="numeric" maxlength="10" data-field="birth-date">
+                            <label class="form-label-custom" for="career-birth-date">{% trans "Дата рождения" %} <span class="req">*</span></label>
+                            <input id="career-birth-date" type="text" class="form-control-custom" placeholder="{% trans 'ДД.ММ.ГГГГ' %}" required inputmode="numeric" maxlength="10" data-field="birth-date">
                         </div>
                         <div class="col-12 col-md-6">
-                            <label class="form-label-custom" for="career-phone">Телефон <span class="req">*</span></label>
+                            <label class="form-label-custom" for="career-phone">{% trans "Телефон" %} <span class="req">*</span></label>
                             <input id="career-phone" type="tel" class="form-control-custom" placeholder="+7 (___) ___-__-__" required inputmode="tel" autocomplete="tel" maxlength="18" data-field="phone">
                         </div>
                     </div>
@@ -153,44 +155,44 @@
                         <input id="career-email" type="email" class="form-control-custom" placeholder="your@email.com" required maxlength="120" autocomplete="email" data-field="email">
                     </div>
 
-                    <p class="form-section-label form-section-label--spaced">Образование и опыт</p>
+                    <p class="form-section-label form-section-label--spaced">{% trans "Образование и опыт" %}</p>
 
                     <div class="form-group">
-                        <label class="form-label-custom" for="career-education">Образование <span class="req">*</span></label>
+                        <label class="form-label-custom" for="career-education">{% trans "Образование" %} <span class="req">*</span></label>
                         <select id="career-education" class="form-control-custom" required data-field="education">
-                            <option value="" disabled selected>Выберите образование</option>
-                            <option>Среднее</option>
-                            <option>Среднее специальное</option>
-                            <option>Неполное высшее</option>
-                            <option>Высшее</option>
-                            <option>Несколько высших</option>
-                            <option>Аспирантура, кандидат наук</option>
+                            <option value="" disabled selected>{% trans "Выберите образование" %}</option>
+                            <option>{% trans "Среднее" %}</option>
+                            <option>{% trans "Среднее специальное" %}</option>
+                            <option>{% trans "Неполное высшее" %}</option>
+                            <option>{% trans "Высшее" %}</option>
+                            <option>{% trans "Несколько высших" %}</option>
+                            <option>{% trans "Аспирантура, кандидат наук" %}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label-custom" for="career-position">Желаемая должность <span class="req">*</span></label>
-                        <input id="career-position" type="text" class="form-control-custom" placeholder="Например: Инженер-технолог" required minlength="3" maxlength="120" data-field="position">
+                        <label class="form-label-custom" for="career-position">{% trans "Желаемая должность" %} <span class="req">*</span></label>
+                        <input id="career-position" type="text" class="form-control-custom" placeholder="{% trans 'Например: Инженер-технолог' %}" required minlength="3" maxlength="120" data-field="position">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label-custom" for="career-experience">Опыт работы <span class="req">*</span></label>
+                        <label class="form-label-custom" for="career-experience">{% trans "Опыт работы" %} <span class="req">*</span></label>
                         <select id="career-experience" class="form-control-custom" required data-field="experience">
-                            <option value="" disabled selected>Выберите опыт работы</option>
-                            <option>Без опыта</option>
-                            <option>До 1 года</option>
-                            <option>1-3 года</option>
-                            <option>3-5 лет</option>
-                            <option>Более 5 лет</option>
+                            <option value="" disabled selected>{% trans "Выберите опыт работы" %}</option>
+                            <option>{% trans "Без опыта" %}</option>
+                            <option>{% trans "До 1 года" %}</option>
+                            <option>{% trans "1-3 года" %}</option>
+                            <option>{% trans "3-5 лет" %}</option>
+                            <option>{% trans "Более 5 лет" %}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label-custom" for="career-about">О себе <span class="req">*</span></label>
+                        <label class="form-label-custom" for="career-about">{% trans "О себе" %} <span class="req">*</span></label>
                         <textarea
                             id="career-about"
                             class="form-control-custom"
-                            placeholder="Расскажите о своих профессиональных навыках, достижениях и мотивации работать в нашей компании..."
+                            placeholder="{% trans 'Расскажите о своих профессиональных навыках, достижениях и мотивации работать в нашей компании...' %}"
                             required
                             minlength="10"
                             maxlength="2000"
@@ -198,8 +200,8 @@
                         ></textarea>
                     </div>
 
-                    <button type="submit" class="btn-submit">Отправить анкету</button>
-                    <p class="form-note">* Поля обязательные для заполнения</p>
+                    <button type="submit" class="btn-submit">{% trans "Отправить анкету" %}</button>
+                    <p class="form-note">{% trans "* Поля обязательные для заполнения" %}</p>
                 </form>
             </div>
         </section>
@@ -207,9 +209,9 @@
 
     <section class="questions-section">
         <div class="site-container">
-            <h2 class="questions-section__title">Есть вопросы?</h2>
+            <h2 class="questions-section__title">{% trans "Есть вопросы?" %}</h2>
             <p class="questions-section__subtitle">
-                Свяжитесь с отделом кадров по телефону или электронной почте
+                {% trans "Свяжитесь с отделом кадров по телефону или электронной почте" %}
             </p>
             <div class="questions-section__contacts">
                 <a href="tel:+78442998899">8 (8442) 99-88-99</a>

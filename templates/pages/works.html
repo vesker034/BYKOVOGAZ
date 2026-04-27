@@ -1,8 +1,7 @@
 {% extends "base.html" %}
-{% load static %}
+{% load i18n static %}
 
-{% block title %}{{ page_title }} | БыковоГаз{% endblock %}
-
+{% block title %}{{ page_title }} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
 {% endblock %}
@@ -19,7 +18,7 @@
             </div>
         </div>
 
-        <div class="works-timeline" aria-label="Реализованные проекты по периодам">
+        <div class="works-timeline" aria-label="{% trans 'Реализованные проекты по периодам' %}">
             <div class="site-container works-timeline__inner">
                 {% for item in timeline %}
                 <div class="works-timeline__row {% if item.blue_left %}works-timeline__row--blue-left{% else %}works-timeline__row--blue-right{% endif %}">
@@ -58,7 +57,7 @@
                 <h2 id="works-cta-title" class="works-page-cta__title">{{ cta_title }}</h2>
                 <p class="works-page-cta__lead">{{ cta_subtitle }}</p>
                 <a class="works-page-cta__btn" href="{% url 'main:home' %}#home-contact-form">
-                    Перейти к анкете
+                    {% trans "Перейти к анкете" %}
                     <span class="works-page-cta__btn-arrow" aria-hidden="true">→</span>
                 </a>
             </div>

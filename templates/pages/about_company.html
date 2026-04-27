@@ -1,50 +1,53 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}О компании | БыковоГаз{% endblock %}
+{% block title %}{% trans "О компании" %} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
 
 {% block content %}
 <div class="page">
-    {% include "components/page_hero.html" with title="О компании" lead="Более 20 лет опыта в нефтегазовой отрасли" hero_class="page-hero--about" %}
+    {% trans "О компании" as hero_title %}
+    {% trans "Более 20 лет опыта в нефтегазовой отрасли" as hero_lead %}
+    {% include "components/page_hero.html" with title=hero_title lead=hero_lead hero_class="page-hero--about" %}
 
     <section class="section">
         <div class="site-container">
             <div class="content-grid">
                 <div class="content-grid__main">
-                    <h2 class="section__title">История компании</h2>
+                    <h2 class="section__title">{% trans "История компании" %}</h2>
                     <p class="section__text">
-                        ООО «БЫКОВОГАЗ» создано в 2002 г. с целью добычи и реализации газа,
+                        {% blocktrans trimmed %}ООО «БЫКОВОГАЗ» создано в 2002 г. с целью добычи и реализации газа,
                         конденсата и нефти, а также оказания услуг по бурению скважин на нефть и газ
-                        и осуществления других работ, связанных с разведкой и добычей углеводородного сырья.
+                        и осуществления других работ, связанных с разведкой и добычей углеводородного сырья.{% endblocktrans %}
                     </p>
                     <p class="section__text">
-                        ООО «БЫКОВОГАЗ» является владельцем лицензии на право разведки и добычи
+                        {% blocktrans trimmed %}ООО «БЫКОВОГАЗ» является владельцем лицензии на право разведки и добычи
                         углеводородного сырья в пределах Южно-Кисловского участка недр. Данный участок
                         расположен в Быковском районе Волгоградской области, в 30 км к юго-востоку от
-                        р. п. Быково, на левом берегу Волги.
+                        р. п. Быково, на левом берегу Волги.{% endblocktrans %}
                     </p>
                 </div>
 
                 <aside class="content-grid__aside">
                     <div class="panel">
-                        <h3 class="panel__title">Достижения и результаты</h3>
+                        <h3 class="panel__title">{% trans "Достижения и результаты" %}</h3>
                         <p class="panel__text">
-                            Несмотря на сложную экономическую ситуацию, связанную с введением санкций и
+                            {% blocktrans trimmed %}Несмотря на сложную экономическую ситуацию, связанную с введением санкций и
                             относительно невысокого сектора спроса, ООО «БЫКОВОГАЗ» успешно выполнило
                             поставленные перед собой задачи по строительству комплекса комплексной подготовки
-                            газа и обустройству месторождения.
+                            газа и обустройству месторождения.{% endblocktrans %}
                         </p>
                         <p class="panel__text">
-                            В 4 квартале 2017 г. получено разрешение на ввод УКПГ в промышленную эксплуатацию.
-                            Намечается этап промышленной разработки месторождения.
+                            {% blocktrans trimmed %}В 4 квартале 2017 г. получено разрешение на ввод УКПГ в промышленную эксплуатацию.
+                            Намечается этап промышленной разработки месторождения.{% endblocktrans %}
                         </p>
                         <div class="stat-cards">
                             <div class="stat-card">
-                                <div class="stat-card__value">250 млн м³/год</div>
-                                <div class="stat-card__label">Проектная мощность по природному газу</div>
+                                <div class="stat-card__value">{% trans "250 млн м³/год" %}</div>
+                                <div class="stat-card__label">{% trans "Проектная мощность по природному газу" %}</div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-card__value">40 тыс. т/год</div>
-                                <div class="stat-card__label">Проектная мощность по газовому конденсату</div>
+                                <div class="stat-card__value">{% trans "40 тыс. т/год" %}</div>
+                                <div class="stat-card__label">{% trans "Проектная мощность по газовому конденсату" %}</div>
                             </div>
                         </div>
                     </div>
@@ -52,16 +55,16 @@
             </div>
 
             <div class="mt-5">
-                <h2 class="section__title">Планы развития</h2>
+                <h2 class="section__title">{% trans "Планы развития" %}</h2>
                 <p class="section__text">
-                    Несмотря на достигнутые результаты, ООО «БЫКОВОГАЗ» не планирует останавливаться.
+                    {% blocktrans trimmed %}Несмотря на достигнутые результаты, ООО «БЫКОВОГАЗ» не планирует останавливаться.
                     В краткосрочной перспективе планируется продолжить поиск разрабатываемых и перспективных
-                    запасов, а в среднесрочной — расширение ресурсной базы.
+                    запасов, а в среднесрочной — расширение ресурсной базы.{% endblocktrans %}
                 </p>
                 <p class="section__text">
-                    До конца 2019 г. планируется ввод в промышленную эксплуатацию разведочной скважины №12
+                    {% blocktrans trimmed %}До конца 2019 г. планируется ввод в промышленную эксплуатацию разведочной скважины №12
                     Южно-Кисловского газоконденсатного месторождения. Общая производственная численность
-                    предприятия на этапе эксплуатации составляет 140 человек.
+                    предприятия на этапе эксплуатации составляет 140 человек.{% endblocktrans %}
                 </p>
             </div>
 
@@ -71,9 +74,9 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7v4c0 1.7 1.3 3 3 3h1v-6H8V9a4 4 0 1 1 8 0v1h-1v6h1c1.7 0 3-1.3 3-3V9a7 7 0 0 0-7-7z"/><path d="M9 18h6"/></svg>
                     </div>
                     <div>
-                        <div class="promo-card__title">Член ТПП</div>
+                        <div class="promo-card__title">{% trans "Член ТПП" %}</div>
                         <div class="promo-card__text">
-                            С апреля 2019 года ООО «БЫКОВОГАЗ» является членом Союза «Волгоградская торгово‑промышленная палата».
+                            {% trans "С апреля 2019 года ООО «БЫКОВОГАЗ» является членом Союза «Волгоградская торгово‑промышленная палата»." %}
                         </div>
                     </div>
                 </div>
@@ -83,7 +86,7 @@
 
     <section class="section section--muted">
         <div class="site-container">
-            <h2 class="section__title text-center">Узнайте больше</h2>
+            <h2 class="section__title text-center">{% trans "Узнайте больше" %}</h2>
             <div class="row g-4 justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card-ui h-100">
@@ -91,11 +94,11 @@
                             <div class="card-ui__icon" aria-hidden="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="12" r="2.5"/></svg>
                             </div>
-                            <h3 class="card-ui__title card-ui__title--tight">О месторождении</h3>
+                            <h3 class="card-ui__title card-ui__title--tight">{% trans "О месторождении" %}</h3>
                             <p class="card-ui__text">
-                                История и характеристика Южно-Кисловского месторождения.
+                                {% trans "История и характеристика Южно-Кисловского месторождения." %}
                             </p>
-                            <a class="card-ui__link" href="{% url 'main:about_field' %}">Подробнее <span aria-hidden="true">→</span></a>
+                            <a class="card-ui__link" href="{% url 'main:about_field' %}">{% trans "Подробнее" %} <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
                 </div>
@@ -105,11 +108,11 @@
                             <div class="card-ui__icon" aria-hidden="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 3h10v18H7z"/><path d="M9 7h6M9 11h6M9 15h6"/></svg>
                             </div>
-                            <h3 class="card-ui__title card-ui__title--tight">Лицензия</h3>
+                            <h3 class="card-ui__title card-ui__title--tight">{% trans "Лицензия" %}</h3>
                             <p class="card-ui__text">
-                                Лицензия на разведку и добычу углеводородного сырья.
+                                {% trans "Лицензия на разведку и добычу углеводородного сырья." %}
                             </p>
-                            <a class="card-ui__link" href="{% url 'main:about_license' %}">Подробнее <span aria-hidden="true">→</span></a>
+                            <a class="card-ui__link" href="{% url 'main:about_license' %}">{% trans "Подробнее" %} <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
                 </div>
@@ -119,11 +122,11 @@
                             <div class="card-ui__icon" aria-hidden="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2"/></svg>
                             </div>
-                            <h3 class="card-ui__title card-ui__title--tight">Виртуальный тур</h3>
+                            <h3 class="card-ui__title card-ui__title--tight">{% trans "Виртуальный тур" %}</h3>
                             <p class="card-ui__text">
-                                Совершите виртуальную экскурсию по нашему офису.
+                                {% trans "Совершите виртуальную экскурсию по нашему офису." %}
                             </p>
-                            <a class="card-ui__link" href="{% url 'main:about_tour' %}">Подробнее <span aria-hidden="true">→</span></a>
+                            <a class="card-ui__link" href="{% url 'main:about_tour' %}">{% trans "Подробнее" %} <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
                 </div>

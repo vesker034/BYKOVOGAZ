@@ -2,6 +2,11 @@
 
 document.documentElement.classList.add("js-ready");
 
+const siteI18n = window.siteI18n || {};
+const homeFormMessages = siteI18n.homeForm || {};
+const careerFormMessages = siteI18n.careerForm || {};
+const newsMessages = siteI18n.news || {};
+
 (function () {
     const form = document.querySelector("[data-home-contact-form]");
 
@@ -45,11 +50,11 @@ document.documentElement.classList.add("js-ready");
         const value = nameField.value.trim();
 
         if (!value) {
-            nameField.setCustomValidity("Введите имя.");
+            nameField.setCustomValidity(homeFormMessages.nameRequired || "Введите имя.");
         } else if (value.length < 2) {
-            nameField.setCustomValidity("Имя должно содержать минимум 2 символа.");
+            nameField.setCustomValidity(homeFormMessages.nameShort || "Имя должно содержать минимум 2 символа.");
         } else if (!/^[A-Za-zА-Яа-яЁё\s-]+$/.test(value)) {
-            nameField.setCustomValidity("Имя может содержать только буквы, пробелы и дефис.");
+            nameField.setCustomValidity(homeFormMessages.nameInvalid || "Имя может содержать только буквы, пробелы и дефис.");
         } else {
             nameField.setCustomValidity("");
         }
@@ -59,9 +64,9 @@ document.documentElement.classList.add("js-ready");
         const value = emailField.value.trim();
 
         if (!value) {
-            emailField.setCustomValidity("Введите email.");
+            emailField.setCustomValidity(homeFormMessages.emailRequired || "Введите email.");
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
-            emailField.setCustomValidity("Укажите корректный email, например your@email.com.");
+            emailField.setCustomValidity(homeFormMessages.emailInvalid || "Укажите корректный email, например your@email.com.");
         } else {
             emailField.setCustomValidity("");
         }
@@ -73,7 +78,7 @@ document.documentElement.classList.add("js-ready");
         if (!value) {
             phoneField.setCustomValidity("");
         } else if (!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(value)) {
-            phoneField.setCustomValidity("Введите телефон в формате +7 (900) 123-45-67.");
+            phoneField.setCustomValidity(homeFormMessages.phoneInvalid || "Введите телефон в формате +7 (900) 123-45-67.");
         } else {
             phoneField.setCustomValidity("");
         }
@@ -135,9 +140,9 @@ document.documentElement.classList.add("js-ready");
         const value = subjectField.value.trim();
 
         if (!value) {
-            subjectField.setCustomValidity("Укажите тему обращения.");
+            subjectField.setCustomValidity(homeFormMessages.subjectRequired || "Укажите тему обращения.");
         } else if (value.length < 3) {
-            subjectField.setCustomValidity("Тема должна содержать минимум 3 символа.");
+            subjectField.setCustomValidity(homeFormMessages.subjectShort || "Тема должна содержать минимум 3 символа.");
         } else {
             subjectField.setCustomValidity("");
         }
@@ -147,9 +152,9 @@ document.documentElement.classList.add("js-ready");
         const value = messageField.value.trim();
 
         if (!value) {
-            messageField.setCustomValidity("Введите сообщение.");
+            messageField.setCustomValidity(homeFormMessages.messageRequired || "Введите сообщение.");
         } else if (value.length < 10) {
-            messageField.setCustomValidity("Сообщение должно содержать минимум 10 символов.");
+            messageField.setCustomValidity(homeFormMessages.messageShort || "Сообщение должно содержать минимум 10 символов.");
         } else {
             messageField.setCustomValidity("");
         }
@@ -350,9 +355,9 @@ document.documentElement.classList.add("js-ready");
         const value = birthDateField.value.trim();
 
         if (!value) {
-            birthDateField.setCustomValidity("Введите дату рождения.");
+            birthDateField.setCustomValidity(careerFormMessages.birthDateRequired || "Введите дату рождения.");
         } else if (!isValidDate(value)) {
-            birthDateField.setCustomValidity("Введите дату в формате ДД.ММ.ГГГГ.");
+            birthDateField.setCustomValidity(careerFormMessages.birthDateInvalid || "Введите дату в формате ДД.ММ.ГГГГ.");
         } else {
             birthDateField.setCustomValidity("");
         }
@@ -362,9 +367,9 @@ document.documentElement.classList.add("js-ready");
         const value = phoneField.value.trim();
 
         if (!value) {
-            phoneField.setCustomValidity("Введите телефон.");
+            phoneField.setCustomValidity(careerFormMessages.phoneRequired || "Введите телефон.");
         } else if (!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(value)) {
-            phoneField.setCustomValidity("Введите телефон в формате +7 (900) 123-45-67.");
+            phoneField.setCustomValidity(careerFormMessages.phoneInvalid || "Введите телефон в формате +7 (900) 123-45-67.");
         } else {
             phoneField.setCustomValidity("");
         }
@@ -374,9 +379,9 @@ document.documentElement.classList.add("js-ready");
         const value = emailField.value.trim();
 
         if (!value) {
-            emailField.setCustomValidity("Введите email.");
+            emailField.setCustomValidity(careerFormMessages.emailRequired || "Введите email.");
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
-            emailField.setCustomValidity("Укажите корректный email, например your@email.com.");
+            emailField.setCustomValidity(careerFormMessages.emailInvalid || "Укажите корректный email, например your@email.com.");
         } else {
             emailField.setCustomValidity("");
         }
@@ -394,9 +399,9 @@ document.documentElement.classList.add("js-ready");
         const value = positionField.value.trim();
 
         if (!value) {
-            positionField.setCustomValidity("Укажите желаемую должность.");
+            positionField.setCustomValidity(careerFormMessages.positionRequired || "Укажите желаемую должность.");
         } else if (value.length < 3) {
-            positionField.setCustomValidity("Должность должна содержать минимум 3 символа.");
+            positionField.setCustomValidity(careerFormMessages.positionShort || "Должность должна содержать минимум 3 символа.");
         } else {
             positionField.setCustomValidity("");
         }
@@ -406,9 +411,9 @@ document.documentElement.classList.add("js-ready");
         const value = aboutField.value.trim();
 
         if (!value) {
-            aboutField.setCustomValidity("Расскажите немного о себе.");
+            aboutField.setCustomValidity(careerFormMessages.aboutRequired || "Расскажите немного о себе.");
         } else if (value.length < 10) {
-            aboutField.setCustomValidity("Поле \"О себе\" должно содержать минимум 10 символов.");
+            aboutField.setCustomValidity(careerFormMessages.aboutShort || "Поле О себе должно содержать минимум 10 символов.");
         } else {
             aboutField.setCustomValidity("");
         }
@@ -430,9 +435,9 @@ document.documentElement.classList.add("js-ready");
     bindValidation(lastNameField, function () {
         setPersonNameValidity(
             lastNameField,
-            "Введите фамилию.",
-            "Фамилия должна содержать минимум 2 символа.",
-            "Фамилия может содержать только буквы, пробелы и дефис.",
+            careerFormMessages.lastNameRequired || "Введите фамилию.",
+            careerFormMessages.lastNameShort || "Фамилия должна содержать минимум 2 символа.",
+            careerFormMessages.lastNameInvalid || "Фамилия может содержать только буквы, пробелы и дефис.",
             true
         );
     });
@@ -440,9 +445,9 @@ document.documentElement.classList.add("js-ready");
     bindValidation(firstNameField, function () {
         setPersonNameValidity(
             firstNameField,
-            "Введите имя.",
-            "Имя должно содержать минимум 2 символа.",
-            "Имя может содержать только буквы, пробелы и дефис.",
+            careerFormMessages.firstNameRequired || "Введите имя.",
+            careerFormMessages.firstNameShort || "Имя должно содержать минимум 2 символа.",
+            careerFormMessages.firstNameInvalid || "Имя может содержать только буквы, пробелы и дефис.",
             true
         );
     });
@@ -451,8 +456,8 @@ document.documentElement.classList.add("js-ready");
         setPersonNameValidity(
             middleNameField,
             "",
-            "Отчество должно содержать минимум 2 символа.",
-            "Отчество может содержать только буквы, пробелы и дефис.",
+            careerFormMessages.middleNameShort || "Отчество должно содержать минимум 2 символа.",
+            careerFormMessages.middleNameInvalid || "Отчество может содержать только буквы, пробелы и дефис.",
             false
         );
     });
@@ -483,42 +488,42 @@ document.documentElement.classList.add("js-ready");
 
     bindValidation(emailField, setEmailValidity);
     bindValidation(educationField, function () {
-        setSelectValidity(educationField, "Выберите образование.");
+        setSelectValidity(educationField, careerFormMessages.educationRequired || "Выберите образование.");
     });
     bindValidation(positionField, setPositionValidity);
     bindValidation(experienceField, function () {
-        setSelectValidity(experienceField, "Выберите опыт работы.");
+        setSelectValidity(experienceField, careerFormMessages.experienceRequired || "Выберите опыт работы.");
     });
     bindValidation(aboutField, setAboutValidity);
 
     form.addEventListener("submit", function (event) {
         setPersonNameValidity(
             lastNameField,
-            "Введите фамилию.",
-            "Фамилия должна содержать минимум 2 символа.",
-            "Фамилия может содержать только буквы, пробелы и дефис.",
+            careerFormMessages.lastNameRequired || "Введите фамилию.",
+            careerFormMessages.lastNameShort || "Фамилия должна содержать минимум 2 символа.",
+            careerFormMessages.lastNameInvalid || "Фамилия может содержать только буквы, пробелы и дефис.",
             true
         );
         setPersonNameValidity(
             firstNameField,
-            "Введите имя.",
-            "Имя должно содержать минимум 2 символа.",
-            "Имя может содержать только буквы, пробелы и дефис.",
+            careerFormMessages.firstNameRequired || "Введите имя.",
+            careerFormMessages.firstNameShort || "Имя должно содержать минимум 2 символа.",
+            careerFormMessages.firstNameInvalid || "Имя может содержать только буквы, пробелы и дефис.",
             true
         );
         setPersonNameValidity(
             middleNameField,
             "",
-            "Отчество должно содержать минимум 2 символа.",
-            "Отчество может содержать только буквы, пробелы и дефис.",
+            careerFormMessages.middleNameShort || "Отчество должно содержать минимум 2 символа.",
+            careerFormMessages.middleNameInvalid || "Отчество может содержать только буквы, пробелы и дефис.",
             false
         );
         setBirthDateValidity();
         setPhoneValidity();
         setEmailValidity();
-        setSelectValidity(educationField, "Выберите образование.");
+        setSelectValidity(educationField, careerFormMessages.educationRequired || "Выберите образование.");
         setPositionValidity();
-        setSelectValidity(experienceField, "Выберите опыт работы.");
+        setSelectValidity(experienceField, careerFormMessages.experienceRequired || "Выберите опыт работы.");
         setAboutValidity();
 
         allFields.forEach(function (field) {
@@ -642,7 +647,7 @@ document.documentElement.classList.add("js-ready");
         })
             .then(function (response) {
                 if (!response.ok) {
-                    throw new Error("Не удалось загрузить страницу новостей.");
+                    throw new Error(newsMessages.loadFailed || "Не удалось загрузить страницу новостей.");
                 }
 
                 return response.text();
@@ -653,7 +658,7 @@ document.documentElement.classList.add("js-ready");
                 const nextRoot = documentFromResponse.querySelector("[data-news-pagination-root]");
 
                 if (!nextRoot) {
-                    throw new Error("Не найден блок новостей в ответе сервера.");
+                    throw new Error(newsMessages.blockMissing || "Не найден блок новостей в ответе сервера.");
                 }
 
                 updateNewsContent(nextRoot);

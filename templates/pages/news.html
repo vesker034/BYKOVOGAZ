@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% load static %}
+{% load i18n static %}
 
-{% block title %}{{ page_title }} | БыковоГаз{% endblock %}
+{% block title %}{{ page_title }} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
@@ -46,7 +46,7 @@
             </ul>
 
             {% if news_page.paginator.num_pages > 1 %}
-            <nav class="news-pagination" aria-label="Навигация по страницам новостей">
+            <nav class="news-pagination" aria-label="{% trans 'Навигация по страницам новостей' %}">
                 <ul class="news-pagination__list">
                     {% for num in news_page.paginator.page_range %}
                     <li>

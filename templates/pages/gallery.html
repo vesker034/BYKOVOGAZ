@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% load static %}
+{% load i18n static %}
 
-{% block title %}{{ page_title }} | БыковоГаз{% endblock %}
+{% block title %}{{ page_title }} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
@@ -45,7 +45,7 @@
                     type="button"
                     data-gallery-more
                 >
-                    Загрузить ещё
+                    {% trans "Загрузить ещё" %}
                 </button>
             </div>
             {% endif %}
@@ -54,7 +54,7 @@
 
     <section class="news-gallery-categories" aria-labelledby="gallery-categories-title">
         <div class="site-container news-gallery-categories__inner">
-            <h2 id="gallery-categories-title" class="news-gallery-categories__title">Категории</h2>
+            <h2 id="gallery-categories-title" class="news-gallery-categories__title">{% trans "Категории" %}</h2>
             <ul class="news-gallery-categories__list">
                 {% for cat in gallery_categories %}
                 <li>

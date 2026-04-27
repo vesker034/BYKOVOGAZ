@@ -1,8 +1,9 @@
-{% load static %}
+{% load i18n static %}
+{% get_current_language as CURRENT_LANGUAGE %}
 
 <header class="site-header">
     <div class="site-header__main">
-        <nav class="navbar navbar-expand-lg navbar-light site-header__nav" aria-label="Основное меню">
+        <nav class="navbar navbar-expand-lg navbar-light site-header__nav" aria-label="{% trans 'Основное меню' %}">
             <div class="site-container site-header__bar">
                 {% url 'main:home' as home_url %}
                 {% url 'main:about' as about_url %}
@@ -10,13 +11,14 @@
                 {% url 'main:press' as press_url %}
                 {% url 'main:career' as career_url %}
                 {% url 'main:contacts' as contacts_url %}
+                {% with current_name=request.resolver_match.url_name %}
                 <a class="site-header__brand" href="{% url 'main:home' %}">
                     <span class="site-header__logo-mark" aria-hidden="true">
                         <img class="site-header__logo-img" src="{% static 'img/logo-bull.png' %}" alt="">
                     </span>
                     <span class="site-header__brand-text">
-                        <span class="site-header__logo-title">БЫКОВОГАЗ</span>
-                        <span class="site-header__logo-tagline">Добыча углеводородного сырья</span>
+                        <span class="site-header__logo-title">{% trans "БЫКОВОГАЗ" %}</span>
+                        <span class="site-header__logo-tagline">{% trans "Добыча углеводородного сырья" %}</span>
                     </span>
                 </a>
 
@@ -27,7 +29,7 @@
                     data-bs-target="#siteNavbar"
                     aria-controls="siteNavbar"
                     aria-expanded="false"
-                    aria-label="Открыть меню"
+                    aria-label="{% trans 'Открыть меню' %}"
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,16 +38,16 @@
                     <ul class="navbar-nav site-header__menu">
                         <li class="nav-item">
                             <a
-                                class="nav-link site-header__link{% if request.path == home_url %} site-header__link--active{% endif %}"
+                                class="nav-link site-header__link{% if current_name == 'home' %} site-header__link--active{% endif %}"
                                 href="{{ home_url }}"
-                                {% if request.path == home_url %}aria-current="page"{% endif %}
+                                {% if current_name == 'home' %}aria-current="page"{% endif %}
                             >
-                                Главная
+                                {% trans "Главная" %}
                             </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a
-                                class="nav-link dropdown-toggle site-header__link{% if request.path|slice:':6' == '/about' %} site-header__link--active{% endif %}"
+                                class="nav-link dropdown-toggle site-header__link{% if current_name == 'about' or current_name == 'about_company' or current_name == 'about_field' or current_name == 'about_team' or current_name == 'about_license' or current_name == 'about_tour' %} site-header__link--active{% endif %}"
                                 href="{{ about_url }}"
                                 id="navAbout"
                                 role="button"
@@ -53,26 +55,26 @@
                                 data-bs-auto-close="outside"
                                 aria-expanded="false"
                             >
-                                О нас
+                                {% trans "О нас" %}
                             </a>
                             <ul class="dropdown-menu site-header__dropdown" aria-labelledby="navAbout">
-                                <li><a class="dropdown-item" href="{% url 'main:about_company' %}">О компании</a></li>
-                                <li><a class="dropdown-item" href="{% url 'main:about_field' %}">О месторождении</a></li>
-                                <li><a class="dropdown-item" href="{% url 'main:about_team' %}">Состав команды</a></li>
-                                <li><a class="dropdown-item" href="{% url 'main:about_license' %}">Лицензия</a></li>
-                                <li><a class="dropdown-item" href="{% url 'main:about_tour' %}">Виртуальный тур</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:about_company' %}">{% trans "О компании" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:about_field' %}">{% trans "О месторождении" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:about_team' %}">{% trans "Состав команды" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:about_license' %}">{% trans "Лицензия" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:about_tour' %}">{% trans "Виртуальный тур" %}</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a
-                                class="nav-link site-header__link{% if request.path == works_url %} site-header__link--active{% endif %}"
+                                class="nav-link site-header__link{% if current_name == 'works' %} site-header__link--active{% endif %}"
                                 href="{{ works_url }}"
-                                {% if request.path == works_url %}aria-current="page"{% endif %}
-                            >Наши работы</a>
+                                {% if current_name == 'works' %}aria-current="page"{% endif %}
+                            >{% trans "Наши работы" %}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a
-                                class="nav-link dropdown-toggle site-header__link{% if request.path|slice:':6' == '/press' %} site-header__link--active{% endif %}"
+                                class="nav-link dropdown-toggle site-header__link{% if current_name == 'press' or current_name == 'press_news' or current_name == 'press_gallery' or current_name == 'press_news_gallery' %} site-header__link--active{% endif %}"
                                 href="{{ press_url }}"
                                 id="navPress"
                                 role="button"
@@ -80,52 +82,105 @@
                                 data-bs-auto-close="outside"
                                 aria-expanded="false"
                             >
-                                Пресс-центр
+                                {% trans "Пресс-центр" %}
                             </a>
                             <ul class="dropdown-menu site-header__dropdown" aria-labelledby="navPress">
-                                <li><a class="dropdown-item" href="{% url 'main:press_news' %}">Новости</a></li>
-                                <li><a class="dropdown-item" href="{% url 'main:press_news_gallery' %}">Галерея</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:press_news' %}">{% trans "Новости" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'main:press_news_gallery' %}">{% trans "Галерея" %}</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link site-header__link{% if request.path == career_url %} site-header__link--active{% endif %}" href="{{ career_url }}">Карьера</a>
+                            <a class="nav-link site-header__link{% if current_name == 'career' %} site-header__link--active{% endif %}" href="{{ career_url }}">{% trans "Карьера" %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link site-header__link{% if request.path == contacts_url %} site-header__link--active{% endif %}" href="{{ contacts_url }}">Контакты</a>
+                            <a class="nav-link site-header__link{% if current_name == 'contacts' %} site-header__link--active{% endif %}" href="{{ contacts_url }}">{% trans "Контакты" %}</a>
+                        </li>
+                        <li class="nav-item site-header__language-item">
+                            <div class="site-language-switch" role="group" aria-label="{% trans 'Переключение языка сайта' %}">
+                                <form action="{% url 'set_language' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="language" value="ru">
+                                    <input
+                                        type="hidden"
+                                        name="next"
+                                        value="{% if CURRENT_LANGUAGE == 'en' %}{% if request.get_full_path == '/en/' %}/{% else %}{{ request.get_full_path|slice:'3:' }}{% endif %}{% else %}{{ request.get_full_path }}{% endif %}"
+                                    >
+                                    <button
+                                        class="site-language-switch__button{% if CURRENT_LANGUAGE == 'ru' %} is-active{% endif %}"
+                                        type="submit"
+                                        aria-pressed="{% if CURRENT_LANGUAGE == 'ru' %}true{% else %}false{% endif %}"
+                                        aria-label="{% trans 'Русский язык' %}"
+                                        title="{% trans 'Русский язык' %}"
+                                    >
+                                        <img
+                                            class="site-language-switch__flag-img"
+                                            src="{% static 'img/flags/ru.svg' %}"
+                                            alt=""
+                                            aria-hidden="true"
+                                        >
+                                        <span class="visually-hidden">{% trans "Русский язык" %}</span>
+                                    </button>
+                                </form>
+                                <form action="{% url 'set_language' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="language" value="en">
+                                    <input
+                                        type="hidden"
+                                        name="next"
+                                        value="{% if CURRENT_LANGUAGE == 'en' %}{{ request.get_full_path }}{% else %}{% if request.get_full_path == '/' %}/en/{% else %}/en{{ request.get_full_path }}{% endif %}{% endif %}"
+                                    >
+                                    <button
+                                        class="site-language-switch__button{% if CURRENT_LANGUAGE == 'en' %} is-active{% endif %}"
+                                        type="submit"
+                                        aria-pressed="{% if CURRENT_LANGUAGE == 'en' %}true{% else %}false{% endif %}"
+                                        aria-label="{% trans 'English language' %}"
+                                        title="{% trans 'English language' %}"
+                                    >
+                                        <img
+                                            class="site-language-switch__flag-img"
+                                            src="{% static 'img/flags/gb.svg' %}"
+                                            alt=""
+                                            aria-hidden="true"
+                                        >
+                                        <span class="visually-hidden">{% trans "English language" %}</span>
+                                    </button>
+                                </form>
+                            </div>
                         </li>
                         <li class="nav-item site-header__theme-item">
-                            <div class="site-theme-switch" role="group" aria-label="Переключение темы сайта">
+                            <div class="site-theme-switch" role="group" aria-label="{% trans 'Переключение темы сайта' %}">
                                 <button
                                     class="site-theme-switch__button"
                                     type="button"
                                     data-theme-option="light"
                                     aria-pressed="true"
-                                    aria-label="Светлая тема"
-                                    title="Светлая тема"
+                                    aria-label="{% trans 'Светлая тема' %}"
+                                    title="{% trans 'Светлая тема' %}"
                                 >
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <circle cx="12" cy="12" r="4.25" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
                                         <path d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23L5.46 5.46" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path>
                                     </svg>
-                                    <span class="visually-hidden">Светлая тема</span>
+                                    <span class="visually-hidden">{% trans "Светлая тема" %}</span>
                                 </button>
                                 <button
                                     class="site-theme-switch__button"
                                     type="button"
                                     data-theme-option="dark"
                                     aria-pressed="false"
-                                    aria-label="Тёмная тема"
-                                    title="Тёмная тема"
+                                    aria-label="{% trans 'Тёмная тема' %}"
+                                    title="{% trans 'Тёмная тема' %}"
                                 >
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M14.5 2.9a8.8 8.8 0 1 0 6.6 14.5A9.6 9.6 0 0 1 14.5 2.9Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"></path>
                                     </svg>
-                                    <span class="visually-hidden">Тёмная тема</span>
+                                    <span class="visually-hidden">{% trans "Тёмная тема" %}</span>
                                 </button>
                             </div>
                         </li>
                     </ul>
                 </div>
+                {% endwith %}
             </div>
         </nav>
     </div>

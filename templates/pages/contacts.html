@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% load static %}
+{% load i18n static %}
 
-{% block title %}Контакты | БыковоГаз{% endblock %}
+{% block title %}{% trans "Контакты" %} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
@@ -9,16 +9,18 @@
 
 {% block content %}
 <div class="contacts-page">
-    {% include "components/page_hero.html" with title="Контакты" lead="Свяжитесь с нами удобным способом" hero_class="page-hero--contacts" %}
+    {% trans "Контакты" as contacts_hero_title %}
+    {% trans "Свяжитесь с нами удобным способом" as contacts_hero_lead %}
+    {% include "components/page_hero.html" with title=contacts_hero_title lead=contacts_hero_lead hero_class="page-hero--contacts" %}
 
     <section class="contacts-page__section">
         <div class="site-container">
             <div class="contacts-page__layout">
                 <section class="contacts-panel" aria-labelledby="contacts-info-title">
-                    <p class="contacts-panel__eyebrow">Контактная информация</p>
-                    <h2 id="contacts-info-title" class="contacts-panel__title">Мы всегда на связи</h2>
+                    <p class="contacts-panel__eyebrow">{% trans "Контактная информация" %}</p>
+                    <h2 id="contacts-info-title" class="contacts-panel__title">{% trans "Мы всегда на связи" %}</h2>
                     <p class="contacts-panel__lead">
-                        Для общих вопросов, сотрудничества и деловой переписки используйте удобный для вас канал связи.
+                        {% trans "Для общих вопросов, сотрудничества и деловой переписки используйте удобный для вас канал связи." %}
                     </p>
 
                     <div class="contacts-panel__list">
@@ -30,10 +32,9 @@
                                 </svg>
                             </div>
                             <div class="contact-card__body">
-                                <p class="contact-card__label">Адрес</p>
+                                <p class="contact-card__label">{% trans "Адрес" %}</p>
                                 <p class="contact-card__text">
-                                    400050, Волгоград, ул. Маршала Рокоссовского 62,<br>
-                                    БЦ Волгоград Сити, 18 этаж
+                                    {% trans "400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж" %}
                                 </p>
                             </div>
                         </article>
@@ -45,7 +46,7 @@
                                 </svg>
                             </div>
                             <div class="contact-card__body">
-                                <p class="contact-card__label">Телефон</p>
+                                <p class="contact-card__label">{% trans "Телефон" %}</p>
                                 <a class="contact-card__link" href="tel:+78442998899">8 (8442) 99-88-99</a>
                             </div>
                         </article>
@@ -58,7 +59,7 @@
                                 </svg>
                             </div>
                             <div class="contact-card__body">
-                                <p class="contact-card__label">Email</p>
+                                <p class="contact-card__label">{% trans "Email" %}</p>
                                 <a class="contact-card__link" href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
                             </div>
                         </article>
@@ -71,10 +72,10 @@
                                 </svg>
                             </div>
                             <div class="contact-card__body">
-                                <p class="contact-card__label">Режим работы</p>
+                                <p class="contact-card__label">{% trans "Режим работы" %}</p>
                                 <p class="contact-card__text">
-                                    Понедельник - Пятница: 9:00 - 18:00<br>
-                                    Суббота - Воскресенье: выходной
+                                    {% trans "Понедельник - Пятница: 9:00 - 18:00" %}<br>
+                                    {% trans "Суббота - Воскресенье: выходной" %}
                                 </p>
                             </div>
                         </article>
@@ -83,39 +84,39 @@
 
                 <aside class="contacts-sidebar">
                     <section class="contacts-card contacts-card--accent" aria-labelledby="contacts-details-title">
-                        <p class="contacts-card__eyebrow">Юридическая информация</p>
-                        <h2 id="contacts-details-title" class="contacts-card__title">Реквизиты компании</h2>
+                        <p class="contacts-card__eyebrow">{% trans "Юридическая информация" %}</p>
+                        <h2 id="contacts-details-title" class="contacts-card__title">{% trans "Реквизиты компании" %}</h2>
                         <dl class="company-details">
                             <div class="company-details__row">
-                                <dt>Полное наименование</dt>
-                                <dd>Общество с ограниченной ответственностью «БЫКОВОГАЗ»</dd>
+                                <dt>{% trans "Полное наименование" %}</dt>
+                                <dd>{% trans "Общество с ограниченной ответственностью «БЫКОВОГАЗ»" %}</dd>
                             </div>
                             <div class="company-details__row">
-                                <dt>ИНН</dt>
+                                <dt>{% trans "ИНН" %}</dt>
                                 <dd>3439007015</dd>
                             </div>
                             <div class="company-details__row">
-                                <dt>КПП</dt>
+                                <dt>{% trans "КПП" %}</dt>
                                 <dd>340201001</dd>
                             </div>
                             <div class="company-details__row">
-                                <dt>ОГРН</dt>
+                                <dt>{% trans "ОГРН" %}</dt>
                                 <dd>1033400954784</dd>
                             </div>
                             <div class="company-details__row">
-                                <dt>Расчётный счёт</dt>
+                                <dt>{% trans "Расчётный счёт" %}</dt>
                                 <dd>40702810826010006941</dd>
                             </div>
                             <div class="company-details__row">
-                                <dt>Банк</dt>
-                                <dd>Филиал «Ростовский» АО «АЛЬФА-БАНК», г. Ростов-на-Дону</dd>
+                                <dt>{% trans "Банк" %}</dt>
+                                <dd>{% trans "Филиал «Ростовский» АО «АЛЬФА-БАНК», г. Ростов-на-Дону" %}</dd>
                             </div>
                             <div class="company-details__row">
-                                <dt>БИК</dt>
+                                <dt>{% trans "БИК" %}</dt>
                                 <dd>046015207</dd>
                             </div>
                             <div class="company-details__row">
-                                <dt>Корреспондентский счёт</dt>
+                                <dt>{% trans "Корреспондентский счёт" %}</dt>
                                 <dd>30101810500000000207</dd>
                             </div>
                         </dl>
@@ -125,10 +126,10 @@
 
             <section class="contacts-card contacts-card--map" aria-labelledby="contacts-map-title">
                 <div class="contacts-map">
-                    <div class="contacts-map__badge">Локация офиса</div>
-                    <h2 id="contacts-map-title" class="contacts-map__title">Как нас найти</h2>
+                    <div class="contacts-map__badge">{% trans "Локация офиса" %}</div>
+                    <h2 id="contacts-map-title" class="contacts-map__title">{% trans "Как нас найти" %}</h2>
                     <p class="contacts-map__text">
-                        БЦ Волгоград Сити, ул. Маршала Рокоссовского 62, 18 этаж
+                        {% trans "БЦ Волгоград Сити, ул. Маршала Рокоссовского 62, 18 этаж" %}
                     </p>
                     <div class="contacts-map__embed">
                         <iframe
@@ -138,7 +139,7 @@
                             frameborder="0"
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
-                            title="Интерактивная карта офиса БыковоГаз"
+                            title="{% trans 'Интерактивная карта офиса БыковоГаз' %}"
                         ></iframe>
                     </div>
                 </div>

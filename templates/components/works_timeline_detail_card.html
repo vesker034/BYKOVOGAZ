@@ -1,6 +1,7 @@
+{% load i18n %}
 <article class="works-timeline__detail">
     <p class="works-timeline__description">{{ item.description }}</p>
-    <h4 class="works-timeline__ach-heading">Основные достижения:</h4>
+    <h4 class="works-timeline__ach-heading">{% trans "Основные достижения:" %}</h4>
     <ul class="works-timeline__ach-list">
         {% for line in item.achievements %}
         <li>
