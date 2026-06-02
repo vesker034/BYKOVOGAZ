@@ -17,8 +17,8 @@
                         <img class="site-header__logo-img" src="{% static 'img/logo-bull.png' %}" alt="">
                     </span>
                     <span class="site-header__brand-text">
-                        <span class="site-header__logo-title">{% trans "БЫКОВОГАЗ" %}</span>
-                        <span class="site-header__logo-tagline">{% trans "Добыча углеводородного сырья" %}</span>
+                        <span class="site-header__logo-title">{% if brand %}{{ brand.brand_name }}{% else %}{% trans "БЫКОВОГАЗ" %}{% endif %}</span>
+                        <span class="site-header__logo-tagline">{% if brand %}{{ brand.header_tagline }}{% else %}{% trans "Добыча углеводородного сырья" %}{% endif %}</span>
                     </span>
                 </a>
 

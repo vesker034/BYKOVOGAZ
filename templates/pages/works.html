@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% load i18n static %}
+{% load i18n static cms %}
 
-{% block title %}{{ page_title }} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
+{% block title %}{{ page_title }} | {% if brand %}{{ brand.brand_name }}{% else %}{% trans "БЫКОВОГАЗ" %}{% endif %}{% endblock %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
 {% endblock %}
@@ -57,7 +57,7 @@
                 <h2 id="works-cta-title" class="works-page-cta__title">{{ cta_title }}</h2>
                 <p class="works-page-cta__lead">{{ cta_subtitle }}</p>
                 <a class="works-page-cta__btn" href="{% url 'main:home' %}#home-contact-form">
-                    {% trans "Перейти к анкете" %}
+                    {% tx "Перейти к анкете" %}
                     <span class="works-page-cta__btn-arrow" aria-hidden="true">→</span>
                 </a>
             </div>

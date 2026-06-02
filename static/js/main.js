@@ -210,6 +210,12 @@ const newsMessages = siteI18n.news || {};
         }
 
         event.preventDefault();
+        var card = form.closest(".home-form-card");
+        var okBanner = card ? card.querySelector("[data-home-form-success]") : null;
+        if (okBanner) {
+            okBanner.hidden = false;
+            okBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
     });
 })();
 
@@ -538,6 +544,105 @@ const newsMessages = siteI18n.news || {};
         }
 
         event.preventDefault();
+
+        var submitBtn = form.querySelector('[type="submit"]');
+        var okBanner = form.querySelector("[data-career-form-success]");
+        var errBanner = form.querySelector("[data-career-form-error]");
+        var csrfin = form.querySelector('[name="csrfmiddlewaretoken"]');
+        var csrfHeader = csrfin ? csrfin.value : "";
+
+        function scrollToEl(el) {
+            if (!el || typeof el.scrollIntoView !== "function") {
+                return;
+            }
+            el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+
+        function setFlash(el, visible) {
+            if (!el) {
+                return;
+            }
+            if (visible) {
+                el.classList.remove("career-flash--inactive");
+                el.setAttribute("aria-hidden", "false");
+            } else {
+                el.classList.add("career-flash--inactive");
+                el.setAttribute("aria-hidden", "true");
+            }
+        }
+
+        function setSending(sending) {
+            if (!submitBtn) {
+                return;
+            }
+            submitBtn.disabled = Boolean(sending);
+        }
+
+        setFlash(errBanner, false);
+
+        setSending(true);
+
+        fetch(window.location.pathname, {
+            method: "POST",
+            credentials: "same-origin",
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                Accept: "application/json",
+                "X-CSRFToken": csrfHeader,
+            },
+            body: new FormData(form),
+        })
+            .then(function (res) {
+                return res
+                    .json()
+                    .then(function (body) {
+                        return { okHttp: res.ok, body: body || {} };
+                    })
+                    .catch(function () {
+                        return { okHttp: false, body: {} };
+                    });
+            })
+            .then(function (packed) {
+                setSending(false);
+                var payload = packed.body;
+                var success = packed.okHttp && payload && payload.ok === true;
+
+                if (success) {
+                    setFlash(errBanner, false);
+                    setFlash(okBanner, true);
+                    window.requestAnimationFrame(function () {
+                        scrollToEl(okBanner);
+                    });
+                    return;
+                }
+
+                var fallback =
+                    payload && typeof payload.message === "string"
+                        ? payload.message
+                        : careerFormMessages.sendNetworkError ||
+                          "Не удалось отправить анкету. Проверьте подключение и попробуйте снова.";
+                setFlash(okBanner, false);
+                if (errBanner) {
+                    errBanner.textContent = fallback;
+                }
+                setFlash(errBanner, true);
+                window.requestAnimationFrame(function () {
+                    scrollToEl(errBanner);
+                });
+            })
+            .catch(function () {
+                setSending(false);
+                setFlash(okBanner, false);
+                if (errBanner) {
+                    errBanner.textContent =
+                        careerFormMessages.sendNetworkError ||
+                        "Не удалось отправить анкету. Проверьте подключение и попробуйте снова.";
+                }
+                setFlash(errBanner, true);
+                window.requestAnimationFrame(function () {
+                    scrollToEl(errBanner);
+                });
+            });
     });
 })();
 

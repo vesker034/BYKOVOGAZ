@@ -9,18 +9,16 @@
 
 {% block content %}
 <div class="contacts-page">
-    {% trans "Контакты" as contacts_hero_title %}
-    {% trans "Свяжитесь с нами удобным способом" as contacts_hero_lead %}
     {% include "components/page_hero.html" with title=contacts_hero_title lead=contacts_hero_lead hero_class="page-hero--contacts" %}
 
     <section class="contacts-page__section">
         <div class="site-container">
             <div class="contacts-page__layout">
                 <section class="contacts-panel" aria-labelledby="contacts-info-title">
-                    <p class="contacts-panel__eyebrow">{% trans "Контактная информация" %}</p>
-                    <h2 id="contacts-info-title" class="contacts-panel__title">{% trans "Мы всегда на связи" %}</h2>
+                    <p class="contacts-panel__eyebrow">{{ contacts_panel_eyebrow }}</p>
+                    <h2 id="contacts-info-title" class="contacts-panel__title">{{ contacts_panel_heading }}</h2>
                     <p class="contacts-panel__lead">
-                        {% trans "Для общих вопросов, сотрудничества и деловой переписки используйте удобный для вас канал связи." %}
+                        {{ contacts_panel_lead }}
                     </p>
 
                     <div class="contacts-panel__list">
@@ -34,7 +32,7 @@
                             <div class="contact-card__body">
                                 <p class="contact-card__label">{% trans "Адрес" %}</p>
                                 <p class="contact-card__text">
-                                    {% trans "400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж" %}
+                                    {% if org %}{{ org.address_line }}{% else %}{% trans "400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж" %}{% endif %}
                                 </p>
                             </div>
                         </article>
@@ -47,7 +45,7 @@
                             </div>
                             <div class="contact-card__body">
                                 <p class="contact-card__label">{% trans "Телефон" %}</p>
-                                <a class="contact-card__link" href="tel:+78442998899">8 (8442) 99-88-99</a>
+                                <a class="contact-card__link" href="{% if org %}{{ org.phone_href }}{% else %}tel:+78442998899{% endif %}">{% if org %}{{ org.phone_display }}{% else %}8 (8442) 99-88-99{% endif %}</a>
                             </div>
                         </article>
 
@@ -60,7 +58,7 @@
                             </div>
                             <div class="contact-card__body">
                                 <p class="contact-card__label">{% trans "Email" %}</p>
-                                <a class="contact-card__link" href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
+                                <a class="contact-card__link" href="{% if org %}{{ org.email_href }}{% else %}mailto:info@bykovogaz.ru{% endif %}">{% if org %}{{ org.email_display }}{% else %}info@bykovogaz.ru{% endif %}</a>
                             </div>
                         </article>
 
@@ -74,8 +72,7 @@
                             <div class="contact-card__body">
                                 <p class="contact-card__label">{% trans "Режим работы" %}</p>
                                 <p class="contact-card__text">
-                                    {% trans "Понедельник - Пятница: 9:00 - 18:00" %}<br>
-                                    {% trans "Суббота - Воскресенье: выходной" %}
+                                    {% if org %}{{ org.weekday_hours }}<br>{{ org.weekend_hours }}{% else %}{% trans "Понедельник - Пятница: 9:00 - 18:00" %}<br>{% trans "Суббота - Воскресенье: выходной" %}{% endif %}
                                 </p>
                             </div>
                         </article>
@@ -89,19 +86,19 @@
                         <dl class="company-details">
                             <div class="company-details__row">
                                 <dt>{% trans "Полное наименование" %}</dt>
-                                <dd>{% trans "Общество с ограниченной ответственностью «БЫКОВОГАЗ»" %}</dd>
+                                <dd>{% if org %}{{ org.legal_name_line }}{% else %}{% trans "Общество с ограниченной ответственностью «БЫКОВОГАЗ»" %}{% endif %}</dd>
                             </div>
                             <div class="company-details__row">
                                 <dt>{% trans "ИНН" %}</dt>
-                                <dd>3439007015</dd>
+                                <dd>{% if org %}{{ org.inn }}{% else %}3439007015{% endif %}</dd>
                             </div>
                             <div class="company-details__row">
                                 <dt>{% trans "КПП" %}</dt>
-                                <dd>340201001</dd>
+                                <dd>{% if org %}{{ org.kpp }}{% else %}340201001{% endif %}</dd>
                             </div>
                             <div class="company-details__row">
                                 <dt>{% trans "ОГРН" %}</dt>
-                                <dd>1033400954784</dd>
+                                <dd>{% if org %}{{ org.ogrn }}{% else %}1033400954784{% endif %}</dd>
                             </div>
                             <div class="company-details__row">
                                 <dt>{% trans "Расчётный счёт" %}</dt>

@@ -1,0 +1,63 @@
+/** Сущности и связи плана БД. Картинка в стиле «таблицы на сетке» (как в примере с PK/FK-колонкой):
+ *  python scripts/render_plan_db_er_grid.py  →  docs/plan-db-schema.png и .svg
+ *  Воспроизвести узлы record через Graphviz: dot -Tpng plan-db-schema.dot -o … (другое имя файла, иначе перезапишет PNG).
+ *
+ *  Альтернатива «карточки с цветной шапкой»: plan-db-schema-er-style.dot
+ */
+digraph PlanBD {
+  graph [
+    rankdir=LR
+    fontsize=11
+    labelloc=t
+    label="Логическая схема базы данных веб-сайта"
+    bgcolor="white"
+  ]
+  node [shape=record fontsize=8 fontname="Arial"]
+
+  /* Порядок кластеров — ближе к макету: кандидаты → команда → доступ → контакты */
+  subgraph cluster_candidates {
+    label="Кандидаты (анкета)"
+    style=dashed
+    color="#555555"
+    candidate_statuses [label="{candidate_statuses|status_id PK\lname\l}"]
+    candidate_profiles [label="{candidate_profiles|candidate_id PK\lfull_name\lphone, email\ldesired_position\lmessage\lstatus_id FK\lcreated_at\l}"]
+    candidate_attachments [label="{candidate_attachments|attachment_id PK\lcandidate_id FK\lfile_path\luploaded_at\l}"]
+  }
+
+  subgraph cluster_team {
+    label="Команда"
+    style=dashed
+    color="#555555"
+    departments [label="{departments|department_id PK\lname\l}"]
+    team_members [label="{team_members|member_id PK\lfirst_name, last_name\lposition\lphoto\lbio\ldepartment_id FK departments (опц.)\lcreated_at\l}"]
+    social_links [label="{social_links|social_id PK\lname (VK, Telegram, …)\lbase_url (опц.)\l}"]
+    member_social_links [label="{member_social_links (M2M)|member_id FK\lsocial_id FK\lurl_or_value\lсост. PK (member_id, social_id)\l}"]
+  }
+
+  subgraph cluster_acl {
+    label="Пользователи и права"
+    style=dashed
+    color="#555555"
+    users [label="{users|user_id PK\llogin, password_hash, email\lcreated_at, updated_at\l}"]
+    roles [label="{roles|role_id PK\lname\l}"]
+    user_roles [label="{user_roles (M2M)|user_id FK users\lrole_id FK roles\lсост. PK (user_id, role_id)\l}"]
+  }
+
+  subgraph cluster_contacts {
+    label="Контакты (форма «Написать нам»)"
+    style=dashed
+    color="#555555"
+    contact_messages [label="{contact_messages|message_id PK\lname\lphone или email\lsubject (опц.)\lmessage\lcreated_at\lprocessed_by_user_id FK users (опц.)\l}"]
+    contact_message_attachments [label="{contact_message_attachments|attachment_id PK\lmessage_id FK\lfile_path\luploaded_at\l}"]
+  }
+
+  candidate_statuses -> candidate_profiles [label="1:N" fontsize=8]
+  candidate_profiles -> candidate_attachments [label="1:N" fontsize=8]
+  departments -> team_members [label="1:N" fontsize=8]
+  team_members -> member_social_links [label="1:N" fontsize=8]
+  social_links -> member_social_links [label="1:N" fontsize=8]
+  users -> user_roles [style=dashed fontsize=8]
+  roles -> user_roles [style=dashed fontsize=8]
+  contact_messages -> contact_message_attachments [label="1:N" fontsize=8]
+  users -> contact_messages [label="1:N" fontsize=8]
+}

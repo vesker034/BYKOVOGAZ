@@ -1,0 +1,33 @@
+/**
+ * ER-вид: предметная таблица Django-приложения main (Vacancy → main_vacancy).
+ * Экспорт: dot -Tpng docs/database-schema-er.dot -o database-schema-er.png
+ */
+digraph G {
+  graph [fontsize=11, labelloc=t, label="База данных SQLite (прикладной фрагмент)\nТаблица вакансий сайта ООО «Быковогаз»"]
+  node [shape=plaintext, fontsize=10]
+
+  main_vacancy [label=<
+<table border="0" cellborder="1" cellspacing="0" cellpadding="6">
+  <tr><td bgcolor="#e8f0fe" colspan="2"><b>main_vacancy</b></td></tr>
+  <tr><td align="left"><b>id</b></td><td align="left">INTEGER, PK</td></tr>
+  <tr><td align="left">title</td><td align="left">VARCHAR(200), NOT NULL</td></tr>
+  <tr><td align="left">title_en</td><td align="left">VARCHAR(200)</td></tr>
+  <tr><td align="left">department</td><td align="left">VARCHAR(160), NOT NULL</td></tr>
+  <tr><td align="left">department_en</td><td align="left">VARCHAR(160)</td></tr>
+  <tr><td align="left">location</td><td align="left">VARCHAR(160)</td></tr>
+  <tr><td align="left">location_en</td><td align="left">VARCHAR(160)</td></tr>
+  <tr><td align="left">employment_type</td><td align="left">VARCHAR(20), NOT NULL</td></tr>
+  <tr><td align="left">summary</td><td align="left">TEXT, NOT NULL</td></tr>
+  <tr><td align="left">summary_en</td><td align="left">TEXT</td></tr>
+  <tr><td align="left">requirements</td><td align="left">TEXT, NOT NULL</td></tr>
+  <tr><td align="left">requirements_en</td><td align="left">TEXT</td></tr>
+  <tr><td align="left">is_active</td><td align="left">BOOLEAN, NOT NULL</td></tr>
+  <tr><td align="left">display_order</td><td align="left">UNSIGNED INTEGER, NOT NULL</td></tr>
+  <tr><td align="left">created_at</td><td align="left">DATETIME, NOT NULL</td></tr>
+</table>>
+  ]
+
+  note [shape=note, fillcolor="#fff9e6", style=filled,
+    label="Дополнительно в том же файле db.sqlite3\nсуществуют служебные таблицы Django:\nавторизация (auth_*), админка,\nмиграции, сессии, contenttypes."]
+  note -> main_vacancy [style=invis]
+}

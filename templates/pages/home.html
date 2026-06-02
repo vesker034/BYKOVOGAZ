@@ -1,17 +1,16 @@
 {% extends "base.html" %}
-{% load i18n static %}
+{% load i18n static cms %}
 
-{% block title %}{% trans "Главная" %} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
+{% block title %}{% tx "Главная" %} | {% if brand %}{{ brand.brand_name }}{% else %}{% trans "БЫКОВОГАЗ" %}{% endif %}{% endblock %}
 
 {% block content %}
 <div class="home-page">
     <section class="home-hero">
         <div class="site-container home-hero__inner">
             <div class="home-hero__content">
-                <h1 class="home-hero__title">{% trans "БЫКОВОГАЗ" %}</h1>
+                <h1 class="home-hero__title">{% if brand %}{{ brand.brand_name }}{% else %}{% trans "БЫКОВОГАЗ" %}{% endif %}</h1>
                 <p class="home-hero__lead">
-                    {% blocktrans trimmed %}Вертикально интегрированная компания по разработке недр и добыче
-                    углеводородного сырья{% endblocktrans %}
+                    {% tx "Вертикально интегрированная компания по разработке недр и добыче углеводородного сырья" %}
                 </p>
                 <div class="home-hero__actions">
                     <a class="home-btn home-btn--light" href="#company">
@@ -30,22 +29,12 @@
     <section class="home-stats" aria-label="{% trans 'Ключевые показатели компании' %}">
         <div class="site-container">
             <div class="home-stats__grid">
+                {% for stat in home_stats %}
                 <article class="home-stat">
-                    <div class="home-stat__value">2002</div>
-                    <p class="home-stat__label">{% trans "Год основания" %}</p>
+                    <div class="home-stat__value">{{ stat.value }}</div>
+                    <p class="home-stat__label">{% if stat.label_is_html %}{{ stat.label|safe }}{% else %}{{ stat.label }}{% endif %}</p>
                 </article>
-                <article class="home-stat">
-                    <div class="home-stat__value">250</div>
-                    <p class="home-stat__label">{% blocktrans trimmed %}Млн м<sup>3</sup>/год газа{% endblocktrans %}</p>
-                </article>
-                <article class="home-stat">
-                    <div class="home-stat__value">40</div>
-                    <p class="home-stat__label">{% trans "Тыс. тонн/год конденсата" %}</p>
-                </article>
-                <article class="home-stat">
-                    <div class="home-stat__value">140</div>
-                    <p class="home-stat__label">{% trans "Сотрудников" %}</p>
-                </article>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -72,7 +61,11 @@
                 <div class="home-media-card home-media-card--plant">
                     <img
                         class="home-media-card__image"
+                        {% if marketing_asset and marketing_asset.home_about_image %}
+                        src="{{ marketing_asset.home_about_image.url }}"
+                        {% else %}
                         src="{% static 'img/home-about.jpg' %}"
+                        {% endif %}
                         alt="{% trans 'Производственная установка' %}"
                     >
                     <div class="home-media-card__label">{% trans "Производственная установка" %}</div>
@@ -87,42 +80,25 @@
                 <h2 class="home-section__title" id="directions-title">{% trans "Основные направления деятельности" %}</h2>
             </div>
             <div class="home-directions">
+                {% for s in home_services %}
                 <article class="home-feature-card">
                     <div class="home-feature-card__icon" aria-hidden="true">
+                        {% if s.icon == 'factory' %}
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M6 20V10l6-4 6 4v10"/><path d="M10 13h4"/><path d="M12 9v8"/></svg>
-                    </div>
-                    <h3 class="home-feature-card__title">{% trans "Разработка недр" %}</h3>
-                    <p class="home-feature-card__text">
-                        {% trans "Геологоразведка и разработка углеводородных месторождений." %}
-                    </p>
-                </article>
-                <article class="home-feature-card">
-                    <div class="home-feature-card__icon" aria-hidden="true">
+                        {% elif s.icon == 'flame' %}
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 3c2.6 3.2 4.5 6.1 4.5 8.7A4.5 4.5 0 1 1 7.5 11.7C7.5 9.1 9.4 6.2 12 3z"/><path d="M10 14c.6.7 1.2 1 2 1s1.4-.3 2-1"/></svg>
-                    </div>
-                    <h3 class="home-feature-card__title">{% trans "Добыча газа" %}</h3>
-                    <p class="home-feature-card__text">
-                        {% blocktrans trimmed %}Промышленная добыча природного газа до 250 млн м<sup>3</sup>/год.{% endblocktrans %}
-                    </p>
-                </article>
-                <article class="home-feature-card">
-                    <div class="home-feature-card__icon" aria-hidden="true">
+                        {% elif s.icon == 'pressure' %}
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M6 20h12"/><path d="M8 20v-6a4 4 0 1 1 8 0v6"/><path d="M10 10V6h4v4"/><path d="M12 3v3"/></svg>
-                    </div>
-                    <h3 class="home-feature-card__title">{% trans "Добыча конденсата" %}</h3>
-                    <p class="home-feature-card__text">
-                        {% trans "Производство газового конденсата до 40 тыс. тонн/год." %}
-                    </p>
-                </article>
-                <article class="home-feature-card">
-                    <div class="home-feature-card__icon" aria-hidden="true">
+                        {% else %}
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M5 19l6.5-6.5"/><path d="M14 5l5 5"/><path d="M10 10l4 4"/><path d="M7 7l10 10"/><path d="M3 21l4-1 11-11-3-3L4 17l-1 4z"/></svg>
+                        {% endif %}
                     </div>
-                    <h3 class="home-feature-card__title">{% trans "Буровые услуги" %}</h3>
+                    <h3 class="home-feature-card__title">{{ s.title }}</h3>
                     <p class="home-feature-card__text">
-                        {% trans "Бурение скважин на нефть и газ, обустройство месторождений." %}
+                        {% if s.body_is_html %}{{ s.body|safe }}{% else %}{{ s.body }}{% endif %}
                     </p>
                 </article>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -181,46 +157,24 @@
             </div>
 
             <div class="home-projects">
-                <article class="home-project">
+                {% for p in home_projects %}
+                <article class="home-project{% if not forloop.counter|divisibleby:2 %} home-project--reverse{% endif %}">
                     <div class="home-project__meta">
-                        <div class="home-project__period">2015-2017</div>
-                        <h3 class="home-project__title">{% trans "Строительство УКПГ" %}</h3>
-                        <div class="home-project__status">{% trans "Завершено" %}</div>
+                        <div class="home-project__period">{{ p.period }}</div>
+                        <h3 class="home-project__title">{{ p.title }}</h3>
+                        <div class="home-project__status">{{ p.status }}</div>
                     </div>
                     <div class="home-project__body">
-                        <p class="home-project__summary">
-                            {% blocktrans trimmed %}Успешное строительство установки комплексной подготовки газа (УКПГ)
-                            с проектной мощностью по очищенному газу 250 млн м<sup>3</sup>/год и
-                            по газовому конденсату 40 тыс. т/год.{% endblocktrans %}
-                        </p>
+                        <p class="home-project__summary">{{ p.summary }}</p>
                         <h4 class="home-project__subtitle">{% trans "Основные достижения:" %}</h4>
                         <ul class="home-project__list">
-                            <li>{% trans "Получено разрешение на ввод в промышленную эксплуатацию в 4 квартале 2017 г." %}</li>
-                            <li>{% trans "Проектная мощность достигнута." %}</li>
-                            <li>{% trans "Все работы выполнены в срок." %}</li>
+                            {% for line in p.achievements %}
+                            <li>{{ line }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </article>
-
-                <article class="home-project home-project--reverse">
-                    <div class="home-project__meta">
-                        <div class="home-project__period">2016-2018</div>
-                        <h3 class="home-project__title">{% trans "Обустройство месторождения" %}</h3>
-                        <div class="home-project__status">{% trans "Завершено" %}</div>
-                    </div>
-                    <div class="home-project__body">
-                        <p class="home-project__summary">
-                            {% blocktrans trimmed %}Комплексные работы по обустройству Южно-Кисловского газоконденсатного
-                            месторождения, включая строительство инфраструктуры и инженерных коммуникаций.{% endblocktrans %}
-                        </p>
-                        <h4 class="home-project__subtitle">{% trans "Основные достижения:" %}</h4>
-                        <ul class="home-project__list">
-                            <li>{% trans "Создана необходимая инфраструктура." %}</li>
-                            <li>{% trans "Проложены газопроводы и инженерные сети." %}</li>
-                            <li>{% trans "Обеспечена промышленная безопасность." %}</li>
-                        </ul>
-                    </div>
-                </article>
+                {% endfor %}
             </div>
 
             <div class="home-more">
@@ -238,95 +192,21 @@
     <section class="home-section home-section--news">
         <div class="site-container">
             <div class="home-news-grid">
+                {% for n in featured_news %}
                 <article class="home-news-card">
-                    <div class="home-news-card__media home-news-card__media--production">
-                        <span class="home-news-card__tag">{% trans "Производство" %}</span>
+                    <div class="home-news-card__media home-news-card__media--{{ n.media_modifier }}">
+                        <span class="home-news-card__tag">{{ n.tag }}</span>
                     </div>
                     <div class="home-news-card__body">
-                        <div class="home-news-card__date">{% trans "15 декабря 2019" %}</div>
-                        <h3 class="home-news-card__title">{% trans "Введение в эксплуатацию разведочной скважины №12" %}</h3>
+                        <div class="home-news-card__date">{{ n.date_display }}</div>
+                        <h3 class="home-news-card__title">{{ n.title }}</h3>
                         <p class="home-news-card__text">
-                            {% blocktrans trimmed %}Компания успешно ввела в промышленную эксплуатацию разведочную
-                            скважину №12 Южно-Кисловского газоконденсатного месторождения.{% endblocktrans %}
+                            {% if n.excerpt_is_html %}{{ n.excerpt|safe }}{% else %}{{ n.excerpt }}{% endif %}
                         </p>
                         <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
                     </div>
                 </article>
-
-                <article class="home-news-card">
-                    <div class="home-news-card__media home-news-card__media--corporate">
-                        <span class="home-news-card__tag">{% trans "Корпоративные новости" %}</span>
-                    </div>
-                    <div class="home-news-card__body">
-                        <div class="home-news-card__date">{% trans "15 апреля 2019" %}</div>
-                        <h3 class="home-news-card__title">{% trans "БЫКОВОГАЗ вступил в Торгово-промышленную палату" %}</h3>
-                        <p class="home-news-card__text">
-                            {% blocktrans trimmed %}ООО «БЫКОВОГАЗ» стало членом Союза «Волгоградская торгово-промышленная палата»,
-                            укрепив свои позиции в деловом сообществе региона.{% endblocktrans %}
-                        </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
-                    </div>
-                </article>
-
-                <article class="home-news-card">
-                    <div class="home-news-card__media home-news-card__media--industry">
-                        <span class="home-news-card__tag">{% trans "Производство" %}</span>
-                    </div>
-                    <div class="home-news-card__body">
-                        <div class="home-news-card__date">{% trans "20 декабря 2017" %}</div>
-                        <h3 class="home-news-card__title">{% trans "Запуск УКПГ в промышленную эксплуатацию" %}</h3>
-                        <p class="home-news-card__text">
-                            {% blocktrans trimmed %}Получено разрешение на ввод установки комплексной подготовки газа
-                            в промышленную эксплуатацию. Начался этап промышленной разработки месторождения.{% endblocktrans %}
-                        </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
-                    </div>
-                </article>
-
-                <article class="home-news-card">
-                    <div class="home-news-card__media home-news-card__media--plant">
-                        <span class="home-news-card__tag">{% trans "Производство" %}</span>
-                    </div>
-                    <div class="home-news-card__body">
-                        <div class="home-news-card__date">{% trans "30 июня 2017" %}</div>
-                        <h3 class="home-news-card__title">{% trans "Завершение строительства УКПГ" %}</h3>
-                        <p class="home-news-card__text">
-                            {% blocktrans trimmed %}Успешно завершено строительство установки комплексной подготовки газа
-                            с проектной мощностью 250 млн м<sup>3</sup>/год по газу и 40 тыс. т/год по конденсату.{% endblocktrans %}
-                        </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
-                    </div>
-                </article>
-
-                <article class="home-news-card">
-                    <div class="home-news-card__media home-news-card__media--survey">
-                        <span class="home-news-card__tag">{% trans "Геологоразведка" %}</span>
-                    </div>
-                    <div class="home-news-card__body">
-                        <div class="home-news-card__date">{% trans "10 сентября 2014" %}</div>
-                        <h3 class="home-news-card__title">{% trans "Завершение сейсморазведочных работ МОГТ-3D" %}</h3>
-                        <p class="home-news-card__text">
-                            {% blocktrans trimmed %}Компанией успешно завершены сейсморазведочные работы МОГТ-3D на площади
-                            63 км² для уточнения геологического строения месторождения.{% endblocktrans %}
-                        </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
-                    </div>
-                </article>
-
-                <article class="home-news-card">
-                    <div class="home-news-card__media home-news-card__media--archive">
-                        <span class="home-news-card__tag">{% trans "Корпоративные новости" %}</span>
-                    </div>
-                    <div class="home-news-card__body">
-                        <div class="home-news-card__date">{% trans "1 декабря 2006" %}</div>
-                        <h3 class="home-news-card__title">{% trans "Утверждение запасов месторождения ГКЗ РФ" %}</h3>
-                        <p class="home-news-card__text">
-                            {% blocktrans trimmed %}Запасы углеводородного сырья Южно-Кисловского месторождения поставлены
-                            на государственный баланс ГКЗ РФ.{% endblocktrans %}
-                        </p>
-                        <a class="home-link" href="{% url 'main:press_news' %}">{% trans "Читать далее" %} <span aria-hidden="true">→</span></a>
-                    </div>
-                </article>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -345,7 +225,7 @@
                             <div>
                                 <h3 class="home-contact-item__title">{% trans "Адрес" %}</h3>
                                 <p class="home-contact-item__text">
-                                    {% trans "400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж" %}
+                                    {% if org %}{{ org.address_line }}{% else %}{% trans "400050, Волгоград, ул. Маршала Рокоссовского 62, БЦ Волгоград Сити, 18 этаж" %}{% endif %}
                                 </p>
                             </div>
                         </article>
@@ -357,7 +237,7 @@
                             <div>
                                 <h3 class="home-contact-item__title">{% trans "Телефон" %}</h3>
                                 <p class="home-contact-item__text">
-                                    <a href="tel:+78442998899">8 (8442) 99-88-99</a>
+                                    <a href="{% if org %}{{ org.phone_href }}{% else %}tel:+78442998899{% endif %}">{% if org %}{{ org.phone_display }}{% else %}8 (8442) 99-88-99{% endif %}</a>
                                 </p>
                             </div>
                         </article>
@@ -369,7 +249,7 @@
                             <div>
                                 <h3 class="home-contact-item__title">{% trans "Email" %}</h3>
                                 <p class="home-contact-item__text">
-                                    <a href="mailto:info@bykovogaz.ru">info@bykovogaz.ru</a>
+                                    <a href="{% if org %}{{ org.email_href }}{% else %}mailto:info@bykovogaz.ru{% endif %}">{% if org %}{{ org.email_display }}{% else %}info@bykovogaz.ru{% endif %}</a>
                                 </p>
                             </div>
                         </article>
@@ -381,9 +261,11 @@
                             <div>
                                 <h3 class="home-contact-item__title">{% trans "Режим работы" %}</h3>
                                 <p class="home-contact-item__text">
-                                    {% trans "Понедельник - Пятница: 9:00 - 18:00" %}
+                                    {% if org %}{{ org.weekday_hours }}
                                     <br>
-                                    {% trans "Суббота - Воскресенье: Выходной" %}
+                                    {{ org.weekend_hours }}{% else %}{% trans "Понедельник - Пятница: 9:00 - 18:00" %}
+                                    <br>
+                                    {% trans "Суббота - Воскресенье: Выходной" %}{% endif %}
                                 </p>
                             </div>
                         </article>
@@ -392,18 +274,21 @@
                     <div class="home-company-card">
                         <h3 class="home-company-card__title">{% trans "Реквизиты компании" %}</h3>
                         <p class="home-company-card__text">
+                            {% if org %}{{ org.legal_name_line }}{% else %}
                             {% trans "Полное наименование: Общество с ограниченной ответственностью «БЫКОВОГАЗ»" %}
+                            {% endif %}
                         </p>
                         <ul class="home-company-card__list">
-                            <li><strong>{% trans "ИНН" %}:</strong> 3439007015</li>
-                            <li><strong>{% trans "КПП" %}:</strong> 340201001</li>
-                            <li><strong>{% trans "ОГРН" %}:</strong> 1033400954784</li>
+                            <li><strong>{% trans "ИНН" %}:</strong> {% if org %}{{ org.inn }}{% else %}3439007015{% endif %}</li>
+                            <li><strong>{% trans "КПП" %}:</strong> {% if org %}{{ org.kpp }}{% else %}340201001{% endif %}</li>
+                            <li><strong>{% trans "ОГРН" %}:</strong> {% if org %}{{ org.ogrn }}{% else %}1033400954784{% endif %}</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="home-form-card" id="home-contact-form">
                     <h2 class="home-form-card__title">{% trans "Напишите нам" %}</h2>
+                    <div class="home-form-success" hidden data-home-form-success role="status">{% blocktrans trimmed %}Спасибо за обращение. Сообщение сформировано и отправлено.{% endblocktrans %}</div>
                     <form class="home-form" action="#" method="get" novalidate data-home-contact-form>
                         <label class="home-form__field">
                             <span class="home-form__label">{% trans "Имя *" %}</span>

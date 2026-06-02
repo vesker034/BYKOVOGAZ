@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n static %}
 
-{% block title %}{{ page_title }} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
+{% block title %}{{ page_title }} | {% if brand %}{{ brand.brand_name }}{% else %}{% trans "БЫКОВОГАЗ" %}{% endif %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
@@ -20,7 +20,7 @@
                         <div class="news-card__media">
                             <img
                                 class="news-card__img"
-                                src="{% static item.image %}"
+                                {% if item.image_is_media %}src="{{ item.image_url }}"{% else %}src="{% static item.image_static %}"{% endif %}
                                 alt=""
                                 width="600"
                                 height="375"
@@ -38,7 +38,7 @@
                                 <time class="news-card__date" datetime="{{ item.iso_date }}">{{ item.date_display }}</time>
                             </div>
                             <h3 class="news-card__title">{{ item.title }}</h3>
-                            <p class="news-card__excerpt">{{ item.excerpt }}</p>
+                            <p class="news-card__excerpt">{% if item.excerpt_is_html %}{{ item.excerpt|safe }}{% else %}{{ item.excerpt }}{% endif %}</p>
                         </div>
                     </article>
                 </li>

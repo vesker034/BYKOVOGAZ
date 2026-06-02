@@ -9,8 +9,6 @@
 
 {% block content %}
 <div class="career-page">
-    {% trans "Карьера" as career_hero_title %}
-    {% trans "Присоединяйтесь к нашей команде" as career_hero_lead %}
     {% include "components/page_hero.html" with title=career_hero_title lead=career_hero_lead hero_class="page-hero--career" %}
 
     <div class="career-page__main">
@@ -116,7 +114,33 @@
 
         <section class="form-section">
             <div class="site-container">
-                <form class="candidate-form-card" action="#" method="post" novalidate data-career-form>
+                {% if messages %}
+                <div class="career-page__messages career-page__messages--server-only">
+                    {% for message in messages %}
+                        {% if message.tags == "error" %}
+                            <div class="career-flash career-flash--error" role="alert">{{ message }}</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <form class="candidate-form-card" action="" method="post" novalidate data-career-form>
+                    {% csrf_token %}
+                    <div
+                        class="career-flash career-flash--success career-flash--inactive"
+                        data-career-form-success
+                        role="status"
+                        aria-live="polite"
+                        aria-hidden="true"
+                    >
+                        {% blocktrans trimmed %}Спасибо за обращение. Анкета сформирована и отправлена.{% endblocktrans %}
+                    </div>
+                    <div
+                        class="career-flash career-flash--error career-flash--inactive"
+                        data-career-form-error
+                        role="alert"
+                        aria-live="assertive"
+                        aria-hidden="true"
+                    ></div>
                     <h2 class="candidate-form-card__title">{% trans "Анкета кандидата" %}</h2>
                     <p class="candidate-form-card__subtitle">
                         {% trans "Заполните форму ниже, и мы свяжемся с вами в ближайшее время" %}
@@ -127,63 +151,63 @@
                     <div class="row g-3 mb-3">
                         <div class="col-12 col-md-4">
                             <label class="form-label-custom" for="career-last-name">{% trans "Фамилия" %} <span class="req">*</span></label>
-                            <input id="career-last-name" type="text" class="form-control-custom" placeholder="{% trans 'Иванов' %}" required minlength="2" maxlength="80" autocomplete="family-name" data-field="last-name">
+                            <input id="career-last-name" name="last_name" type="text" class="form-control-custom" placeholder="{% trans 'Иванов' %}" required minlength="2" maxlength="80" autocomplete="family-name" data-field="last-name">
                         </div>
                         <div class="col-12 col-md-4">
                             <label class="form-label-custom" for="career-first-name">{% trans "Имя" %} <span class="req">*</span></label>
-                            <input id="career-first-name" type="text" class="form-control-custom" placeholder="{% trans 'Иван' %}" required minlength="2" maxlength="80" autocomplete="given-name" data-field="first-name">
+                            <input id="career-first-name" name="first_name" type="text" class="form-control-custom" placeholder="{% trans 'Иван' %}" required minlength="2" maxlength="80" autocomplete="given-name" data-field="first-name">
                         </div>
                         <div class="col-12 col-md-4">
                             <label class="form-label-custom" for="career-middle-name">{% trans "Отчество" %}</label>
-                            <input id="career-middle-name" type="text" class="form-control-custom" placeholder="{% trans 'Иванович' %}" maxlength="80" autocomplete="additional-name" data-field="middle-name">
+                            <input id="career-middle-name" name="middle_name" type="text" class="form-control-custom" placeholder="{% trans 'Иванович' %}" maxlength="80" autocomplete="additional-name" data-field="middle-name">
                         </div>
                     </div>
 
                     <div class="row g-3 mb-3">
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom" for="career-birth-date">{% trans "Дата рождения" %} <span class="req">*</span></label>
-                            <input id="career-birth-date" type="text" class="form-control-custom" placeholder="{% trans 'ДД.ММ.ГГГГ' %}" required inputmode="numeric" maxlength="10" data-field="birth-date">
+                            <input id="career-birth-date" name="birth_date" type="text" class="form-control-custom" placeholder="{% trans 'ДД.ММ.ГГГГ' %}" required inputmode="numeric" maxlength="10" data-field="birth-date">
                         </div>
                         <div class="col-12 col-md-6">
                             <label class="form-label-custom" for="career-phone">{% trans "Телефон" %} <span class="req">*</span></label>
-                            <input id="career-phone" type="tel" class="form-control-custom" placeholder="+7 (___) ___-__-__" required inputmode="tel" autocomplete="tel" maxlength="18" data-field="phone">
+                            <input id="career-phone" name="phone" type="tel" class="form-control-custom" placeholder="+7 (___) ___-__-__" required inputmode="tel" autocomplete="tel" maxlength="18" data-field="phone">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label-custom" for="career-email">Email <span class="req">*</span></label>
-                        <input id="career-email" type="email" class="form-control-custom" placeholder="your@email.com" required maxlength="120" autocomplete="email" data-field="email">
+                        <input id="career-email" name="email" type="email" class="form-control-custom" placeholder="your@email.com" required maxlength="120" autocomplete="email" data-field="email">
                     </div>
 
                     <p class="form-section-label form-section-label--spaced">{% trans "Образование и опыт" %}</p>
 
                     <div class="form-group">
                         <label class="form-label-custom" for="career-education">{% trans "Образование" %} <span class="req">*</span></label>
-                        <select id="career-education" class="form-control-custom" required data-field="education">
+                        <select id="career-education" name="education" class="form-control-custom" required data-field="education">
                             <option value="" disabled selected>{% trans "Выберите образование" %}</option>
-                            <option>{% trans "Среднее" %}</option>
-                            <option>{% trans "Среднее специальное" %}</option>
-                            <option>{% trans "Неполное высшее" %}</option>
-                            <option>{% trans "Высшее" %}</option>
-                            <option>{% trans "Несколько высших" %}</option>
-                            <option>{% trans "Аспирантура, кандидат наук" %}</option>
+                            <option value="school">{% trans "Среднее" %}</option>
+                            <option value="vocational">{% trans "Среднее специальное" %}</option>
+                            <option value="incomplete_higher">{% trans "Неполное высшее" %}</option>
+                            <option value="higher">{% trans "Высшее" %}</option>
+                            <option value="multiple_higher">{% trans "Несколько высших" %}</option>
+                            <option value="postgraduate">{% trans "Аспирантура, кандидат наук" %}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label-custom" for="career-position">{% trans "Желаемая должность" %} <span class="req">*</span></label>
-                        <input id="career-position" type="text" class="form-control-custom" placeholder="{% trans 'Например: Инженер-технолог' %}" required minlength="3" maxlength="120" data-field="position">
+                        <input id="career-position" name="position" type="text" class="form-control-custom" placeholder="{% trans 'Например: Инженер-технолог' %}" required minlength="3" maxlength="120" data-field="position">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label-custom" for="career-experience">{% trans "Опыт работы" %} <span class="req">*</span></label>
-                        <select id="career-experience" class="form-control-custom" required data-field="experience">
+                        <select id="career-experience" name="experience" class="form-control-custom" required data-field="experience">
                             <option value="" disabled selected>{% trans "Выберите опыт работы" %}</option>
-                            <option>{% trans "Без опыта" %}</option>
-                            <option>{% trans "До 1 года" %}</option>
-                            <option>{% trans "1-3 года" %}</option>
-                            <option>{% trans "3-5 лет" %}</option>
-                            <option>{% trans "Более 5 лет" %}</option>
+                            <option value="none">{% trans "Без опыта" %}</option>
+                            <option value="lt1">{% trans "До 1 года" %}</option>
+                            <option value="y1_3">{% trans "1-3 года" %}</option>
+                            <option value="y3_5">{% trans "3-5 лет" %}</option>
+                            <option value="gt5">{% trans "Более 5 лет" %}</option>
                         </select>
                     </div>
 
@@ -191,6 +215,7 @@
                         <label class="form-label-custom" for="career-about">{% trans "О себе" %} <span class="req">*</span></label>
                         <textarea
                             id="career-about"
+                            name="about"
                             class="form-control-custom"
                             placeholder="{% trans 'Расскажите о своих профессиональных навыках, достижениях и мотивации работать в нашей компании...' %}"
                             required

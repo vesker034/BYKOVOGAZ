@@ -1,0 +1,100 @@
+%% Логическая схема БД по документу документация/план_БД.docx
+%% Просмотр: https://mermaid.live — вставьте текст ниже без этих комментариев
+
+erDiagram
+  users ||--o{ user_roles : ""
+  roles ||--o{ user_roles : ""
+  users ||--o{ contact_messages : ""
+  departments ||--o{ team_members : ""
+  team_members ||--o{ member_social_links : ""
+  social_links ||--o{ member_social_links : ""
+  candidate_statuses ||--o{ candidate_profiles : ""
+  candidate_profiles ||--o{ candidate_attachments : ""
+  contact_messages ||--o{ contact_message_attachments : ""
+
+  users {
+    int user_id PK
+    string login
+    string password_hash
+    string email
+    datetime created_at
+    datetime updated_at
+  }
+
+  roles {
+    int role_id PK
+    string name
+  }
+
+  user_roles {
+    int user_id "PK FK users"
+    int role_id "PK FK roles"
+  }
+
+  departments {
+    int department_id PK
+    string name
+  }
+
+  team_members {
+    int member_id PK
+    string first_name
+    string last_name
+    string position
+    string photo
+    text bio
+    int department_id "FK nullable"
+    datetime created_at
+  }
+
+  social_links {
+    int social_id PK
+    string name
+    string base_url "nullable"
+  }
+
+  member_social_links {
+    int member_id "PK FK"
+    int social_id "PK FK"
+    string url_or_value
+  }
+
+  candidate_statuses {
+    int status_id PK
+    string name
+  }
+
+  candidate_profiles {
+    int candidate_id PK
+    string full_name
+    string phone
+    string email
+    string desired_position
+    text message
+    int status_id FK
+    datetime created_at
+  }
+
+  candidate_attachments {
+    int attachment_id PK
+    int candidate_id FK
+    string file_path
+    datetime uploaded_at
+  }
+
+  contact_messages {
+    int message_id PK
+    string name
+    string phone_email
+    string subject "nullable"
+    text message
+    datetime created_at
+    int processed_by_user_id "FK nullable"
+  }
+
+  contact_message_attachments {
+    int attachment_id PK
+    int message_id FK
+    string file_path
+    datetime uploaded_at
+  }

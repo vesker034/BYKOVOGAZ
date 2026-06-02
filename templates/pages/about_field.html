@@ -112,9 +112,9 @@
                     <div class="card-ui__body">
                         <h3 class="field-page__info-title">{% trans "Географическое положение" %}</h3>
                         <ul class="field-page__list">
-                            <li>{% trans "Быковский район Волгоградской области" %}</li>
-                            <li>{% trans "30 км к юго-востоку от р. п. Быково" %}</li>
-                            <li>{% trans "Левый берег Волги" %}</li>
+                            {% for item in field_geo %}
+                            <li>{% if item.is_html %}{{ item.text|safe }}{% else %}{{ item.text }}{% endif %}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -122,9 +122,9 @@
                     <div class="card-ui__body">
                         <h3 class="field-page__info-title">{% trans "Геологические характеристики" %}</h3>
                         <ul class="field-page__list">
-                            <li>{% trans "Продуктивные песчаные пласты нижнего мела" %}</li>
-                            <li>{% trans "Газоконденсатная залежь" %}</li>
-                            <li>{% blocktrans trimmed %}Площадь лицензированного участка 36 км<sup>2</sup>{% endblocktrans %}</li>
+                            {% for item in field_geology %}
+                            <li>{% if item.is_html %}{{ item.text|safe }}{% else %}{{ item.text }}{% endif %}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>

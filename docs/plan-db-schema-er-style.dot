@@ -1,0 +1,157 @@
+/** Альтернативное оформление: HTML-блоки с цветной шапкой (не формат record как на скриншоте диплома).
+ *  Для схемы «имя таблицы слева | поля справа» используйте plan-db-schema.dot.
+ *  "C:\\Program Files\\Graphviz\\bin\\dot.exe" -Tpng -Gdpi=150 docs/plan-db-schema-er-style.dot -o docs/plan-db-schema-er-style.png
+ *  "C:\\Program Files\\Graphviz\\bin\\dot.exe" -Tsvg docs/plan-db-schema-er-style.dot -o docs/plan-db-schema-er-style.svg
+ */
+digraph ERBykovogaz {
+  graph [
+    rankdir=LR
+    splines=ortho
+    nodesep=0.55
+    ranksep=1.0
+    bgcolor="white"
+    fontname="Arial"
+    fontsize=12
+    labelloc=t
+    label="Логическая схема БД веб-сайта (проектная модель)"
+  ]
+  node [fontname="Arial" fontsize=9 shape=none margin=0]
+  edge [fontname="Arial" fontsize=8 color="#333333" arrowsize=0.7]
+
+  subgraph cluster_acl {
+    label="Пользователи и права"
+    style=dashed
+    color="#666666"
+    fontsize=11
+
+    users [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF" FACE="Arial"><B>users</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4" WIDTH="28">PK</TD><TD ALIGN="LEFT">user_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">login</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">password_hash</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">email</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">created_at</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">updated_at</TD></TR>
+</TABLE>>]
+
+    roles [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF"><B>roles</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">role_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">name</TD></TR>
+</TABLE>>]
+
+    user_roles [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#70AD47"><FONT COLOR="#FFFFFF"><B>user_roles</B> (M:N)</FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">FK</TD><TD ALIGN="LEFT">user_id → users</TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">FK</TD><TD ALIGN="LEFT">role_id → roles</TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">(user_id, role_id)</TD></TR>
+</TABLE>>]
+  }
+
+  subgraph cluster_team {
+    label="Команда (сайт)"
+    style=dashed
+    color="#666666"
+    fontsize=11
+
+    departments [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF"><B>departments</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">department_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">name</TD></TR>
+</TABLE>>]
+
+    team_members [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF"><B>team_members</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">member_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">first_name, last_name</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">position</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">photo</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">bio</TD></TR>
+<TR><TD BGCOLOR="#E2EFDA">FK</TD><TD ALIGN="LEFT">department_id (опц.)</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">created_at</TD></TR>
+</TABLE>>]
+
+    social_links [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF"><B>social_links</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">social_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">name</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">base_url (опц.)</TD></TR>
+</TABLE>>]
+
+    member_social_links [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#70AD47"><FONT COLOR="#FFFFFF"><B>member_social_links</B> (M:N)</FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">FK</TD><TD ALIGN="LEFT">member_id → team_members</TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">FK</TD><TD ALIGN="LEFT">social_id → social_links</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">url_or_value</TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">(member_id, social_id)</TD></TR>
+</TABLE>>]
+  }
+
+  subgraph cluster_candidates {
+    label="Отклики кандидатов"
+    style=dashed
+    color="#666666"
+    fontsize=11
+
+    candidate_statuses [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF"><B>candidate_statuses</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">status_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">name</TD></TR>
+</TABLE>>]
+
+    candidate_profiles [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF"><B>candidate_profiles</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">candidate_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">full_name</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">phone, email</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">desired_position</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">message</TD></TR>
+<TR><TD BGCOLOR="#E2EFDA">FK</TD><TD ALIGN="LEFT">status_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">created_at</TD></TR>
+</TABLE>>]
+
+    candidate_attachments [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF"><B>candidate_attachments</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">attachment_id</TD></TR>
+<TR><TD BGCOLOR="#E2EFDA">FK</TD><TD ALIGN="LEFT">candidate_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">file_path</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">uploaded_at</TD></TR>
+</TABLE>>]
+  }
+
+  subgraph cluster_contacts {
+    label="Обратная связь"
+    style=dashed
+    color="#666666"
+    fontsize=11
+
+    contact_messages [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF"><B>contact_messages</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">message_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">name</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">phone, email</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">subject (опц.)</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">message</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">created_at</TD></TR>
+<TR><TD BGCOLOR="#E2EFDA">FK</TD><TD ALIGN="LEFT">processed_by_user_id (опц.)</TD></TR>
+</TABLE>>]
+
+    contact_message_attachments [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+<TR><TD COLSPAN="2" BGCOLOR="#5B9BD5"><FONT COLOR="#FFFFFF"><B>contact_message_attachments</B></FONT></TD></TR>
+<TR><TD BGCOLOR="#D6DCE4">PK</TD><TD ALIGN="LEFT">attachment_id</TD></TR>
+<TR><TD BGCOLOR="#E2EFDA">FK</TD><TD ALIGN="LEFT">message_id</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">file_path</TD></TR>
+<TR><TD></TD><TD ALIGN="LEFT">uploaded_at</TD></TR>
+</TABLE>>]
+  }
+
+  departments -> team_members [xlabel="1:N"]
+  team_members -> member_social_links [xlabel="1:N"]
+  social_links -> member_social_links [xlabel="1:N"]
+  users -> user_roles [xlabel="1:N" style=dashed]
+  roles -> user_roles [xlabel="1:N" style=dashed]
+  candidate_statuses -> candidate_profiles [xlabel="1:N"]
+  candidate_profiles -> candidate_attachments [xlabel="1:N"]
+  contact_messages -> contact_message_attachments [xlabel="1:N"]
+  users -> contact_messages [xlabel="0..N" style=dashed constraint=false]
+}

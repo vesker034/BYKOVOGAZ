@@ -1133,6 +1133,37 @@
     padding: 0;
 }
 
+.career-page .career-page__messages {
+    margin-bottom: 1.25rem;
+}
+
+.career-page .career-flash {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 1.1rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-small);
+    line-height: 1.55;
+}
+
+.career-page .career-flash--success {
+    border: 1px solid #059669;
+    background: #ecfdf5;
+    color: #065f46;
+}
+
+.career-page .career-flash--error {
+    border: 1px solid #dc2626;
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+/* Скрыто по классу — атрибут hidden даёт конфликт с Bootstrap `_reboot` ([hidden] !important). */
+.career-page .career-flash.career-flash--inactive {
+    display: none !important;
+}
+
 .career-page .candidate-form-card {
     max-width: 680px;
     margin: 0 auto;
@@ -1141,6 +1172,13 @@
     border-radius: var(--radius-md);
     background: var(--bg-card);
     box-shadow: 0 4px 30px rgba(26, 77, 184, 0.07);
+}
+
+.career-page .candidate-form-card > .career-flash {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1.1rem;
 }
 
 .career-page .candidate-form-card__title {
@@ -1658,6 +1696,18 @@
     background: var(--bg-card-gradient);
     border-color: var(--color-border);
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+:root[data-theme="dark"] .career-page .career-flash--success {
+    border-color: #34d399;
+    background: rgba(6, 78, 59, 0.35);
+    color: #d1fae5;
+}
+
+:root[data-theme="dark"] .career-page .career-flash--error {
+    border-color: #f87171;
+    background: rgba(127, 29, 29, 0.35);
+    color: #fecaca;
 }
 
 :root[data-theme="dark"] .works-intro__title,

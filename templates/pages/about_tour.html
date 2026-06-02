@@ -15,83 +15,42 @@
                 <div class="tour-page__badge">360°</div>
                 <h2 class="tour-page__title">{% trans "Виртуальная экскурсия по офису" %}</h2>
                 <p class="tour-page__lead">
-                    {% blocktrans trimmed %}Место для встроенного виртуального тура. Здесь будет размещен интерактивный
-                    360°-обзор офиса с возможностью просмотра зон.{% endblocktrans %}
+                    {% blocktrans trimmed %}Интерактивный 360°-обзор офиса: осмотрите рабочее пространство, перетаскивая
+                    изображение мышью или пальцем.{% endblocktrans %}
                 </p>
 
-                <!--
-                    Когда будешь подключать настоящий тур:
-                    1. Положи файлы тура в static/tours/office-tour/
-                    2. Если это один HTML-файл, назови его index.html
-                    3. Замени блок ниже на iframe со src="{% static 'tours/office-tour/index.html' %}"
-                -->
-                <div class="tour-page__viewer" aria-label="{% trans 'Зона виртуального тура' %}">
-                    <div class="tour-page__viewer-icon" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><rect x="5" y="3" width="10" height="14" rx="2"/><path d="M9 7h2M9 11h4M9 15h4"/><path d="M15 8h4v10a2 2 0 0 1-2 2h-6v-3"/></svg>
-                    </div>
-                    <div class="tour-page__viewer-text">
-                        {% blocktrans trimmed %}Помести тур в <code>static/tours/office-tour/index.html</code>,
-                        затем замени этот блок на iframe.{% endblocktrans %}
-                    </div>
+                <div class="tour-page__viewer tour-page__viewer--embed" aria-label="{% trans 'Зона виртуального тура' %}">
+                    <iframe
+                        class="tour-page__iframe"
+                        src="{% static 'tours/office-tour/index.html' %}"
+                        title="{% trans 'Виртуальный тур 360° по офису' %}"
+                        loading="lazy"
+                        allowfullscreen
+                    ></iframe>
                 </div>
+                <p class="tour-page__viewer-note">
+                    {% blocktrans trimmed %}Для полноэкранного режима используйте кнопку в правом верхнем углу тура
+                    или полноэкранный режим браузера для области просмотра.{% endblocktrans %}
+                </p>
             </div>
 
             <div class="tour-page__zones">
                 <h2 class="section__title text-center">{% trans "Основные зоны офиса" %}</h2>
                 <div class="tour-page__grid">
+                    {% for zone in tour_zones %}
                     <article class="tour-card">
-                        <div class="tour-card__media tour-card__media--server" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 17V8M11 17V11M15 17v-5M3 15h18"/></svg>
-                        </div>
+                        <div class="tour-card__media tour-card__media--{{ zone.css_modifier }}" role="img" aria-label="{{ zone.title }}"></div>
                         <div class="tour-card__body">
-                            <h3 class="tour-card__title">{% trans "Серверная" %}</h3>
-                            <p class="tour-card__text">
-                                {% blocktrans trimmed %}Техническое сердце компании: здесь размещено оборудование для поддержки
-                                корпоративной инфраструктуры и хранения данных.{% endblocktrans %}
-                            </p>
+                            <h3 class="tour-card__title">{{ zone.title }}</h3>
+                            <p class="tour-card__text">{{ zone.intro }}</p>
                             <ul class="tour-card__list">
-                                <li>{% trans "Поддержка IT-систем" %}</li>
-                                <li>{% trans "Система наблюдения" %}</li>
-                                <li>{% trans "Защита данных" %}</li>
+                                {% for line in zone.bullets %}
+                                <li>{{ line }}</li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </article>
-
-                    <article class="tour-card">
-                        <div class="tour-card__media tour-card__media--workspace" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8"/><path d="M12 18v2"/><path d="M7 9h10"/></svg>
-                        </div>
-                        <div class="tour-card__body">
-                            <h3 class="tour-card__title">{% trans "Офисное пространство" %}</h3>
-                            <p class="tour-card__text">
-                                {% blocktrans trimmed %}Современное рабочее пространство с комфортными условиями для продуктивной
-                                работы и взаимодействия между отделами.{% endblocktrans %}
-                            </p>
-                            <ul class="tour-card__list">
-                                <li>{% trans "Эргономичные рабочие места" %}</li>
-                                <li>{% trans "Естественное освещение" %}</li>
-                                <li>{% trans "Современная техника" %}</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="tour-card">
-                        <div class="tour-card__media tour-card__media--meeting" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M8 7V5h8v2"/><path d="M12 11v6"/><path d="M9 17h6"/></svg>
-                        </div>
-                        <div class="tour-card__body">
-                            <h3 class="tour-card__title">{% trans "Комната совещаний" %}</h3>
-                            <p class="tour-card__text">
-                                {% blocktrans trimmed %}Пространство для проведения совещаний, презентаций и переговоров,
-                                оснащенное необходимым мультимедийным оборудованием.{% endblocktrans %}
-                            </p>
-                            <ul class="tour-card__list">
-                                <li>{% trans "Мультимедийное оборудование" %}</li>
-                                <li>{% trans "Видеоконференцсвязь" %}</li>
-                                <li>{% trans "Комфортная мебель" %}</li>
-                            </ul>
-                        </div>
-                    </article>
+                    {% endfor %}
                 </div>
             </div>
 

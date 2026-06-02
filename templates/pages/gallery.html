@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n static %}
 
-{% block title %}{{ page_title }} | {% trans "БЫКОВОГАЗ" %}{% endblock %}
+{% block title %}{{ page_title }} | {% if brand %}{{ brand.brand_name }}{% else %}{% trans "БЫКОВОГАЗ" %}{% endif %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/figma-pages.css' %}">
@@ -26,7 +26,7 @@
                     <figure class="news-gallery-card">
                         <img
                             class="news-gallery-card__img"
-                            src="{% static item.src %}"
+                            {% if item.is_media %}src="{{ item.src }}"{% else %}src="{% static item.src %}"{% endif %}
                             alt="{{ item.alt }}"
                             width="640"
                             height="400"

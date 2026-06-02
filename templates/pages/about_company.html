@@ -88,48 +88,26 @@
         <div class="site-container">
             <h2 class="section__title text-center">{% trans "Узнайте больше" %}</h2>
             <div class="row g-4 justify-content-center">
+                {% for card in explore_cards %}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card-ui h-100">
                         <div class="card-ui__body">
                             <div class="card-ui__icon" aria-hidden="true">
+                                {% if forloop.counter0 == 0 %}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s7-4.5 7-10a7 7 0 10-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="12" r="2.5"/></svg>
-                            </div>
-                            <h3 class="card-ui__title card-ui__title--tight">{% trans "О месторождении" %}</h3>
-                            <p class="card-ui__text">
-                                {% trans "История и характеристика Южно-Кисловского месторождения." %}
-                            </p>
-                            <a class="card-ui__link" href="{% url 'main:about_field' %}">{% trans "Подробнее" %} <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card-ui h-100">
-                        <div class="card-ui__body">
-                            <div class="card-ui__icon" aria-hidden="true">
+                                {% elif forloop.counter0 == 1 %}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 3h10v18H7z"/><path d="M9 7h6M9 11h6M9 15h6"/></svg>
-                            </div>
-                            <h3 class="card-ui__title card-ui__title--tight">{% trans "Лицензия" %}</h3>
-                            <p class="card-ui__text">
-                                {% trans "Лицензия на разведку и добычу углеводородного сырья." %}
-                            </p>
-                            <a class="card-ui__link" href="{% url 'main:about_license' %}">{% trans "Подробнее" %} <span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card-ui h-100">
-                        <div class="card-ui__body">
-                            <div class="card-ui__icon" aria-hidden="true">
+                                {% else %}
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2"/></svg>
+                                {% endif %}
                             </div>
-                            <h3 class="card-ui__title card-ui__title--tight">{% trans "Виртуальный тур" %}</h3>
-                            <p class="card-ui__text">
-                                {% trans "Совершите виртуальную экскурсию по нашему офису." %}
-                            </p>
-                            <a class="card-ui__link" href="{% url 'main:about_tour' %}">{% trans "Подробнее" %} <span aria-hidden="true">→</span></a>
+                            <h3 class="card-ui__title card-ui__title--tight">{{ card.title }}</h3>
+                            <p class="card-ui__text">{{ card.text }}</p>
+                            <a class="card-ui__link" href="{{ card.href }}">{% trans "Подробнее" %} <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
